@@ -149,7 +149,7 @@ body {
   width: 100%;
   max-width: 280px;
   aspect-ratio: 3 / 4;
-  background-image: url("img/18.jpg?v=1");
+  background-image: url("img/18.jpg?v=2");
 }
 
 
@@ -671,6 +671,7 @@ body {
     text-align: center;
   }
 }
+
 
 
 
