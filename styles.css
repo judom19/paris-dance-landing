@@ -23,7 +23,10 @@
   margin: 0;
   padding: 0;
 }
-
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* evita scroll horizontal feo en móvil */
+}
 html {
   scroll-behavior: smooth;
 }
@@ -627,3 +630,4 @@ body {
     text-align: center;
   }
 }
+
