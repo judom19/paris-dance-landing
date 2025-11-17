@@ -367,7 +367,18 @@ body {
 .gallery-8 {
   background-image: url("img/foto04.jpg");
 }
-
+.gallery-8 {
+  background-image: url("img/foto05.jpg");
+}
+.gallery-8 {
+  background-image: url("img/foto06.jpg");
+}
+.gallery-8 {
+  background-image: url("img/foto07.jpg");
+}
+.gallery-8 {
+  background-image: url("img/foto08.jpg");
+}
 /* MAPA DE ZONAS */
 .seating-layout {
   margin-top: 1.5rem;
@@ -686,6 +697,7 @@ body {
     text-align: center;
   }
 }
+
 
 
 
