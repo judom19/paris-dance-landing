@@ -149,7 +149,7 @@ body {
   width: 100%;
   max-width: 280px;
   aspect-ratio: 3 / 4;
-  background-image: url("img/GRUPAL%202.jpg");
+  background-image: url("img/GRUPAL 2.jpg");
 }
 
 /* Foto secundaria: bailarina(s) */
@@ -639,13 +639,10 @@ body {
     gap: 0.75rem;
   }
 
- .main-photo {
-  width: 100%;
-  max-width: 280px;
-  aspect-ratio: 3 / 4;
-  background-image: url("img/GRUPAL 2.jpg");
-}
-
+  /* solo ajustamos tamaño/posición, no la imagen */
+  .main-photo {
+    max-width: 280px;
+  }
 
   .secondary-photo {
     position: static;
@@ -673,4 +670,3 @@ body {
     text-align: center;
   }
 }
-
