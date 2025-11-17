@@ -75,12 +75,12 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    url("https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg"),
+    url("img/3.jpg"),
     linear-gradient(120deg, #14121f, #06030a);
   background-size: cover;
   background-position: center;
   mix-blend-mode: screen;
-  opacity: 0.16;
+  opacity: 0.26;
   z-index: -3;
 }
 
@@ -144,19 +144,19 @@ body {
   position: relative;
 }
 
-/* Foto principal: adaptable y sin salirse del viewport */
+/* Foto principal: grupal */
 .main-photo {
   width: 100%;
   max-width: 280px;
   aspect-ratio: 3 / 4;
-  background-image: url("https://images.pexels.com/photos/804120/pexels-photo-804120.jpeg");
+  background-image: url("img/GRUPAL%202.jpg");
 }
 
-/* Foto secundaria flotante */
+/* Foto secundaria: bailarina(s) */
 .secondary-photo {
   width: 180px;
   aspect-ratio: 3 / 4;
-  background-image: url("https://images.pexels.com/photos/1820149/pexels-photo-1820149.jpeg");
+  background-image: url("img/castella01.jpg");
   position: absolute;
   bottom: -1.5rem;
   right: -0.5rem;
@@ -338,18 +338,18 @@ body {
   border: 1px solid var(--border-soft);
 }
 
-/* Podés cambiar estas imágenes */
+/* Galería usando tus fotos locales */
 .gallery-1 {
-  background-image: url("https://images.pexels.com/photos/1820149/pexels-photo-1820149.jpeg");
+  background-image: url("img/13.jpg");
 }
 .gallery-2 {
-  background-image: url("https://images.pexels.com/photos/804120/pexels-photo-804120.jpeg");
+  background-image: url("img/16.jpg");
 }
 .gallery-3 {
-  background-image: url("https://images.pexels.com/photos/1244772/pexels-photo-1244772.jpeg");
+  background-image: url("img/18.jpg");
 }
 .gallery-4 {
-  background-image: url("https://images.pexels.com/photos/209948/pexels-photo-209948.jpeg");
+  background-image: url("img/19.jpg");
 }
 
 /* MAPA DE ZONAS */
@@ -585,12 +585,13 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 960px) {
-  .hero-content {
-    grid-template-columns: minmax(0, 1fr);
+  .hero {
+    min-height: auto;
+    padding: 2.5rem 0 3rem;
   }
 
-  .hero {
-    padding-top: 2.5rem;
+  .hero-content {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero-image {
@@ -634,14 +635,20 @@ body {
 
   .hero-image {
     justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .main-photo {
-    max-width: 220px;
+    max-width: 240px;
+    position: static;
   }
 
   .secondary-photo {
-    display: none; /* se oculta en móvil para evitar desbordes */
+    position: static;
+    width: 200px;
+    max-width: 70%;
+    border-width: 2px;
   }
 
   .countdown-grid {
