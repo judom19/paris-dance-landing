@@ -28,10 +28,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Evitar scroll horizontal en móvil */
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden; /* evita scroll horizontal en móvil */
+  overflow-x: hidden;
 }
 
 body {
@@ -143,7 +144,7 @@ body {
   position: relative;
 }
 
-/* Ajustado para ser más flexible en distintas resoluciones */
+/* Foto principal: adaptable y sin salirse del viewport */
 .main-photo {
   width: 100%;
   max-width: 280px;
@@ -151,6 +152,7 @@ body {
   background-image: url("https://images.pexels.com/photos/804120/pexels-photo-804120.jpeg");
 }
 
+/* Foto secundaria flotante */
 .secondary-photo {
   width: 180px;
   aspect-ratio: 3 / 4;
@@ -635,11 +637,11 @@ body {
   }
 
   .main-photo {
-    max-width: 220px; /* reduce tamaño en cel */
+    max-width: 220px;
   }
 
   .secondary-photo {
-    display: none;    /* oculta 2da foto en cel para evitar desborde */
+    display: none; /* se oculta en móvil para evitar desbordes */
   }
 
   .countdown-grid {
