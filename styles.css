@@ -23,12 +23,15 @@
   margin: 0;
   padding: 0;
 }
-html, body {
-  max-width: 100%;
-  overflow-x: hidden; /* evita scroll horizontal feo en móvil */
-}
+
 html {
   scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden; /* evita scroll horizontal en móvil */
 }
 
 body {
@@ -140,19 +143,18 @@ body {
   position: relative;
 }
 
-/* Foto principal: que se adapte al ancho disponible */
+/* Ajustado para ser más flexible en distintas resoluciones */
 .main-photo {
   width: 100%;
   max-width: 280px;
-  aspect-ratio: 3 / 4;  /* mantiene proporción sin romperse */
-  background-image: url("img/GRUPAL 2.jpg"); /* o la que uses */
+  aspect-ratio: 3 / 4;
+  background-image: url("https://images.pexels.com/photos/804120/pexels-photo-804120.jpeg");
 }
 
-/* Foto secundaria flotante */
 .secondary-photo {
   width: 180px;
   aspect-ratio: 3 / 4;
-  background-image: url("img/castella01.jpg"); /* o la que uses */
+  background-image: url("https://images.pexels.com/photos/1820149/pexels-photo-1820149.jpeg");
   position: absolute;
   bottom: -1.5rem;
   right: -0.5rem;
@@ -325,7 +327,8 @@ body {
 }
 
 .gallery-item {
-  height: 350px;
+  height: 180px;
+  max-width: 100%;
   border-radius: var(--radius-md);
   background-size: cover;
   background-position: center;
@@ -335,16 +338,17 @@ body {
 
 /* Podés cambiar estas imágenes */
 .gallery-1 {
-  background-image:url("img/13.jpg");
+  background-image: url("https://images.pexels.com/photos/1820149/pexels-photo-1820149.jpeg");
 }
 .gallery-2 {
-  background-image:url("img/3.jpg");
+  background-image: url("https://images.pexels.com/photos/804120/pexels-photo-804120.jpeg");
 }
 .gallery-3 {
-  background-image:url("img/16.jpg");
+  background-image: url("https://images.pexels.com/photos/1244772/pexels-photo-1244772.jpeg");
 }
 .gallery-4 {
-  background-image: url("img/19.jpg");
+  background-image: url("https://images.pexels.com/photos/209948/pexels-photo-209948.jpeg");
+}
 
 /* MAPA DE ZONAS */
 .seating-layout {
@@ -611,7 +615,31 @@ body {
   }
 
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .hero-cta-group {
+    align-items: stretch;
+  }
+
+  .hero-note {
+    font-size: 0.8rem;
+  }
+
+  .hero-image {
+    justify-content: center;
+  }
+
+  .main-photo {
+    max-width: 220px; /* reduce tamaño en cel */
+  }
+
+  .secondary-photo {
+    display: none;    /* oculta 2da foto en cel para evitar desborde */
   }
 
   .countdown-grid {
@@ -633,5 +661,3 @@ body {
     text-align: center;
   }
 }
-
-
