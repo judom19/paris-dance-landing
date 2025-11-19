@@ -1,27 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal -->
   <url>
     <loc>https://parisdancestudio.com/</loc>
-    <priority>1.00</priority>
+    <lastmod>2024-11-18</lastmod>
+    <priority>1.0</priority>
   </url>
+
+  <!-- Secciones internas -->
   <url>
     <loc>https://parisdancestudio.com/#evento</loc>
-    <priority>0.80</priority>
+    <lastmod>2024-11-18</lastmod>
+    <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://parisdancestudio.com/#galeria</loc>
-    <priority>0.70</priority>
+    <lastmod>2024-11-18</lastmod>
+    <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://parisdancestudio.com/#mapa</loc>
+    <lastmod>2024-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://parisdancestudio.com/#comprar</loc>
-    <priority>0.90</priority>
+    <lastmod>2024-11-18</lastmod>
+    <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://parisdancestudio.com/#info</loc>
+    <lastmod>2024-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://parisdancestudio.com/#ubicacion</loc>
-    <priority>0.60</priority>
+    <lastmod>2024-11-18</lastmod>
+    <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://parisdancestudio.com/#contacto</loc>
-    <priority>0.60</priority>
+    <lastmod>2024-11-18</lastmod>
+    <priority>0.6</priority>
   </url>
+
 </urlset>
