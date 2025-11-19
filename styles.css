@@ -698,6 +698,14 @@ body {
   }
 }
 
+/* Evitar saltos de diseño (CLS) en la galería */
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+}
+
 
 
 
