@@ -706,6 +706,21 @@ body {
   background-position: center;
 }
 
+.seating-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.mapa-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* opcional */
+  object-fit: contain;
+}
+
 
 
 
