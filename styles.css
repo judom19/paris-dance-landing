@@ -709,39 +709,67 @@ body {
 /* Contenedor general del mapa */
 .seating-layout {
   display: flex;
-  flex-direction: column; /* en desktop podemos ajustar con media query si querés */
+  flex-direction: column;
   align-items: center;
   gap: 1.5rem;
 }
 
-/* “Escenario” */
+/* Texto "Escenario" */
 .stage {
   text-align: center;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
-/* Ajuste específico SOLO para teléfonos */
-@media (max-width: 600px) {
+/* Contenedor de la imagen */
+.seating-map {
+  width: 100%;
+  max-width: 900px; /* límite para pantallas grandes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem; /* margen lateral en moviles */
+}
+
+/* Imagen del mapa */
+.mapa-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px; /* opcional */
+}
+
+/* Leyenda */
+.zone-legend {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+/* RESPONSIVE: teléfonos */
+@media (max-width: 768px) {
+  .seating-layout {
+    gap: 1rem;
+  }
 
   .seating-map {
-    padding: 0;
+    padding: 0; /* usa todo el ancho */
   }
 
   .mapa-img {
     width: 100%;
-    height: auto;
+    max-width: 100%;
+  }
 
-    /* REDUCCIÓN DEL TAMAÑO EN MÓVIL */
-    max-height: 300px;
-    object-fit: contain;
-    transform: scale(0.85);
-    transform-origin: top center;
+  .zone-legend {
+    grid-template-columns: auto 1fr;
+    padding: 0 1rem;
   }
 }
-
-
-
 
 
 
