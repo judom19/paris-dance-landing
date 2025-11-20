@@ -721,48 +721,24 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Contenedor de la imagen del mapa */
-.seating-map {
-  width: 100%;
-  max-width: 900px;       /* límite en pantallas grandes */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Ajuste específico SOLO para teléfonos */
+@media (max-width: 600px) {
 
-/* Imagen del mapa */
-.mapa-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 8px;     /* opcional */
-}
-
-/* RESPONSIVE: teléfonos y pantallas pequeñas */
-@media (max-width: 768px) {
-  .section#mapa .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .seating-layout {
-    gap: 1rem;
+  .seating-map {
+    padding: 0;
   }
 
   .mapa-img {
     width: 100%;
-    max-width: 100%;
-  }
+    height: auto;
 
-  .zone-legend {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    /* REDUCCIÓN DEL TAMAÑO EN MÓVIL */
+    max-height: 300px;
+    object-fit: contain;
+    transform: scale(0.85);
+    transform-origin: top center;
   }
 }
-
-
 
 
 
