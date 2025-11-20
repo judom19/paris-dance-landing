@@ -706,19 +706,60 @@ body {
   background-position: center;
 }
 
+/* Contenedor general del mapa */
+.seating-layout {
+  display: flex;
+  flex-direction: column; /* en desktop podemos ajustar con media query si querés */
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* “Escenario” */
+.stage {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Contenedor de la imagen del mapa */
 .seating-map {
+  width: 100%;
+  max-width: 900px;       /* límite en pantallas grandes */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 
+/* Imagen del mapa */
 .mapa-img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px; /* opcional */
   object-fit: contain;
+  border-radius: 8px;     /* opcional */
+}
+
+/* RESPONSIVE: teléfonos y pantallas pequeñas */
+@media (max-width: 768px) {
+  .section#mapa .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .seating-layout {
+    gap: 1rem;
+  }
+
+  .mapa-img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .zone-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
 }
 
 
