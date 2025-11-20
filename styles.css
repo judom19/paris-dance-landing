@@ -770,6 +770,39 @@ body {
     padding: 0 1rem;
   }
 }
+/* LEYENDA DE ZONAS - CORREGIDO */
+.zone-legend {
+  display: flex;
+  flex-wrap: wrap;           /* si la pantalla es muy pequeña, pasa a segunda línea sin deformarse */
+  gap: 0.8rem 1.2rem;        /* separación horizontal y vertical */
+  align-items: center;
+  justify-content: center;   /* centrado horizontal */
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Cada pareja icono + texto */
+.zone-legend .zone-tag {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Ajustes del texto que acompaña los colores */
+.zone-legend span {
+  margin-right: 1.2rem;
+  font-size: 0.95rem;
+  white-space: nowrap;       /* evita que se rompa dentro del texto */
+}
+
+/* Para mantener icono + texto juntos */
+.zone-legend div.zone-tag + span {
+  display: inline-flex;
+  align-items: center;
+}
+
+
 
 
 
