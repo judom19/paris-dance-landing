@@ -730,15 +730,14 @@ body {
   align-items: center;
   padding: 0 1rem; /* margen lateral en moviles */
 }
-
-/* Imagen del mapa */
 .mapa-img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
-  border-radius: 8px; /* opcional */
+  border-radius: 8px;
 }
+
 
 /* Leyenda */
 .zone-legend {
@@ -801,6 +800,7 @@ body {
   display: inline-flex;
   align-items: center;
 }
+
 
 
 
