@@ -758,3 +758,12 @@ iframe,
     padding: 0 1rem;
   }
 }
+/* Botón WhatsApp ancho centrado */
+.btn-whatsapp-wide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;          /* separación entre icono y texto */
+  width: 80%;         /* el ancho que usabas */
+  margin: 0 auto;     /* centrado */
+}
