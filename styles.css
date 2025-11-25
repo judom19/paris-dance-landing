@@ -19,7 +19,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-radius;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -42,12 +42,10 @@ body {
   line-height: 1.6;
 }
 
-/* CONTENEDOR GENERAL */
-.container {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
 }
 
 /* HERO */
@@ -824,3 +822,11 @@ body {
 
 
 
+img,
+iframe,
+.video,
+.mapa-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
