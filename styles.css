@@ -42,10 +42,11 @@ body {
   line-height: 1.6;
 }
 
-@media (max-width: 640px) {
-  .container {
-    padding: 0 1rem;
-  }
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* buen padding para pantallas grandes */
 }
 
 /* HERO */
@@ -829,4 +830,11 @@ iframe,
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem; /* reduce margen solo en pantallas pequeñas */
+  }
 }
