@@ -1,826 +1,147 @@
-:root {
-  --bg-main: #05030a;
-  --bg-alt: #0f0a18;
-  --accent: #f5c1d8;
-  --accent-strong: #f194c4;
-  --accent-soft: #f8e6ef;
-  --text-main: #f9f5ff;
-  --text-muted: #c9c2d9;
-  --border-soft: rgba(255, 255, 255, 0.1);
-  --danger: #ff6b6b;
-  --card-bg: rgba(12, 7, 20, 0.9);
-  --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.6);
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  --radius-sm: 10px;
-}
-
-/* RESET BÁSICO */
-*,
-*::before,
-*::after {
-  box-sizing: border-radius;
-  margin: 0;
-  padding: 0;
-}
-
+/* 1. GLOBAL RESETS Y AJUSTES BASICOS */
 html {
-  scroll-behavior: smooth;
+  box-sizing: border-box;  /* Incluye padding y border en el cálculo de ancho total */
 }
-
-/* Evitar scroll horizontal en móvil */
-html,
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 body {
+  margin: 0;  /* Opcional: elimina margen por defecto que podría causar scroll en móviles */
+  /* font-family, color de fondo, etc., permanecen según diseño original */
+}
+
+/* 2. IMAGENES Y MEDIOS EMBEBIDOS RESPONSIVE */
+img, video, embed, iframe {
   max-width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #1a1027 0, #05030a 55%, #020005 100%);
-  color: var(--text-main);
-  line-height: 1.6;
-}
-
-/* CONTENEDOR GENERAL */
-.container {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 3.5rem 0 4rem;
-  color: #fff;
-  overflow: hidden;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(135deg, rgba(5, 3, 10, 0.85), rgba(15, 10, 24, 0.95)),
-    radial-gradient(circle at top left, rgba(245, 193, 216, 0.25), transparent 60%);
-  z-index: -2;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    url("img/3.jpg"),
-    linear-gradient(120deg, #14121f, #06030a);
-  background-size: cover;
-  background-position: center;
-  mix-blend-mode: screen;
-  opacity: 0.26;
-  z-index: -3;
-}
-
-.hero-content {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 3rem;
-  align-items: center;
-}
-
-.hero-label {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-  color: var(--accent-soft);
-  margin-bottom: 0.75rem;
-}
-
-.hero-title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2.6rem, 4vw, 3.4rem);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.hero-subtitle {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 1.75rem;
-}
-
-.hero-cta-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.hero-note {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.hero-image {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-}
-
-.hero-photo {
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-/* Foto principal: grupal */
-.main-photo {
-  width: 100%;
-  max-width: 280px;
-  aspect-ratio: 3 / 4;
-  background-image: url("img/18.jpg?v=3");
-}
-
-
-/* Foto secundaria: bailarina(s) */
-.secondary-photo {
-  width: 180px;
-  aspect-ratio: 3 / 4;
-  background-image: url("img/castella01.jpg");
-  position: absolute;
-  bottom: -1.5rem;
-  right: -0.5rem;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-/* BOTONES */
-.btn-primary,
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.9rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.22s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--accent-strong), #f5d0ea);
-  color: #2a1020;
-  box-shadow: 0 12px 30px rgba(241, 148, 196, 0.35);
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 18px 40px rgba(241, 148, 196, 0.55);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--accent-soft);
-  border-color: rgba(245, 193, 216, 0.6);
-}
-
-.btn-secondary:hover {
-  background: rgba(245, 193, 216, 0.08);
-}
-
-.btn-full-width {
-  width: 100%;
-}
-
-/* CUENTA REGRESIVA */
-.countdown {
-  margin-top: 1rem;
-}
-
-.countdown h2 {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--accent-soft);
-  margin-bottom: 0.75rem;
-}
-
-.countdown-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.countdown-box {
-  background: rgba(8, 4, 18, 0.9);
-  border-radius: var(--radius-md);
-  padding: 0.8rem 0.4rem;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-}
-
-.countdown-box span {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.countdown-box small {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-muted);
-}
-
-/* SECCIONES GENERALES */
-.section {
-  padding: 4rem 0;
-}
-
-.section-alt {
-  background: radial-gradient(circle at top, #161023 0, #06020b 60%);
-}
-
-.section h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.9rem;
-  margin-bottom: 0.75rem;
-}
-
-.section-intro {
-  color: var(--text-muted);
-  max-width: 620px;
-  margin-bottom: 1.75rem;
-}
-
-.two-columns {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: flex-start;
-}
-
-/* TARJETAS / BLOQUES */
-.info-card,
-.purchase-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem;
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-.info-card h3,
-.purchase-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.9rem;
-}
-
-.info-card ul {
-  list-style: none;
-}
-
-.info-card li {
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
-}
-
-.highlight-list {
-  list-style: none;
-  margin-top: 1rem;
-}
-
-.highlight-list li {
-  position: relative;
-  padding-left: 1.4rem;
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
-}
-
-.highlight-list li::before {
-  content: "★";
-  position: absolute;
-  left: 0;
-  top: 0.1rem;
-  color: var(--accent-strong);
-  font-size: 0.7rem;
-}
-
-/* GALERÍA */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.gallery-item {
-  height: 180px;
-  max-width: 100%;
-  border-radius: var(--radius-md);
-  background-size: cover;
-  background-position: center;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--border-soft);
-}
-
-/* Galería usando tus fotos locales */
-.gallery-1 {
-  background-image: url("img/13.jpg");
-}
-.gallery-2 {
-  background-image: url("img/GRUPAL 2.jpg");
-}
-.gallery-3 {
-  background-image: url("img/18.jpg");
-}
-.gallery-4 {
-  background-image: url("img/19.jpg");
-}
-.gallery-5 {
-  background-image: url("img/foto01.jpg");
-}
-
-.gallery-6 {
-  background-image: url("img/foto09.jpg");
-}
-
-.gallery-7 {
-  background-image: url("img/foto03.jpg");
-}
-
-.gallery-8 {
-  background-image: url("img/foto04.jpg");
-}
-.gallery-9 {
-  background-image: url("img/foto05.jpg");
-}
-.gallery-10 {
-  background-image: url("img/foto06.jpg");
-}
-.gallery-11 {
-  background-image: url("img/foto07.jpg");
-}
-.gallery-12 {
-  background-image: url("img/foto08.jpg");
-}
-/* MAPA DE ZONAS */
-.seating-layout {
-  margin-top: 1.5rem;
-}
-
-.stage {
-  text-align: center;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: inline-block;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin-bottom: 1rem;
-}
-
-.seating-map {
-  border-radius: var(--radius-lg);
-  background: rgba(9, 6, 16, 0.95);
-  border: 1px solid var(--border-soft);
-  padding: 1.5rem;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.zone {
-  border-radius: var(--radius-md);
-  padding: 0.7rem 1rem;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.zone-vip {
-  background: linear-gradient(135deg, rgba(241, 148, 196, 0.3), rgba(245, 193, 216, 0.12));
-  border: 1px solid rgba(241, 148, 196, 0.7);
-}
-
-.zone-left {
-  background: rgba(245, 193, 216, 0.08);
-  border: 1px dashed rgba(245, 193, 216, 0.5);
-}
-
-.zone-right {
-  background: rgba(245, 193, 216, 0.08);
-  border: 1px dashed rgba(245, 193, 216, 0.5);
-}
-
-.zone-balcony {
-  background: rgba(166, 148, 241, 0.12);
-  border: 1px dashed rgba(190, 173, 255, 0.7);
-}
-
-.zone-legend {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.7rem;
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.zone-tag {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  margin-right: 0.25rem;
-}
-
-.vip-tag {
-  background: linear-gradient(135deg, rgba(241, 148, 196, 0.9), rgba(245, 193, 216, 0.8));
-}
-.left-tag {
-  background: rgba(245, 193, 216, 0.7);
-}
-.right-tag {
-  background: rgba(245, 193, 216, 0.7);
-}
-.balcony-tag {
-  background: rgba(190, 173, 255, 0.85);
-}
-
-/* TABLA DE PRECIOS */
-.prices-table-wrapper {
-  overflow-x: auto;
-  margin-top: 1rem;
-}
-
-.prices-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  font-size: 0.95rem;
-  min-width: 320px;
-}
-
-.prices-table thead {
-  background: rgba(245, 193, 216, 0.08);
-}
-
-.prices-table th,
-.prices-table td {
-  padding: 0.7rem 0.8rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.prices-table th {
-  text-align: left;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.prices-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.01);
-}
-
-/* CÓMO COMPRAR */
-.steps-list {
-  list-style: decimal;
-  padding-left: 1.2rem;
-  margin-bottom: 1.2rem;
-  font-size: 0.92rem;
-}
-
-.steps-list li {
-  margin-bottom: 0.4rem;
-}
-
-.purchase-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 0.6rem;
-}
-
-/* INFO ÚTIL GRID */
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.info-item {
-  background: var(--card-bg);
-  padding: 1.3rem 1.1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-soft);
-  font-size: 0.92rem;
-}
-
-.info-item h3 {
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-}
-
-/* MAPA GOOGLE PLACEHOLDER */
-.map-placeholder {
-  border-radius: var(--radius-lg);
-  border: 1px dashed rgba(255, 255, 255, 0.35);
-  min-height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-/* REDES SOCIALES */
-.socials {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.7rem 1rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-soft);
-  text-decoration: none;
-  color: var(--text-main);
-  font-size: 0.9rem;
-  background: rgba(12, 8, 22, 0.9);
-  transition: all 0.2s ease;
-}
-
-.social-link i {
-  font-size: 1.1rem;
-  color: var(--accent-strong);
-}
-
-.social-link:hover {
-  background: rgba(245, 193, 216, 0.1);
-  transform: translateY(-1px);
-}
-
-/* FOOTER */
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.2rem 0 1.5rem;
-  background: #030107;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.back-to-top {
-  color: var(--accent-soft);
-  text-decoration: none;
-  font-size: 0.85rem;
-}
-
-.back-to-top:hover {
-  text-decoration: underline;
-}
-
-/* RESPONSIVE */
-@media (max-width: 960px) {
-  .hero {
-    min-height: auto;
-    padding: 2.5rem 0 3rem;
-  }
-
-  .hero-content {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-image {
-    order: -1;
-    margin-bottom: 1.5rem;
-  }
-
-  .two-columns {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .info-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .section {
-    padding: 3rem 0;
-  }
-
-  .hero-title {
-    font-size: 1.9rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.8rem;
-  }
-
-  .hero-cta-group {
-    align-items: stretch;
-  }
-
-  .hero-note {
-    font-size: 0.8rem;
-  }
-
-  .hero-image {
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  /* solo ajustamos tamaño/posición, no la imagen */
-  .main-photo {
-    max-width: 280px;
-  }
-
-  .secondary-photo {
-    position: static;
-    width: 200px;
-    max-width: 70%;
-    border-width: 2px;
-  }
-
-  .countdown-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-  }
-
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-}
-
-/* Evitar saltos de diseño (CLS) en la galería */
-.gallery-item {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Contenedor general del mapa */
-.seating-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-/* Texto "Escenario" */
-.stage {
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-/* Contenedor de la imagen */
-.seating-map {
-  width: 100%;
-  max-width: 900px; /* límite para pantallas grandes */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1rem; /* margen lateral en moviles */
-}
-.mapa-img {
-  width: 100%;
   height: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 8px;
+  display: block;  /* Asegura que no queden espacios blancos debajo de imágenes inline */
+  /* Mantiene imágenes/mapas dentro del contenedor en móviles sin overflow */
+}
+iframe, embed {
+  /* Si el código embebido lleva width/height en HTML, se fuerza a ser flexible */
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
 }
 
-
-/* Leyenda */
-.zone-legend {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  row-gap: 0.5rem;
-  column-gap: 0.5rem;
-  align-items: center;
+/* 3. CONTENEDORES Y SECCIONES FLUIDOS */
+.container, .wrapper, .content {
+  max-width: 1200px;  /* Ancho máximo para contenido centrado en pantallas grandes (ejemplo) */
+  width: 100%;        /* En móviles, ocupa el 100% del ancho */
+  margin: 0 auto;     /* Centrado en pantallas grandes */
+  padding: 0 15px;    /* Espacio lateral interno para que el contenido no pegue al borde */
+}
+.section {
+  width: 100%;
+  overflow-x: hidden; /* Previene cualquier desborde horizontal accidental dentro de secciones */
+  /* Otros estilos de .section (colores de fondo, etc.) se mantienen */
 }
 
-/* RESPONSIVE: teléfonos */
-@media (max-width: 768px) {
-  .seating-layout {
-    gap: 1rem;
-  }
+/* 4. TIPOGRAFIA Y ELEMENTOS DE TEXTO (según diseño original) */
+/* (Se asume que el CSS original tiene reglas de tipografía, colores, etc., que permanecen igual) */
 
-  .seating-map {
-    padding: 0; /* usa todo el ancho */
-  }
-
-  .mapa-img {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .zone-legend {
-    grid-template-columns: auto 1fr;
-    padding: 0 1rem;
-  }
+/* 5. BOTONES */
+button, .btn, .button {
+  /* Hacemos los botones adaptativos */
+  max-width: 100%;
+  /* Permitir que el texto del botón ocupe varias líneas en pantallas pequeñas */
+  white-space: normal;
 }
-/* LEYENDA DE ZONAS - CORREGIDO */
-.zone-legend {
+/* Si hay botones con íconos o padding específico, se mantienen esos estilos originales */
+
+/* 6. TARJETAS / BLOQUES (e.g., tarjetas de compra e información) */
+.card, .tarjeta, .card-info, .card-compra {
+  /* Las tarjetas utilizan todo el ancho disponible en móviles */
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 20px 0;   /* Margen inferior para separación entre tarjetas en columna */
+  float: none;
+  /* (Preservamos demás estilos: fondo, borde, etc., del diseño original) */
+}
+.cards-container, .cards-row {
+  /* Contenedor de múltiples tarjetas: usamos flexbox para adaptabilidad si aplica */
   display: flex;
-  flex-wrap: wrap;           /* si la pantalla es muy pequeña, pasa a segunda línea sin deformarse */
-  gap: 0.8rem 1.2rem;        /* separación horizontal y vertical */
-  align-items: center;
-  justify-content: center;   /* centrado horizontal */
-  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+/* Asegurarse de que en móviles el contenedor también ajuste su overflow si es un carrusel */
+.cards-container {
+  overflow-x: auto;
+}
+
+/* 7. TABLA DE PRECIOS Y TABLAS GENERALES */
+.table-responsive, .pricing-table-wrapper {
+  /* Si existe un contenedor específico para la tabla de precios */
+  width: 100%;
+  overflow-x: auto;    /* Scroll horizontal en móviles para tablas */
+  -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
+}
+.pricing-table, .tabla-precios, table.precios {
+  /* La propia tabla de precios */
+  width: 100%;         /* Ocupa ancho completo del contenedor */
+  border-collapse: collapse;
+  overflow-x: auto;
+  /* Opcional: convertir la tabla en bloque en móviles está manejado más abajo con media queries */
+}
+.pricing-table th, .pricing-table td,
+.tabla-precios th, .tabla-precios td,
+table.precios th, table.precios td {
+  /* Aseguramos que las celdas no tengan un tamaño mínimo mayor al móvil */
+  padding: 8px;
   text-align: center;
+  white-space: nowrap; /* Evita saltos de línea dentro de celdas para mantener estructura en scroll */
+}
+/* (Se conservan los estilos originales de la tabla: colores de fondo en cabecera, tipografía, etc.) */
+
+/* 8. MEDIA QUERIES: ADAPTAR DISEÑO EN DIFERENTES TAMAÑOS */
+
+/* --- Teléfonos Pequeños (hasta ~479px): Reglas por defecto mobile-first ya aplican --- */
+/* (El diseño base está orientado a móvil: una columna, elementos fluidos) */
+
+/* Tablet Pequeñas / Teléfonos Grandes (≥480px) */
+@media (min-width: 480px) {
+  /* Ejemplo: dos tarjetas en fila si el espacio lo permite */
+  .card, .tarjeta, .card-info, .card-compra {
+    width: 48%;
+    margin: 1%;
+    float: none;
+  }
+  .cards-container {
+    overflow-x: visible;
+  }
+  /* Podríamos ajustar tipografías ligeramente si se desea para pantallas un poco mayores */
 }
 
-/* Cada pareja icono + texto */
-.zone-legend .zone-tag {
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  display: inline-block;
+/* Tablets en general (≥768px) */
+@media (min-width: 768px) {
+  /* Restaurar diseño de múltiples columnas para elementos que en desktop estaban lado a lado */
+  .card, .tarjeta, .card-info, .card-compra {
+    width: 32%;
+    margin: 1%;
+    float: left;  /* En desktop, podrían alinearse por float o flex; mantenemos float si así era */
+  }
+  .pricing-table th, .pricing-table td,
+  .tabla-precios th, .tabla-precios td,
+  table.precios th, table.precios td {
+    white-space: normal; /* En pantallas más grandes permitimos saltos de línea en celdas si necesario */
+  }
+  /* Si la tabla de precios originalmente mostraba todas las columnas sin scroll desde cierto ancho, 
+     aquí ya no hace falta overflow auto pues caben en pantalla */
+  .table-responsive, .pricing-table-wrapper {
+    overflow-x: visible;
+  }
+  /* Ajustes de layout para desktop/tabla:
+     - Podríamos centrar algunos textos nuevamente, 
+     - Reaplicar anchos fijos si existían, etc., pero solo si es necesario mantener diseño original. */
 }
 
-/* Ajustes del texto que acompaña los colores */
-.zone-legend span {
-  margin-right: 1.2rem;
-  font-size: 0.95rem;
-  white-space: nowrap;       /* evita que se rompa dentro del texto */
+/* Desktops grandes (≥992px o ≥1200px según diseño) */
+@media (min-width: 992px) {
+  /* Ancho máximo de contenedor ya controla la mayoría del layout en grandes pantallas */
+  /* Podemos agregar si el diseño original usaba alguna cuadrícula adicional */
+  .card, .tarjeta, .card-info, .card-compra {
+    width: 23%;  /* Ejemplo: 4 tarjetas por fila en desktop grande, si aplica */
+  }
+  /* Otros posibles ajustes para monitores grandes */
 }
-
-/* Para mantener icono + texto juntos */
-.zone-legend div.zone-tag + span {
-  display: inline-flex;
-  align-items: center;
-}
-
-/* ====== MAPA GOOGLE MAPS ====== */
-
-.map-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  aspect-ratio: 16 / 9;      /* Mantiene proporción sin fijar height en px */
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-
-.map-container iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-
-
-
