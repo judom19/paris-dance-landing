@@ -775,3 +775,44 @@ iframe,
   letter-spacing: 0.03em;
   color: var(--text-main);
 }
+/* Contenedor general para centrar todo */
+.zone-legend-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+/* Pastilla redondeada con el título */
+.zone-title {
+  padding: 0.45rem 1.4rem;
+  background: rgba(245, 193, 216, 0.12);
+  border: 1px solid rgba(245, 193, 216, 0.35);
+  border-radius: 50px;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Ya existente: leyenda elegante */
+.pretty-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem 2rem;
+  margin-top: 0.5rem;
+}
+
+.pretty-legend .legend-item {
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  color: var(--accent-soft);
+  letter-spacing: 0.03em;
+  text-align: center;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(245, 193, 216, 0.35);
+}
