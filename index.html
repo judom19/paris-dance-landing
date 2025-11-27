@@ -79,101 +79,6 @@
 }
 </script>
 
-<script>
-  function formatCRC(monto) {
-    return "₡" + monto.toLocaleString("es-CR");
-  }
-
-  function actualizarTotal() {
-    const rows = document.querySelectorAll(".ticket-row");
-    let total = 0;
-
-    rows.forEach(row => {
-      const price = Number(row.getAttribute("data-price"));
-      const input = row.querySelector("input[type='number']");
-      const qty = Number(input.value) || 0;
-      total += price * qty;
-    });
-
-    const totalElem = document.getElementById("ticketsTotal");
-    if (totalElem) {
-      totalElem.textContent = formatCRC(total);
-    }
-  }
-
-  function cambiarCantidad(btn, delta) {
-    const input = btn.parentElement.querySelector("input[type='number']");
-    let value = Number(input.value) || 0;
-    value += delta;
-    if (value < 0) value = 0;
-    input.value = value;
-    actualizarTotal();
-  }
-
-  function enviarWhatsApp(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("buyerName").value.trim();
-    const seats = document.getElementById("buyerSeats").value.trim();
-    const rows = document.querySelectorAll(".ticket-row");
-
-    if (!name) {
-      alert("Por favor escribí el nombre de la persona que compra.");
-      return;
-    }
-
-    if (!seats) {
-      alert("Por favor indicá los números de asiento.");
-      return;
-    }
-
-    let resumen = "";
-    let total = 0;
-    let totalEntradas = 0;
-
-    rows.forEach(row => {
-      const zone = row.getAttribute("data-zone");
-      const price = Number(row.getAttribute("data-price"));
-      const input = row.querySelector("input[type='number']");
-      const qty = Number(input.value) || 0;
-
-      if (qty > 0) {
-        const subtotal = price * qty;
-        total += subtotal;
-        totalEntradas += qty;
-        resumen += `- ${zone}: ${qty} x ${formatCRC(price)} = ${formatCRC(subtotal)}\n`;
-      }
-    });
-
-    if (totalEntradas === 0) {
-      alert("Seleccioná al menos una entrada.");
-      return;
-    }
-
-    const mensaje =
-`Hola, quiero comprar entradas para "Una Noche en París".
-
-Nombre: ${name}
-N.º de asientos: ${seats}
-
-Entradas:
-${resumen}
-TOTAL: ${formatCRC(total)}
-
-Por favor indicame los datos para realizar el pago por SINPE móvil.`;
-
-    const phone = "50672827346"; // tu número
-    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(mensaje);
-    window.open(url, "_blank");
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const qtyInputs = document.querySelectorAll(".ticket-row input[type='number']");
-    qtyInputs.forEach(input => {
-      input.addEventListener("input", actualizarTotal);
-    });
-  });
-</script>
 
 
   <!-- Fuentes de Google -->
@@ -270,7 +175,8 @@ Por favor indicame los datos para realizar el pago por SINPE móvil.`;
           <li><strong>Hora:</strong> 6:00 p.m. (apertura de puertas 5:30 p.m.)</li>
           <li><strong>Duración aproximada:</strong> 1 hora y 20 minutos</li>
         </ul>
-        <a href="#comprar" class="btn-secondary">Ver precios y zonas</a>
+        <br>
+        <a href="#comprar" class="btn-secondary">Ver Precios de las entradas</a>
       </div>
     </div>
   </section>
@@ -363,18 +269,42 @@ Por favor indicame los datos para realizar el pago por SINPE móvil.`;
     <div class="purchase-card purchase-card-premium">
 
       <div class="tickets-header">
-        <span class="tickets-label">COMPRAR MIS ENTRADAS</span>
-        <h3 class="tickets-title">Una Noche en París</h3>
-        <p class="tickets-subtitle">
-          Seleccioná la cantidad de entradas por zona, indicá tus asientos y procedé con el pago por WhatsApp.
-        </p>
+        <h3><span class="tickets-label">UNA NOCHE EN PARIS/PASOS PARA COMPRAR MIS ENTRADAS</span></h3>
+        
+        <ul>
+          <li>
+            <p class="tickets-subtitle">
+              Escribe tu nombre en el formulario de compra.
+            </p>
+          </li>
+          <li>
+            <p class="tickets-subtitle">
+              Seleccioná la cantidad de entradas según la zona de tu preferencia.
+            </p>
+          </li>
+          <li>
+            <p class="tickets-subtitle">
+              Danos el numero de los asientos que elegiste segun espacios disponibles en el mapa de arriba, separados por una  <strong>","</strong>
+            </p>
+          </li>
+          <li>
+            <p class="tickets-subtitle">
+              Dale al botón <strong>"PROCEDER CON EL PAGO"</strong> para enviarnos la informacion.
+            </p>
+          </li>
+          <li>
+            <p class="tickets-subtitle">
+              Confirmaremos la información que nos enviaste y recibiras las entradas digitales que debes presentar el dia de nuestro SHOW!
+            </p>
+          </li>
+        </ul>
       </div>
 
       <form id="ticketsForm" class="tickets-form" onsubmit="enviarWhatsApp(event)">
 
         <!-- Nombre de la persona -->
         <div class="form-group">
-          <label for="buyerName">Nombre de la persona que compra</label>
+          <label for="buyerName">Tu nombre:</label>
           <input
             type="text"
             id="buyerName"
@@ -383,69 +313,76 @@ Por favor indicame los datos para realizar el pago por SINPE móvil.`;
             required>
         </div>
 
-        <!-- N.º de asientos -->
-        <div class="form-group">
-          <label for="buyerSeats">N.º de asientos</label>
-          <input
-            type="text"
-            id="buyerSeats"
-            name="buyerSeats"
-            placeholder="Ej: 15, 16, 17"
-            required>
-        </div>
 
-        <!-- Carrito de entradas -->
-        <div class="ticket-rows">
+<div class="ticket-rows">
+  <!-- Encabezados -->
+  <div class="ticket-header">
+    <span>Nivel</span>
+    <span>N.º de entradas</span>
+    <span>N.º de asientos</span>
+  </div>
 
-          <div class="ticket-row" data-zone="Primer Nivel Zona Central (VIP)" data-price="10500">
-            <div class="ticket-info">
-              <span class="ticket-zone">Primer Nivel Zona Central (VIP)</span>
-              <span class="ticket-price">₡10.500</span>
-            </div>
-            <div class="ticket-qty">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
-              <input type="number" min="0" value="0" inputmode="numeric">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
-            </div>
-          </div>
+  <!-- PRIMER NIVEL -->
+  <div class="ticket-row"
+       data-zone="Primer Nivel"
+       data-price-single="10200"
+       data-price-promo="10000">
+    <!-- Columna: Nivel + precio -->
+    <div class="ticket-col zone-col">
+      <span class="ticket-zone">Primer Nivel</span>
+      <span class="ticket-price">
+        ₡10.200 (desde 2 entradas: ₡10.000 c/u)
+      </span>
+    </div>
 
-          <div class="ticket-row" data-zone="Primer Nivel Zona Lateral Izquierda" data-price="10000">
-            <div class="ticket-info">
-              <span class="ticket-zone">Primer Nivel Zona Lateral Izquierda</span>
-              <span class="ticket-price">₡10.000</span>
-            </div>
-            <div class="ticket-qty">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
-              <input type="number" min="0" value="0" inputmode="numeric">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
-            </div>
-          </div>
+    <!-- Columna: Cantidad -->
+    <div class="ticket-col qty-col">
+      <div class="ticket-qty">
+        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
+        <input type="number" min="0" value="0" inputmode="numeric">
+        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
+      </div>
+    </div>
 
-          <div class="ticket-row" data-zone="Primer Nivel Zona Lateral Derecha" data-price="10000">
-            <div class="ticket-info">
-              <span class="ticket-zone">Primer Nivel Zona Lateral Derecha</span>
-              <span class="ticket-price">₡10.000</span>
-            </div>
-            <div class="ticket-qty">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
-              <input type="number" min="0" value="0" inputmode="numeric">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
-            </div>
-          </div>
+    <!-- Columna: Asientos -->
+    <div class="ticket-col seats-col">
+      <input
+        type="text"
+        class="seats-input"
+        placeholder="Ej: 14, 15, 16">
+    </div>
+  </div>
 
-          <div class="ticket-row" data-zone="Segundo Nivel / Balcón" data-price="9500">
-            <div class="ticket-info">
-              <span class="ticket-zone">Segundo Nivel / Balcón</span>
-              <span class="ticket-price">₡9.500</span>
-            </div>
-            <div class="ticket-qty">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
-              <input type="number" min="0" value="0" inputmode="numeric">
-              <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
-            </div>
-          </div>
+  <!-- SEGUNDO NIVEL / BALCÓN -->
+  <div class="ticket-row"
+       data-zone="Segundo Nivel / Balcón"
+       data-price-single="9600"
+       data-price-promo="9400">
+    <div class="ticket-col zone-col">
+      <span class="ticket-zone">Segundo Nivel / Balcón</span>
+      <span class="ticket-price">
+        ₡9.600 (desde 2 entradas: ₡9.400 c/u)
+      </span>
+    </div>
 
-        </div>
+    <div class="ticket-col qty-col">
+      <div class="ticket-qty">
+        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
+        <input type="number" min="0" value="0" inputmode="numeric">
+        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
+      </div>
+    </div>
+
+    <div class="ticket-col seats-col">
+      <input
+        type="text"
+        class="seats-input"
+        placeholder="Ej: 81, 82">
+    </div>
+  </div>
+</div>
+
+
 
         <!-- Total -->
         <div class="ticket-total">
@@ -595,6 +532,169 @@ Por favor indicame los datos para realizar el pago por SINPE móvil.`;
     // Año dinámico en el footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script>
+  // Formatea montos en colones
+  function formatCRC(monto) {
+    return "₡" + monto.toLocaleString("es-CR");
+  }
+
+  // Actualiza el texto del precio visible en cada fila según la cantidad
+  function actualizarPrecioVisibleFila(row, qty) {
+    const priceSingle = Number(row.getAttribute("data-price-single"));
+    const pricePromo  = Number(row.getAttribute("data-price-promo"));
+    const label = row.querySelector(".ticket-price");
+
+    if (!label) return;
+
+    if (qty === 0) {
+      // Estado base: muestra precio normal + info de promo
+      label.textContent = `${formatCRC(priceSingle)} (desde 2 entradas: ${formatCRC(pricePromo)} c/u)`;
+    } else if (qty === 1) {
+      // 1 entrada: precio normal
+      label.textContent = `${formatCRC(priceSingle)} por entrada (desde 2: ${formatCRC(pricePromo)} c/u)`;
+    } else {
+      // 2 o más: precio promo
+      label.textContent = `${formatCRC(pricePromo)} por entrada (tarifa especial 2+ entradas)`;
+    }
+  }
+
+  // Recalcula el total dinámico
+  function actualizarTotal() {
+    const rows = document.querySelectorAll(".ticket-row");
+    let total = 0;
+
+    rows.forEach(row => {
+      const priceSingle = Number(row.getAttribute("data-price-single"));
+      const pricePromo  = Number(row.getAttribute("data-price-promo"));
+
+      const input = row.querySelector("input[type='number']");
+      const qty = Number(input.value) || 0;
+
+      // Actualizar texto visual del precio en la fila
+      actualizarPrecioVisibleFila(row, qty);
+
+      if (qty > 0) {
+        const unitPrice = qty >= 2 ? pricePromo : priceSingle;
+        total += unitPrice * qty;
+      }
+    });
+
+    const totalElem = document.getElementById("ticketsTotal");
+    if (totalElem) {
+      totalElem.textContent = formatCRC(total);
+    }
+  }
+
+  // Botones + y - de cantidad
+  function cambiarCantidad(btn, delta) {
+    const input = btn.parentElement.querySelector("input[type='number']");
+    let value = Number(input.value) || 0;
+    value += delta;
+    if (value < 0) value = 0;
+    input.value = value;
+    actualizarTotal();
+  }
+
+  // Enviar pedido por WhatsApp
+  function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("buyerName").value.trim();
+    const rows = document.querySelectorAll(".ticket-row");
+
+    if (!name) {
+      alert("Por favor escribí el nombre de la persona que compra.");
+      return;
+    }
+
+    let resumen = "";
+    let total = 0;
+    let totalEntradas = 0;
+    const filasSinAsientos = [];
+
+    rows.forEach(row => {
+      const zone = row.getAttribute("data-zone");
+      const priceSingle = Number(row.getAttribute("data-price-single"));
+      const pricePromo  = Number(row.getAttribute("data-price-promo"));
+
+      const qtyInput   = row.querySelector("input[type='number']");
+      const seatsInput = row.querySelector(".seats-input");
+
+      const qty   = Number(qtyInput.value) || 0;
+      const seats = seatsInput.value.trim();
+
+      if (qty > 0) {
+        // Validar asientos por zona
+        if (!seats) {
+          filasSinAsientos.push(zone);
+        }
+
+        const unitPrice = qty >= 2 ? pricePromo : priceSingle;
+        const subtotal  = unitPrice * qty;
+        const usaPromo  = qty >= 2 && pricePromo < priceSingle;
+
+        total += subtotal;
+        totalEntradas += qty;
+
+        // Bloque de resumen por zona
+        resumen +=
+`[${zone.toUpperCase()}]
+Entradas: ${qty}
+Asientos: ${seats}
+Precio unitario: ${formatCRC(unitPrice)}${usaPromo ? " (tarifa especial 2+ entradas)" : ""}
+Subtotal: ${formatCRC(subtotal)}
+------------------------------
+`;
+      }
+    });
+
+    if (totalEntradas === 0) {
+      alert("Seleccioná al menos una entrada.");
+      return;
+    }
+
+    if (filasSinAsientos.length > 0) {
+      alert("Por favor indicá los asientos para: " + filasSinAsientos.join(", "));
+      return;
+    }
+
+    const mensaje =
+`────────────────────────
+    *PARIS DANCE STUDIO*
+    *UNA NOCHE EN PARÍS*
+    *COMPRA DE ENTRADAS*
+────────────────────────
+
+*Nombre:* ${name}
+
+────────────────────────
+*DETALLE DE ENTRADAS (por zona):*
+${resumen}────────────────────────
+
+*Total de entradas:* ${totalEntradas}
+*TOTAL A PAGAR:* ${formatCRC(total)}
+
+*Pago por SINPE Móvil.*
+────────────────────────`;
+
+    const phone = "50672827346";
+    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(mensaje);
+    window.open(url, "_blank");
+  }
+
+  // Inicializar listeners al cargar la página
+  document.addEventListener("DOMContentLoaded", function () {
+    const qtyInputs = document.querySelectorAll(".ticket-row input[type='number']");
+    qtyInputs.forEach(input => {
+      input.addEventListener("input", actualizarTotal);
+    });
+
+    // Estado inicial del total y de los textos de precio por fila
+    actualizarTotal();
+  });
+</script>
+
+
 </body>
 </html>
 
