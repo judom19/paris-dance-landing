@@ -269,8 +269,7 @@
     <div class="purchase-card purchase-card-premium">
 
       <div class="tickets-header">
-        <h3><span class="tickets-label">UNA NOCHE EN PARIS/PASOS PARA COMPRAR MIS ENTRADAS</span></h3>
-        
+        <h3><span class="tickets-label">BLACK DAYS · ENTRADAS CON DESCUENTO</span></h3>        
         <ul>
           <li>
             <p class="tickets-subtitle">
@@ -313,7 +312,6 @@
             required>
         </div>
 
-
 <div class="ticket-rows">
   <!-- Encabezados -->
   <div class="ticket-header">
@@ -325,13 +323,12 @@
   <!-- PRIMER NIVEL -->
   <div class="ticket-row"
        data-zone="Primer Nivel"
-       data-price-single="10200"
-       data-price-promo="10000">
+       data-price-base="10200">
     <!-- Columna: Nivel + precio -->
     <div class="ticket-col zone-col">
       <span class="ticket-zone">Primer Nivel</span>
       <span class="ticket-price">
-        ₡10.200 (desde 2 entradas: ₡10.000 c/u)
+        ₡10.200 por entrada · desde la 2.ª: 35% de descuento
       </span>
     </div>
 
@@ -356,12 +353,11 @@
   <!-- SEGUNDO NIVEL / BALCÓN -->
   <div class="ticket-row"
        data-zone="Segundo Nivel / Balcón"
-       data-price-single="9600"
-       data-price-promo="9400">
+       data-price-base="9600">
     <div class="ticket-col zone-col">
       <span class="ticket-zone">Segundo Nivel / Balcón</span>
       <span class="ticket-price">
-        ₡9.600 (desde 2 entradas: ₡9.400 c/u)
+        ₡9.600 por entrada · desde la 2.ª: 35% de descuento
       </span>
     </div>
 
@@ -381,6 +377,7 @@
     </div>
   </div>
 </div>
+
 
 
 
@@ -532,29 +529,54 @@
     // Año dinámico en el footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script>
-  // Formatea montos en colones
+<script>
+  // % de descuento a partir de la segunda entrada
+  const DISCOUNT_RATE = 0.35;
+
+  // Formatea montos en colones, sin decimales
   function formatCRC(monto) {
-    return "₡" + monto.toLocaleString("es-CR");
+    // Nos aseguramos de que sea entero
+    const entero = Math.round(monto);
+    return "₡" + entero.toLocaleString("es-CR");
+  }
+
+  // Calcula subtotal y precio con descuento por fila
+  function calcularSubtotalFila(basePrice, qty) {
+    if (qty <= 0) {
+      return { subtotal: 0, discountedUnit: 0 };
+    }
+
+    // Precio de la entrada con 35% de descuento
+    const discountedUnit = Math.round(basePrice * (1 - DISCOUNT_RATE));
+
+    if (qty === 1) {
+      // Solo una entrada, sin descuento
+      return { subtotal: basePrice, discountedUnit };
+    }
+
+    // 1 entrada a precio normal + (resto) con descuento
+    const subtotal = basePrice + (qty - 1) * discountedUnit;
+    return { subtotal, discountedUnit };
   }
 
   // Actualiza el texto del precio visible en cada fila según la cantidad
   function actualizarPrecioVisibleFila(row, qty) {
-    const priceSingle = Number(row.getAttribute("data-price-single"));
-    const pricePromo  = Number(row.getAttribute("data-price-promo"));
+    const basePrice = Number(row.getAttribute("data-price-base"));
     const label = row.querySelector(".ticket-price");
 
-    if (!label) return;
+    if (!label || !basePrice) return;
+
+    const discountedUnit = Math.round(basePrice * (1 - DISCOUNT_RATE));
 
     if (qty === 0) {
-      // Estado base: muestra precio normal + info de promo
-      label.textContent = `${formatCRC(priceSingle)} (desde 2 entradas: ${formatCRC(pricePromo)} c/u)`;
+      label.textContent =
+        `${formatCRC(basePrice)} por entrada · desde la 2.ª: 35% de descuento`;
     } else if (qty === 1) {
-      // 1 entrada: precio normal
-      label.textContent = `${formatCRC(priceSingle)} por entrada (desde 2: ${formatCRC(pricePromo)} c/u)`;
+      label.textContent =
+        `1 entrada: ${formatCRC(basePrice)} · desde la 2.ª: 35% de descuento`;
     } else {
-      // 2 o más: precio promo
-      label.textContent = `${formatCRC(pricePromo)} por entrada (tarifa especial 2+ entradas)`;
+      label.textContent =
+        `1.ª: ${formatCRC(basePrice)} · resto: ${formatCRC(discountedUnit)} (35% de descuento)`;
     }
   }
 
@@ -564,18 +586,15 @@
     let total = 0;
 
     rows.forEach(row => {
-      const priceSingle = Number(row.getAttribute("data-price-single"));
-      const pricePromo  = Number(row.getAttribute("data-price-promo"));
-
+      const basePrice = Number(row.getAttribute("data-price-base"));
       const input = row.querySelector("input[type='number']");
       const qty = Number(input.value) || 0;
 
-      // Actualizar texto visual del precio en la fila
       actualizarPrecioVisibleFila(row, qty);
 
-      if (qty > 0) {
-        const unitPrice = qty >= 2 ? pricePromo : priceSingle;
-        total += unitPrice * qty;
+      if (qty > 0 && basePrice) {
+        const { subtotal } = calcularSubtotalFila(basePrice, qty);
+        total += subtotal;
       }
     });
 
@@ -614,8 +633,7 @@
 
     rows.forEach(row => {
       const zone = row.getAttribute("data-zone");
-      const priceSingle = Number(row.getAttribute("data-price-single"));
-      const pricePromo  = Number(row.getAttribute("data-price-promo"));
+      const basePrice = Number(row.getAttribute("data-price-base"));
 
       const qtyInput   = row.querySelector("input[type='number']");
       const seatsInput = row.querySelector(".seats-input");
@@ -623,28 +641,38 @@
       const qty   = Number(qtyInput.value) || 0;
       const seats = seatsInput.value.trim();
 
-      if (qty > 0) {
-        // Validar asientos por zona
+      if (qty > 0 && basePrice) {
         if (!seats) {
           filasSinAsientos.push(zone);
         }
 
-        const unitPrice = qty >= 2 ? pricePromo : priceSingle;
-        const subtotal  = unitPrice * qty;
-        const usaPromo  = qty >= 2 && pricePromo < priceSingle;
-
+        const { subtotal, discountedUnit } = calcularSubtotalFila(basePrice, qty);
         total += subtotal;
         totalEntradas += qty;
 
-        // Bloque de resumen por zona
-        resumen +=
+        if (qty === 1) {
+          // Sin descuento
+          resumen +=
 `[${zone.toUpperCase()}]
-Entradas: ${qty}
+Entradas: 1
 Asientos: ${seats}
-Precio unitario: ${formatCRC(unitPrice)}${usaPromo ? " (tarifa especial 2+ entradas)" : ""}
+Precio: ${formatCRC(basePrice)}
 Subtotal: ${formatCRC(subtotal)}
 ------------------------------
 `;
+        } else {
+          // Con descuento a partir de la 2.ª
+          const descCount = qty - 1;
+          resumen +=
+`[${zone.toUpperCase()}]
+Entradas: ${qty}
+Asientos: ${seats}
+1.ª entrada: ${formatCRC(basePrice)}
+${descCount} con 35% desc.: ${formatCRC(discountedUnit)} c/u
+Subtotal: ${formatCRC(subtotal)}
+------------------------------
+`;
+        }
       }
     });
 
@@ -689,10 +717,11 @@ ${resumen}───────────────────────�
       input.addEventListener("input", actualizarTotal);
     });
 
-    // Estado inicial del total y de los textos de precio por fila
+    // Estado inicial
     actualizarTotal();
   });
 </script>
+
 
 
 </body>
