@@ -252,154 +252,63 @@
       <div class="stage">Mapa de asientos disponibles</div>
 
       <div class="seating-map">
-        <img src="img/MAPA.jpg" alt="Mapa de zonas del teatro" class="mapa-img">
+        <img src="img/MAPA.png" alt="Mapa de zonas del teatro" class="mapa-img">
       </div>
     </div>
 
     </div>
   </div>
 </section>
+
 
 
 <section class="section section-alt" id="comprar">
-  <div class="container">
-    <div class="purchase-card purchase-card-premium">
+  <div class="payment-wrap">
 
-      <div class="tickets-header">
-        <h4><span class="tickets-label">BLACK DAYS · ENTRADAS CON 35 % DE DESCUENTO</span></h4>        
-        <br>
-        <ul>
-          <li>
-            <p class="tickets-subtitle">
-              Escribe tu nombre en el formulario de compra.
-            </p>
-          </li>
-          <li>
-            <p class="tickets-subtitle">
-              Seleccioná la cantidad de entradas según la zona de tu preferencia en el MAPA de arriba 
-            </p>
-          </li>
-          <li>
-            <p class="tickets-subtitle">
-              Danos el numero de los asientos que elegiste segun espacios disponibles en el MAPA de arriba, separados por una  <strong>","</strong>
-            </p>
-          </li>
-          <li>
-            <p class="tickets-subtitle">
-              Dale al botón <strong>"PROCEDER CON EL PAGO"</strong> para enviarnos la informacion.
-            </p>
-          </li>
-          <li>
-            <p class="tickets-subtitle">
-              Confirmaremos la información que nos enviaste y recibiras las entradas digitales que debes presentar el dia de nuestro SHOW!
-            </p>
-          </li>
-        </ul>
-      </div>
 
-      <form id="ticketsForm" class="tickets-form" onsubmit="enviarWhatsApp(event)">
+  <div class="payment-card">
+    <h4 class="payment-title">Comprar entradas</h4>
+    <p class="payment-subtitle">
+      Seleccioná el nivel y realizá el pago de forma segura.
+    </p>
 
-        <!-- Nombre de la persona -->
-        <div class="form-group">
-          <label for="buyerName">Tu nombre:</label>
-          <input
-            type="text"
-            id="buyerName"
-            name="buyerName"
-            placeholder="Ej: Carla Gutiérrez"
-            required>
-        </div>
-
-<div class="ticket-rows">
-  <!-- Encabezados -->
-  <div class="ticket-header">
-    <span>Nivel</span>
-    <span>N.º de entradas</span>
-    <span>N.º de asientos</span>
-  </div>
+    <div class="onvo-buttons">
 
   <!-- PRIMER NIVEL -->
-  <div class="ticket-row"
-       data-zone="Primer Nivel"
-       data-price-base="10200">
-    <!-- Columna: Nivel + precio -->
-    <div class="ticket-col zone-col">
-      <span class="ticket-zone">Primer Nivel</span>
-      <span class="ticket-price">
-        ₡10.200 por entrada · desde la 2.ª: 35% de descuento
-      </span>
-    </div>
-
-    <!-- Columna: Cantidad -->
-    <div class="ticket-col qty-col">
-      <div class="ticket-qty">
-        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
-        <input type="number" min="0" value="0" inputmode="numeric">
-        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
-      </div>
-    </div>
-
-    <!-- Columna: Asientos -->
-    <div class="ticket-col seats-col">
-      <input
-        type="text"
-        class="seats-input"
-        placeholder="Ej: 14, 15, 16">
-    </div>
+  <div class="pay-option">
+    <span class="pay-price">₡6.500</span>
+    <a href="https://buy.onvopay.com/test_wq4pPiYcBP0-CyoeGE_J916dhUs"
+       target="_blank"
+       class="pay-btn pay-btn-primary">
+      PRIMER NIVEL · COMPRAR ENTRADAS
+    </a>
   </div>
 
-  <!-- SEGUNDO NIVEL / BALCÓN -->
-  <div class="ticket-row"
-       data-zone="Segundo Nivel / Balcón"
-       data-price-base="9600">
-    <div class="ticket-col zone-col">
-      <span class="ticket-zone">Segundo Nivel / Balcón</span>
-      <span class="ticket-price">
-        ₡9.600 por entrada · desde la 2.ª: 35% de descuento
-      </span>
-    </div>
-
-    <div class="ticket-col qty-col">
-      <div class="ticket-qty">
-        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, -1)">−</button>
-        <input type="number" min="0" value="0" inputmode="numeric">
-        <button type="button" class="qty-btn" onclick="cambiarCantidad(this, 1)">+</button>
-      </div>
-    </div>
-
-    <div class="ticket-col seats-col">
-      <input
-        type="text"
-        class="seats-input"
-        placeholder="Ej: 81, 82">
-    </div>
+  <!-- SEGUNDO NIVEL -->
+  <div class="pay-option">
+    <span class="pay-price">₡4.500</span>
+    <a href="https://buy.onvopay.com/test_UdrGsxLQndpxzaS-NjvxVOWfPsE"
+       target="_blank"
+       class="pay-btn pay-btn-secondary">
+      SEGUNDO NIVEL · COMPRAR ENTRADAS
+    </a>
   </div>
+
 </div>
 
 
-
-
-        <!-- Total -->
-        <div class="ticket-total">
-          <div class="ticket-total-text">
-            <span>Total</span>
-            <small>Impuesto incluido</small>
-          </div>
-          <strong id="ticketsTotal">₡0</strong>
-        </div>
-
-        <button type="submit" class="btn-primary btn-full-width">
-          PROCEDER CON EL PAGO
-        </button>
-
-        <p class="purchase-note secondary-note">
-          También podés
-          <a href="https://wa.me/50672827346" target="_blank">contactarnos directamente por WhatsApp</a>.
-        </p>
-      </form>
-    </div>
+    <p class="purchase-note">
+      ¿Tenés dudas o querés conocer paquetes especiales?<br>
+      <a href="https://wa.me/50672827346" target="_blank">Contactanos por WhatsApp</a>
+    </p>
   </div>
+
+</div>
+
 </section>
+
+<!-- JS -->
+
 
   <!-- INFORMACIÓN ÚTIL -->
   <section class="section" id="info">

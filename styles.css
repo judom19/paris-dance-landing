@@ -1154,3 +1154,161 @@ iframe,
   text-transform: uppercase;
   letter-spacing: 0.18em;
 }
+/* ====== WRAPPER DEL BLOQUE DE PAGO ====== */
+.payment-wrap{
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.2rem 1.6rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,.10);
+  background: radial-gradient(circle at 20% 10%, rgba(241,148,196,.14), transparent 55%),
+              rgba(12, 7, 20, 0.70);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Pill superior (título) */
+.payment-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .75rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245,193,216,.35);
+  background: rgba(245,193,216,.08);
+  color: var(--accent-soft);
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  margin-bottom: 1.6rem;
+}
+
+/* ====== CARD INTERNA (BLANCA PREMIUM) ====== */
+.payment-card{
+  width: min(560px, 100%);
+  margin: 0 auto;
+  padding: 2rem 2rem 1.6rem;
+  border-radius: 22px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 16px 45px rgba(0,0,0,.35);
+  text-align: center;
+}
+
+.payment-title{
+  font-family: "Playfair Display", serif;
+  font-size: 1.65rem;
+  color: #121212;
+  margin-bottom: .35rem;
+}
+
+.payment-subtitle{
+  color: rgba(0,0,0,.62);
+  font-size: .98rem;
+  margin-bottom: 1.35rem;
+  line-height: 1.5;
+}
+
+/* Botones */
+.onvo-buttons{
+  display: grid;
+  gap: .85rem;
+  margin: 0 auto 1.1rem;
+}
+
+.pay-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .92rem;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  user-select: none;
+}
+
+.pay-btn-primary{
+  background: #0b0b0b;
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+}
+
+.pay-btn-secondary{
+  background: rgba(0,0,0,.03);
+  color: #111;
+  border: 1px solid rgba(241,148,196,.35);
+}
+
+.pay-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(0,0,0,.22);
+}
+
+/* Nota inferior */
+.purchase-note{
+  margin-top: .8rem;
+  color: rgba(0,0,0,.60);
+  font-size: .95rem;
+}
+
+.purchase-note a{
+  color: #111;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 640px){
+  .payment-wrap{
+    padding: 1.4rem 1rem;
+  }
+
+  .payment-pill{
+    width: 100%;
+    text-align: center;
+    font-size: .78rem;
+    letter-spacing: .14em;
+  }
+
+  .payment-card{
+    padding: 1.35rem 1.1rem 1.1rem;
+    border-radius: 18px;
+  }
+
+  .payment-title{
+    font-size: 1.35rem;
+  }
+
+  .pay-btn{
+    font-size: .85rem;
+    letter-spacing: .12em;
+    padding: .9rem 1rem;
+  }
+}
+/* Precio arriba del botón */
+.pay-option{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pay-price{
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: .05em;
+}
+
+/* En móvil, un poco más compacto */
+@media (max-width: 640px){
+  .pay-price{
+    font-size: .95rem;
+  }
+}
