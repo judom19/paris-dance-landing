@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Show de Ballet – Una Noche en París | Paris Dance Studio | 19 de diciembre</title>
+  <title>Paris Dance Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Etiqueta de validacion de google search -->
+  <!-- Etiqueta de validacion de google search -->
   <meta name="google-site-verification" content="B4M53bYzUXm_xEOFJ_UR6UYtM497lSXTAYTok0jpEME" />
   <meta name="description" content="Show de ballet Una Noche en París de Paris Dance Studio en el Teatro Arnoldo Herrera González, 19 de diciembre. Comprá tus entradas aquí." />
   <!-- SEO Keywords -->
   <meta name="keywords" content="ballet, show de ballet, Paris Dance Studio, Una Noche en París, entradas ballet, danza, Costa Rica, espectáculo de danza, teatro Arnoldo Herrera González">
-  
+
   <!-- Open Graph para compartir en redes -->
   <meta property="og:title" content="Una Noche en París – Show de Ballet | Paris Dance Studio">
   <meta property="og:description" content="Entradas para el espectáculo de ballet 'Una Noche en París'. Disfrutá una noche llena de arte, danza y magia en el Teatro Arnoldo Herrera González.">
@@ -19,8 +19,7 @@
   <meta name="robots" content="index, follow" />
 
   <!-- Canonical -->
- <link rel="canonical" href="https://parisdancestudio.com/" />
-
+  <link rel="canonical" href="https://parisdancestudio.com/" />
 
   <!-- Open Graph (para compartir en redes) -->
   <meta property="og:title" content="Show de Ballet – Una Noche en París | Paris Dance Studio | 19 de diciembre" />
@@ -36,31 +35,27 @@
   <meta name="twitter:description" content="Show de ballet Una Noche en París de Paris Dance Studio en el Teatro Arnoldo Herrera González, 19 de diciembre. Comprá tus entradas aquí." />
   <meta name="twitter:image" content="https://www.parisdancestudio.com/img/og-unanocheenparis.jpg" />
 
-<!-- Datos estructurados de evento (schema.org) -->
-<script type="application/ld+json">
-  
+  <!-- Datos estructurados de evento (schema.org) -->
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Event",
-  "name": "Una Noche en París - Show de Ballet",
+  "name": "PARIS DANCE STUDIO",
   "url": "https://parisdancestudio.com/",
-  "startDate": "2025-12-19T18:00:00",
-  "endDate": "2025-12-19T19:20:00",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Teatro Arnoldo Herrera González",
+    "name": paris dance studio",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "San José",
-      "addressLocality": "San José",
-      "addressRegion": "SJ",
+      "streetAddress": "Alajuela",
+      "addressLocality": "Alajuela",
       "addressCountry": "CR"
     }
   },
   "image": [
-    "https://parisdancestudio.com/img/GRUPAL%202.jpg"
+    "https://parisdancestudio.com/img/paris04.jpg"
   ],
   "description": "Show de ballet Una Noche en París de Paris Dance Studio, inspirado en la magia de París, el 19 de diciembre en el Teatro Arnoldo Herrera González.",
   "organizer": {
@@ -68,18 +63,9 @@
     "name": "Paris Dance Studio",
     "url": "https://parisdancestudio.com"
   },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://parisdancestudio.com/#comprar",
-    "price": "9900",
-    "priceCurrency": "CRC",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2024-11-18T09:00:00"
-  }
+  
 }
-</script>
-
-
+  </script>
 
   <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -89,305 +75,582 @@
 
   <!-- CSS principal -->
   <link rel="preload" href="styles.css?v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="styles.css?v=2"></noscript>
-
+  <noscript><link rel="stylesheet" href="styles.css?v=2"></noscript>
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("pdsCarousel");
+  if (!root) {
+    console.warn("Carrusel: no encontré #pdsCarousel");
+    return;
+  }
+
+  const track = root.querySelector(".carousel-track");
+  const slides = Array.from(root.querySelectorAll(".carousel-slide"));
+  const prevBtn = root.querySelector(".carousel-btn.prev");
+  const nextBtn = root.querySelector(".carousel-btn.next");
+  const dotsWrap = root.querySelector(".carousel-dots");
+
+  console.log("Carrusel OK:", { slides: slides.length, hasTrack: !!track, hasPrev: !!prevBtn, hasNext: !!nextBtn });
+
+  if (!track || slides.length === 0 || !prevBtn || !nextBtn) {
+    console.warn("Carrusel: faltan elementos (track/slides/botones). Revisa el HTML.");
+    return;
+  }
+
+  let index = 0;
+  let timer = null;
+  const AUTOPLAY_MS = 4200;
+
+  // Dots
+  let dots = [];
+  if (dotsWrap) {
+    dotsWrap.innerHTML = "";
+    dots = slides.map((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "carousel-dot" + (i === 0 ? " active" : "");
+      b.setAttribute("aria-label", "Ir a la imagen " + (i + 1));
+      b.addEventListener("click", () => goTo(i, true));
+      dotsWrap.appendChild(b);
+      return b;
+    });
+  }
+
+  function update() {
+    track.style.transform = `translateX(${-index * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
+  }
+
+  function goTo(i, userAction = false) {
+    index = (i + slides.length) % slides.length;
+    update();
+    if (userAction) restartAutoplay();
+  }
+
+  function next(userAction = false) { goTo(index + 1, userAction); }
+  function prev(userAction = false) { goTo(index - 1, userAction); }
+
+  prevBtn.addEventListener("click", (e) => { e.preventDefault(); prev(true); });
+  nextBtn.addEventListener("click", (e) => { e.preventDefault(); next(true); });
+
+  // Swipe
+  let startX = 0;
+  let dragging = false;
+
+  root.addEventListener("touchstart", (e) => {
+    dragging = true;
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  root.addEventListener("touchend", (e) => {
+    if (!dragging) return;
+    dragging = false;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
+  }, { passive: true });
+
+  // Autoplay
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(() => next(false), AUTOPLAY_MS);
+  }
+  function stopAutoplay() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+  function restartAutoplay() { startAutoplay(); }
+
+  root.addEventListener("mouseenter", stopAutoplay);
+  root.addEventListener("mouseleave", startAutoplay);
+
+  // Init
+  update();
+  startAutoplay();
+});
+</script>
 
 <body>
-  <!-- HEADER / HERO -->
+  <!-- HERO -->
   <header class="hero" id="inicio">
     <div class="hero-overlay"></div>
+
     <div class="container hero-content">
       <div class="hero-text">
-        <p class="hero-label">Paris Dance Studio presenta</p>
-        <h1 class="hero-title">Una Noche en París</h1>
-        <p class="hero-subtitle">
-          19 de diciembre · Teatro Arnoldo Herrera González · 6:00 p.m.
-        </p>
+        <h3 class="hero-label">Ballet & Jazz · Técnica 100% francesa</h3>
+
+        <h1 class="hero-text">Paris Dance Studio </h1>
+        <h1 class="hero-title"> <strong>Matricula Abierta 2026</strong></h1>
+            <!-- Carrusel -->
+<div class="carousel" id="pdsCarousel" aria-label="Carrusel Paris Dance Studio">
+  <div class="carousel-viewport">
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="img/paris04.jpg" alt="Paris Dance Studio 04" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris26.JPEG" alt="Paris Dance Studio 26" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris24.jpg" alt="Paris Dance Studio 24" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris07.jpg" alt="Paris Dance Studio 07" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris08.jpg" alt="Paris Dance Studio 08" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris09.jpg" alt="Paris Dance Studio 09" loading="lazy"></div>
+
+      <div class="carousel-slide"><img src="img/paris10.JPEG" alt="Paris Dance Studio 10" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris11.JPEG" alt="Paris Dance Studio 11" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris12.JPEG" alt="Paris Dance Studio 12" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris13.JPEG" alt="Paris Dance Studio 13" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris14.JPEG" alt="Paris Dance Studio 14" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris15.JPEG" alt="Paris Dance Studio 15" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris16.JPEG" alt="Paris Dance Studio 16" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris17.JPEG" alt="Paris Dance Studio 17" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris18.JPEG" alt="Paris Dance Studio 18" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris19.JPEG" alt="Paris Dance Studio 19" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris20.JPEG" alt="Paris Dance Studio 20" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris21.JPEG" alt="Paris Dance Studio 21" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris22.JPEG" alt="Paris Dance Studio 22" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/paris23.JPEG" alt="Paris Dance Studio 23" loading="lazy"></div>
+
+    </div>
+
+    <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+    <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+  </div>
+
+  <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
+</div>
+
+
+        <p class="hero-subtitle">A partir de 14 años · Sin edad máxima · Alajuela</p>
 
         <div class="hero-cta-group">
-          <a href="#comprar" class="btn-primary">Comprar Entradas</a>
-          <p class="hero-note">Entradas limitadas · Evento familiar</p>
+          <a href="#clase-prueba" class="btn-primary">Reservar clase de prueba</a>
+          <a href="#planes" class="btn-secondary">Ver planes y horarios</a>
+          <p class="hero-note">“El sueño pendiente no se abandona: se entrena.”</p>
         </div>
 
-        <div class="countdown">
-          <h2>Cuenta regresiva para el show</h2>
-          <div class="countdown-grid">
-            <div class="countdown-box">
-              <span id="days">00</span>
-              <small>Días</small>
-            </div>
-            <div class="countdown-box">
-              <span id="hours">00</span>
-              <small>Horas</small>
-            </div>
-            <div class="countdown-box">
-              <span id="minutes">00</span>
-              <small>Minutos</small>
-            </div>
-            <div class="countdown-box">
-              <span id="seconds">00</span>
-              <small>Segundos</small>
-            </div>
-          </div>
-        </div>
+        <ul class="highlight-list" style="margin-top:1rem;">
+          <li>Formamos bailarinas con técnica 100% francesa — para que tu sueño deje de esperar.</li>
+          <li>Es tu momento. Técnica 100% francesa, desde cero y con guía.</li>
+          <li>Elegancia, disciplina y arte: técnica 100% francesa para cumplir tu sueño pendiente.</li>
+          <li>Técnica 100% francesa. Es tu momento de cumplir ese sueño pendiente.</li>
+          <li>El sueño pendiente no se abandona: se entrena. Técnica 100% francesa.</li>
+        </ul>
       </div>
 
-      <div class="hero-image">
-        <!-- Cambiá estas imágenes por fotos reales -->
+      <div class="hero-image" aria-label="Imágenes de la academia">
         <div class="hero-photo main-photo"></div>
         <div class="hero-photo secondary-photo"></div>
       </div>
     </div>
   </header>
 
-  <!-- SOBRE EL EVENTO -->
-  <section class="section" id="evento">
+  <!-- QUIÉNES SOMOS -->
+  <section class="section" id="quienes-somos">
     <div class="container two-columns">
       <div>
-        <h2>SOBRE EL SHOW</h2>
+        <h2>¿Quiénes somos?</h2>
         <p>
-          <strong>“Una Noche en París – Grande Gala de Danse”</strong>
-          Un espectáculo exclusivo que combina la precisión y elegancia del ballet clásico francés con la 
-          expresividad escénica del jazz contemporáneo lírico, creando una experiencia artística única y
-          sofisticada. 
+          Somos <strong>Paris Dance Studio</strong>, una academia de Ballet y Jazz con técnica <strong>100% francesa</strong>.
+          Nuestro enfoque es que cada alumna se sienta <strong>segura</strong>, <strong>acompañada</strong> y <strong>guiada</strong>
+          en su proceso de formación como bailarina, sin importar su nivel.
         </p>
         <p>
-        Este evento es el resultado de un proceso formativo guiado bajo técnica 100% francesa, 
-          impartida por nuestra directora Aisha Viguier, cuya metodología auténtica, detallada 
-          y profesional eleva el nivel técnico y escénico de cada alumna.
+          Creemos que para formar grandes bailarinas se necesita técnica real, pero también un espacio cálido, respetuoso y motivador,
+          donde el progreso se construye paso a paso.
         </p>
+
         <ul class="highlight-list">
-          <p><strong>¿POR QUÉ ES UNA GALA ÚNICA?</strong></p>
-          <li>Técnica formativa de alto nivel con sello francés</li>
-          <li>Coreografías originales y producción cuidadosamente diseñada</li>
-          <li>Artistas en escena desde edades tempranas hasta niveles avanzados</li>
-          <li>Evento familiar, seguro y con enfoque artístico profesional</li>
-          <p >UNA EXPERIENCIA DE ARTE, ELEGANCIA Y EXCELENCIA FORMATIVA</p>
-          <p>“Donde la danza se vive, se sueña y se convierte en historia.”</p>
+          <li><strong>Aisha Viguier</strong> – Directora Artística y General</li>
+          <li><strong>Julio Castañeda</strong> – Director de Logística y Técnico</li>
         </ul>
       </div>
+
       <div class="info-card">
-        <h3>Detalles del evento</h3>
-        <ul>
-          <li><strong>Fecha:</strong> 19 de diciembre</li>
-          <li><strong>Lugar:</strong> Teatro Arnoldo Herrera González</li>
-          <li><strong>Hora:</strong> 6:00 p.m. (apertura de puertas 5:30 p.m.)</li>
-          <li><strong>Duración aproximada:</strong> 1 hora y 20 minutos</li>
-        </ul>
-        <br>
-        <a href="#comprar" class="btn-secondary">Ver Precios de las entradas</a>
+        <h3>¿Qué es Paris Dance Studio?</h3>
+        <p style="margin-bottom:.8rem;">
+          Un espacio de formación en Ballet y Jazz donde combinamos técnica, arte y acompañamiento real.
+          Aquí no venís solo a “tomar una clase”: venís a construir base, ganar confianza y crecer como bailarina.
+        </p>
+        <p>
+          Trabajamos con alumnas desde los <strong>14 años</strong> en adelante (sin edad máxima). Nuestro objetivo es que cada alumna
+          se sienta segura, cuidada y motivada, en un ambiente donde el progreso se celebra.
+        </p>
       </div>
     </div>
   </section>
 
-<!-- GALERÍA -->
-<section class="section section-alt" id="galeria">
-  <div class="container">
+  <!-- MISIÓN / VISIÓN -->
+  <section class="section section-alt" id="mision-vision">
+    <div class="container two-columns">
+      <div class="info-card">
+        <h3>Misión</h3>
+        <p>
+          <!-- Reemplazá si deseas un texto final -->
+          Formar bailarinas con técnica 100% francesa, acompañándolas con respeto, disciplina y motivación,
+          para que construyan una base sólida y desarrollen confianza, presencia y amor por el proceso.
+        </p>
+      </div>
 
-    <h2>Galería · Paris Dance Studio</h2>
-    <p class="section-intro">
-      Una mirada al crecimiento artístico de nuestras bailarinas y al trabajo realizado
-      en clases, ensayos y presentaciones a lo largo del año.
-    </p>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-item gallery-1"
-           role="img"
-           aria-label="Escenario iluminado en tonos morados previo a la presentación de ballet."></div>
-
-      <div class="gallery-item gallery-2"
-           role="img"
-           aria-label="Grupo de bailarinas posando juntas después del ensayo general."></div>
-
-      <div class="gallery-item gallery-3"
-           role="img"
-           aria-label="Bailarinas practicando coreografía durante sesión de ensayo."></div>
-
-      <div class="gallery-item gallery-4"
-           role="img"
-           aria-label="Vista del escenario con luces rosadas durante ensayo técnico."></div>
-
-      <div class="gallery-item gallery-5"
-           role="img"
-           aria-label="Bailarina realizando pose clásica durante sesión fotográfica."></div>
-
-      <div class="gallery-item gallery-6"
-           role="img"
-           aria-label="Bailarina en pose artística con fondo neutro."></div>
-
-      <div class="gallery-item gallery-7"
-           role="img"
-           aria-label="Momento capturado de una bailarina ejecutando movimiento técnico."></div>
-
-      <div class="gallery-item gallery-8"
-           role="img"
-           aria-label="Bailarina en estudio realizando secuencia coreográfica."></div>
-
-      <div class="gallery-item gallery-9"
-           role="img"
-           aria-label="Fotografía artística de bailarina con iluminación suave."></div>
-
-      <div class="gallery-item gallery-10"
-           role="img"
-           aria-label="Bailarinas practicando en conjunto durante clase de técnica."></div>
-
-      <div class="gallery-item gallery-11"
-           role="img"
-           aria-label="Retrato artístico de bailarina mostrando elegancia y postura clásica."></div>
-
-      <div class="gallery-item gallery-12"
-           role="img"
-           aria-label="Grupo de bailarinas realizando una secuencia en el estudio."></div>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section" id="mapa">
-  <div class="container">
-    <div class="seating-layout">
-      <div class="stage">Mapa de asientos disponibles</div>
-
-      <div class="seating-map">
-        <img src="img/MAPA.png" alt="Mapa de zonas del teatro" class="mapa-img">
+      <div class="info-card">
+        <h3>Visión</h3>
+        <p>
+          <!-- Reemplazá si deseas un texto final -->
+          Ser una academia referente en Costa Rica por la calidad técnica, el ambiente seguro y el crecimiento real
+          de nuestras alumnas, impulsando su desarrollo artístico con estándares profesionales y calidez humana.
+        </p>
       </div>
     </div>
+  </section>
 
-    </div>
-  </div>
-</section>
-
-
-
-<section class="section section-alt" id="comprar">
-  <div class="payment-wrap">
-
-
-  <div class="payment-card">
-    <h4 class="payment-title">Comprar entradas</h4>
-    <p class="payment-subtitle">
-      Seleccioná el nivel y realizá el pago de forma segura.
-    </p>
-
-    <div class="onvo-buttons">
-
-  <!-- PRIMER NIVEL -->
-  <div class="pay-option">
-    <span class="pay-price">Entrada Primel Nivel ₡5.500</span>
-    <a href="https://buy.onvopay.com/live_edozW4Xwm5_S4FWo1u8ywpWZs20"
-       target="_blank"
-       class="pay-btn pay-btn-primary">
-      PRIMER NIVEL · COMPRAR ENTRADAS
-    </a>
-  </div>
-
-  <!-- SEGUNDO NIVEL -->
-  <div class="pay-option">
-    <span class="pay-price">Entrada Segundo Nivel ₡3.500</span>
-    <a href="https://buy.onvopay.com/live_QXyaGSUq8u9KNJ3T4QdRM8F58aE"
-       target="_blank"
-       class="pay-btn pay-btn-secondary">
-      SEGUNDO NIVEL · COMPRAR ENTRADAS
-    </a>
-  </div>
-
-</div>
-
-
-    <p class="purchase-note">
-      ¿Quieres mas de una entrada?<br>
-      <a href="https://wa.me/50672827346" target="_blank">Conoce nuestros paquetes y contactanos por WhatsApp</a>
-    </p>
-  </div>
-
-</div>
-
-</section>
-
-<!-- JS -->
-
-
-  <!-- INFORMACIÓN ÚTIL -->
-  <section class="section" id="info">
+  <!-- DIFERENCIADORES -->
+  <section class="section" id="diferenciales">
     <div class="container">
-      <h2>Información útil para el público</h2>
+      <h2>¿Qué nos hace diferentes?</h2>
       <div class="info-grid">
         <div class="info-item">
-          <h3>Parqueo</h3>
-          <p>
-            El teatro cuenta algunos espacios de parqueo y areas cercanas. Te recomendamos llegar
-            con anticipación para ubicar espacio y entrar con calma al recinto.
-          </p>
+          <h3>Técnica 100% francesa real</h3>
+          <p>Precisión, colocación, musicalidad y elegancia.</p>
         </div>
         <div class="info-item">
-          <h3>Horario de apertura</h3>
-          <p>
-            Las puertas se abrirán a las <strong>5:30 p.m.</strong>.  
-            El show inicia puntualmente a las <strong>6:00 p.m.</strong>
-          </p>
+          <h3>Metodología progresiva</h3>
+          <p>Niveles, objetivos claros y avance paso a paso.</p>
         </div>
         <div class="info-item">
-          <h3>Duración del show</h3>
-          <p>
-            La duración aproximada es de <strong>1 hora y 20 minutos</strong>, 
-            sin interrumpciones durante el evento.
-          </p>
+          <h3>Acompañamiento + espacio seguro</h3>
+          <p>Guía cercana, respeto y confianza en cada clase.</p>
         </div>
         <div class="info-item">
-          <h3>Recomendaciones</h3>
+          <h3>Disciplina con motivación</h3>
+          <p>Exigencia técnica sin presión negativa; formamos carácter y autoestima.</p>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:1.5rem;">
+        <h3>Comunidad Paris</h3>
+        <p>Pertenencia, apoyo y crecimiento en un ambiente cálido y profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉCNICA + CÓMO SE VE EN CLASE -->
+  <section class="section section-alt" id="tecnica">
+    <div class="container two-columns">
+      <div>
+        <h2>¿Qué técnica usamos?</h2>
+        <p>
+          Trabajamos con técnica <strong>100% francesa</strong>, reconocida por su elegancia, precisión y musicalidad.
+          Esto significa que no buscamos solo “hacer pasos”, sino construir una base sólida y limpia para que cada alumna
+          progrese con seguridad y sienta su danza.
+        </p>
+
+        <h3 style="margin-top:1.2rem;">¿Cómo se ve en una clase?</h3>
+        <p>
+          Corregimos con cuidado y claridad para que cada alumna sepa cómo mejorar sin frustrarse.
+          Trabajamos progresiones, repetición inteligente y ejercicios que construyen técnica real,
+          mientras se desarrolla disciplina, estilo y amor por el proceso.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Estilos</h3>
+        <ul class="highlight-list">
+          <li><strong>Ballet:</strong> clásico con enfoque técnico francés, con matices lírico y contemporáneo según el trabajo artístico.</li>
+          <li><strong>Jazz:</strong> clásico, lírico, contemporáneo, moderno/funk.</li>
+        </ul>
+
+        <h3 style="margin-top:1.2rem;">Niveles y edades</h3>
+        <p><strong>A partir de 14 años</strong> (sin edad máxima).</p>
+        <ul class="highlight-list">
+          <li>Principiante</li>
+          <li>Principiante–Intermedio</li>
+          <li>Intermedio–Avanzado</li>
+        </ul>
+        <p style="margin-top:.6rem;">
+          En Principiante no se necesita experiencia previa: solo constancia y ganas de crecer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORARIOS -->
+  <section class="section" id="horarios">
+    <div class="container">
+      <h2>Horarios</h2>
+      <p class="section-intro">
+        Horarios organizados por estilo y nivel. Los sábados son talleres técnicos complementarios incluidos según el plan.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <h3>Lunes y Miércoles – Ballet</h3>
+          <p><strong>5:00 p.m. – 6:30 p.m.</strong> Intermedio–Avanzado (1h30)</p>
+          <p><strong>6:30 p.m. – 7:30 p.m.</strong> Principiante (1h)</p>
+          <p><strong>7:30 p.m. – 8:45 p.m.</strong> Principiante–Intermedio (1h15)</p>
+        </div>
+
+        <div class="info-item">
+          <h3>Martes y Jueves – Jazz</h3>
+          <p><strong>5:00 p.m. – 6:30 p.m.</strong> Intermedio–Avanzado (1h30)</p>
+          <p><strong>6:30 p.m. – 7:30 p.m.</strong> Principiante (1h)</p>
+          <p><strong>7:30 p.m. – 8:45 p.m.</strong> Principiante–Intermedio (1h15)</p>
+        </div>
+
+        <div class="info-item">
+          <h3>Sábados (taller técnico)</h3>
+          <p><strong>10:00 a.m. – 10:40 a.m.</strong> Principiante</p>
+          <p><strong>10:40 a.m. – 11:30 a.m.</strong> Principiante–Intermedio</p>
+          <p><strong>11:30 a.m. – 12:30 p.m.</strong> Intermedio–Avanzado</p>
+        </div>
+
+        <div class="info-item">
+          <h3>Duración por nivel</h3>
+          <p><strong>Principiante:</strong> 1h</p>
+          <p><strong>Principiante–Intermedio:</strong> 1h15</p>
+          <p><strong>Intermedio–Avanzado:</strong> 1h30</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section class="section section-alt" id="planes">
+    <div class="container">
+      <h2>Planes mensuales</h2>
+      <p class="section-intro">
+        Matrícula <strong>gratis</strong>. Clase de prueba: <strong>₡5.000</strong>. Incluye <strong>2 sábados al mes</strong> según el plan.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <h3>Principiante</h3>
+          <p>1 vez/semana: <strong>₡26.000</strong></p>
+          <p>2 veces/semana: <strong>₡28.000</strong></p>
+          <p>4 veces/semana: <strong>₡32.000</strong></p>
+          <p><small>Incluye 2 sábados al mes</small></p>
+        </div>
+
+        <div class="info-item">
+          <h3>Principiante–Intermedio</h3>
+          <p>1 vez/semana: <strong>₡28.000</strong></p>
+          <p>2 veces/semana: <strong>₡30.000</strong></p>
+          <p>4 veces/semana: <strong>₡34.000</strong></p>
+          <p><small>Incluye 2 sábados al mes</small></p>
+        </div>
+
+        <div class="info-item">
+          <h3>Intermedio–Avanzado</h3>
+          <p>1 vez/semana: <strong>₡30.000</strong></p>
+          <p>2 veces/semana: <strong>₡32.000</strong></p>
+          <p>4 veces/semana: <strong>₡36.000</strong></p>
+          <p><small>Incluye 2 sábados al mes</small></p>
+        </div>
+
+        <div class="info-item">
+          <h3>Clase de prueba</h3>
+          <p><strong>₡5.000</strong></p>
+          <p>Matrícula: <strong>Gratis</strong></p>
+          <a href="#clase-prueba" class="btn-secondary" style="margin-top:.8rem; display:inline-flex;">Reservar ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASE DE PRUEBA (FORM) -->
+  <section class="section" id="clase-prueba">
+    <div class="container">
+      <div class="trial-card">
+        <div class="trial-head">
+          <p class="trial-pill">Inscripción rápida</p>
+          <h2>Reservar clase de prueba</h2>
+          <p class="section-intro">
+            Completá estos datos y te confirmamos por WhatsApp. (A partir de 14 años)
+          </p>
+        </div>
+
+       <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST">
+  <input type="hidden" name="_subject" value="Nueva clase de prueba - Paris Dance Studio">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+
+  <div class="trial-grid">
+    <div class="trial-field">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="Nombre" type="text" required>
+    </div>
+
+    <div class="trial-field">
+      <label for="apellido">Apellido</label>
+      <input id="apellido" name="Apellido" type="text" required>
+    </div>
+
+    <div class="trial-field">
+      <label for="edad">Edad</label>
+      <input id="edad" name="Edad" type="number" min="14" required>
+    </div>
+
+    <div class="trial-field">
+      <label for="nivel">Nivel</label>
+      <select id="nivel" name="Nivel" required>
+        <option value="" disabled selected>Seleccioná tu nivel</option>
+        <option value="Sin experiencia previa">Sin experiencia previa</option>
+        <option value="Principiante">Principiante</option>
+        <option value="Intermedio">Intermedio</option>
+        <option value="Avanzado">Avanzado</option>
+      </select>
+    </div>
+
+    <div class="trial-field">
+      <label for="estilo">Estilo</label>
+      <select id="estilo" name="Estilo" required>
+        <option value="" disabled selected>Seleccioná</option>
+        <option value="Ballet">Ballet</option>
+        <option value="Jazz">Jazz</option>
+      </select>
+    </div>
+
+    <div class="trial-field">
+      <label for="horario">Horario preferido</label>
+      <select id="horario" name="Horario preferido" required>
+        <option value="" disabled selected>Seleccioná</option>
+        <option value="Lunes/Miércoles 6:30 p.m. – 7:30 p.m. (Ballet Principiante)">
+          Lunes/Miércoles 6:30 p.m. – 7:30 p.m. (Ballet Principiante)
+        </option>
+        <option value="Martes/Jueves 6:30 p.m. – 7:30 p.m. (Jazz Principiante)">
+          Martes/Jueves 6:30 p.m. – 7:30 p.m. (Jazz Principiante)
+        </option>
+        <option value="Sábado 10:00 a.m. – 10:40 a.m. (Principiante)">
+          Sábado 10:00 a.m. – 10:40 a.m. (Principiante)
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <hr style="opacity:.2; margin: 1.2rem 0; border:0; border-top:1px solid rgba(255,255,255,.12)">
+
+  <div class="trial-grid">
+    <div class="trial-field">
+      <label for="tutor">Nombre del contacto</label>
+      <input id="tutor" name="Nombre del contacto" type="text" required>
+    </div>
+
+    <div class="trial-field">
+      <label for="whatsapp">WhatsApp</label>
+      <input id="whatsapp" name="WhatsApp" type="tel" inputmode="numeric" required>
+    </div>
+  </div>
+
+  <div class="trial-actions">
+    <button class="btn-primary" type="submit">Enviar</button>
+    <a class="btn-secondary" href="https://wa.me/50672827346" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <p class="trial-note">Clase de prueba: ₡5.000 · Matrícula gratis · Desde 14 años.</p>
+</form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN -->
+  <section class="section section-alt" id="ubicacion">
+    <div class="container two-columns">
+      <div>
+        <h2>Ubicación</h2>
+        <p class="section-intro">
+          Mall Internacional, Alajuela (contiguo a City Mall).
+        </p>
+
+        <div class="info-card">
+          <h3>Contacto (WhatsApp)</h3>
+          <ul class="highlight-list">
+            <li><strong>7282-7346</strong></li>
+            <li><strong>8731-7951</strong></li>
+          </ul>
+          <a href="https://wa.me/50672827346" target="_blank" class="btn-primary" style="margin-top:.8rem; display:inline-flex;">
+            Escribir por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="map-container" aria-label="Mapa de ubicación">
+        <!-- Si querés, cambiamos este iframe al del Mall Internacional -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d694.5769262053801!2d-84.21297908744789!3d10.00690947016592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f9b8b9d975bb%3A0x3cf1be981362bd98!2sMall%20Internacional%2C%20Provincia%20de%20Alajuela%2C%20Alajuela%2C%20Monserrat!5e0!3m2!1ses!2scr!4v1766815288330!5m2!1ses!2scr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2>Preguntas frecuentes</h2>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <h3>¿Cómo me inscribo?</h3>
+          <p>Por WhatsApp o directamente en el studio.</p>
+        </div>
+
+        <div class="info-item">
+          <h3>¿Hay clase de prueba?</h3>
+          <p>Sí, tiene un costo de <strong>₡5.000</strong>.</p>
+        </div>
+
+        <div class="info-item">
+          <h3>¿Qué llevo el primer día?</h3>
+          <p>Ropa cómoda (leggings/short + top/camiseta + medias) y botella de agua.</p>
+        </div>
+
+        <div class="info-item">
+          <h3>¿Puedo empezar sin experiencia?</h3>
+          <p>Sí. Principiante es para cero o poca experiencia.</p>
+        </div>
+
+        <div class="info-item">
+          <h3>¿Qué edades aceptan?</h3>
+          <p>Desde los 14 años en adelante (sin edad máxima).</p>
+        </div>
+
+        <div class="info-item">
+          <h3>¿Qué uniforme necesito y cuándo se compra?</h3>
+          <p>Se adquiere en el studio al momento de la inscripción.</p>
+        </div>
+
+        <div class="info-item">
+          <h3>¿Puedo ir solo sábados?</h3>
+          <p>No. Los sábados son talleres técnicos incluidos según el plan mensual.</p>
+        </div>
+
+        <div class="info-item">
+          <h3>¿Cómo sé mi nivel?</h3>
           <p>
-            Llegar al menos 30 minutos antes, mantener silencio durante las piezas,
-            apagar o silenciar celulares y seguir las indicaciones del personal.
+            Hacemos una evaluación rápida en clase. Si ya entrenaste técnica francesa de forma constante, podrías entrar en intermedio;
+            si no, iniciás en principiante.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-<section class="section" id="ubicacion">
-  <div class="container">
-    <h2>Ubicación del Teatro</h2>
-    <p class="section-intro">
-      El evento se realizará en el Teatro Arnoldo Herrera González, Conservatorio Castella.
-    </p>
-
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9488837530193!2d-84.10186898909053!3d9.938211274053245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e3557211dc0f%3A0x4e4dbe0da4f59cd4!2sTeatro%20Arnoldo%20Herrera!5e0!3m2!1ses!2scr!4v1764037175193!5m2!1ses!2scr"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- REDES SOCIALES -->
-  <section class="section" id="contacto">
+  <!-- CONTACTO -->
+  <section class="section section-alt" id="contacto">
     <div class="container">
-      <h2>Seguinos y mantenete al tanto</h2>
+      <h2>Contacto</h2>
       <p class="section-intro">
-        Enterate de ensayos, adelantos del show y noticias de la academia.
+        Escribinos para cupos, horarios y matrícula.
       </p>
 
       <div class="socials">
-        <!-- Cambiá los href por tus enlaces reales -->
-        <a href="https://www.instagram.com/paris_dance_studio/" target="_blank" class="social-link">
-            <i class="fab fa-instagram"></i>
-            <span>@paris_dance_studio</span>
+        <a href="https://www.instagram.com/paris_dance_studio/" target="_blank" class="social-link" rel="noopener">
+          <i class="fab fa-instagram"></i>
+          <span>@paris_dance_studio</span>
         </a>
 
-        <a href="https://wa.me/50672827346" target="_blank" class="social-link">
-            <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp Reservas</span>
+        <a href="https://wa.me/50672827346" target="_blank" class="social-link" rel="noopener">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp 7282-7346</span>
         </a>
 
+        <a href="https://wa.me/50687317951" target="_blank" class="social-link" rel="noopener">
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp 8731-7951</span>
+        </a>
       </div>
     </div>
   </section>
@@ -395,279 +658,13 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-content">
-      <p>© <span id="year"></span> Paris Dance Studio · Una Noche en París</p>
+      <p>© <span id="year"></span> Paris Dance Studio</p>
       <a href="#inicio" class="back-to-top">Volver arriba ↑</a>
     </div>
   </footer>
 
-  <!-- SCRIPT: Cuenta regresiva -->
   <script>
-    // Fecha del evento (ajustá el año si cambiás de fecha)
-    const eventDate = new Date("December 19, 2025 18:00:00").getTime();
-
-    const countdownFunction = setInterval(function () {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      const daysElem = document.getElementById("days");
-      const hoursElem = document.getElementById("hours");
-      const minutesElem = document.getElementById("minutes");
-      const secondsElem = document.getElementById("seconds");
-
-      if (distance > 0) {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        daysElem.textContent = String(days).padStart(2, "0");
-        hoursElem.textContent = String(hours).padStart(2, "0");
-        minutesElem.textContent = String(minutes).padStart(2, "0");
-        secondsElem.textContent = String(seconds).padStart(2, "0");
-      } else {
-        clearInterval(countdownFunction);
-        daysElem.textContent = "00";
-        hoursElem.textContent = "00";
-        minutesElem.textContent = "00";
-        secondsElem.textContent = "00";
-      }
-    }, 1000);
-
-    // Año dinámico en el footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-<script>
-  // % de descuento a partir de la segunda entrada
-  const DISCOUNT_RATE = 0.35;
-
-  // Formatea montos en colones, sin decimales
-  function formatCRC(monto) {
-    // Nos aseguramos de que sea entero
-    const entero = Math.round(monto);
-    return "₡" + entero.toLocaleString("es-CR");
-  }
-
-  // Calcula subtotal y precio con descuento por fila
-  function calcularSubtotalFila(basePrice, qty) {
-    if (qty <= 0) {
-      return { subtotal: 0, discountedUnit: 0 };
-    }
-
-    // Precio de la entrada con 35% de descuento
-    const discountedUnit = Math.round(basePrice * (1 - DISCOUNT_RATE));
-
-    if (qty === 1) {
-      // Solo una entrada, sin descuento
-      return { subtotal: basePrice, discountedUnit };
-    }
-
-    // 1 entrada a precio normal + (resto) con descuento
-    const subtotal = basePrice + (qty - 1) * discountedUnit;
-    return { subtotal, discountedUnit };
-  }
-
-  // Actualiza el texto del precio visible en cada fila según la cantidad
-  function actualizarPrecioVisibleFila(row, qty) {
-    const basePrice = Number(row.getAttribute("data-price-base"));
-    const label = row.querySelector(".ticket-price");
-
-    if (!label || !basePrice) return;
-
-    const discountedUnit = Math.round(basePrice * (1 - DISCOUNT_RATE));
-
-    if (qty === 0) {
-      label.textContent =
-        `${formatCRC(basePrice)} por entrada · desde la 2.ª: 35% de descuento`;
-    } else if (qty === 1) {
-      label.textContent =
-        `1 entrada: ${formatCRC(basePrice)} · desde la 2.ª: 35% de descuento`;
-    } else {
-      label.textContent =
-        `1.ª: ${formatCRC(basePrice)} · resto: ${formatCRC(discountedUnit)} (35% de descuento)`;
-    }
-  }
-
-  // Recalcula el total dinámico
-  function actualizarTotal() {
-    const rows = document.querySelectorAll(".ticket-row");
-    let total = 0;
-
-    rows.forEach(row => {
-      const basePrice = Number(row.getAttribute("data-price-base"));
-      const input = row.querySelector("input[type='number']");
-      const qty = Number(input.value) || 0;
-
-      actualizarPrecioVisibleFila(row, qty);
-
-      if (qty > 0 && basePrice) {
-        const { subtotal } = calcularSubtotalFila(basePrice, qty);
-        total += subtotal;
-      }
-    });
-
-    const totalElem = document.getElementById("ticketsTotal");
-    if (totalElem) {
-      totalElem.textContent = formatCRC(total);
-    }
-  }
-
-  // Botones + y - de cantidad
-  function cambiarCantidad(btn, delta) {
-    const input = btn.parentElement.querySelector("input[type='number']");
-    let value = Number(input.value) || 0;
-    value += delta;
-    if (value < 0) value = 0;
-    input.value = value;
-    actualizarTotal();
-  }
-
-  // Enviar pedido por WhatsApp
-  function enviarWhatsApp(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("buyerName").value.trim();
-    const rows = document.querySelectorAll(".ticket-row");
-
-    if (!name) {
-      alert("Por favor escribí el nombre de la persona que compra.");
-      return;
-    }
-
-    let resumen = "";
-    let total = 0;
-    let totalEntradas = 0;
-    const filasSinAsientos = [];
-
-    rows.forEach(row => {
-      const zone = row.getAttribute("data-zone");
-      const basePrice = Number(row.getAttribute("data-price-base"));
-
-      const qtyInput   = row.querySelector("input[type='number']");
-      const seatsInput = row.querySelector(".seats-input");
-
-      const qty   = Number(qtyInput.value) || 0;
-      const seats = seatsInput.value.trim();
-
-      if (qty > 0 && basePrice) {
-        if (!seats) {
-          filasSinAsientos.push(zone);
-        }
-
-        const { subtotal, discountedUnit } = calcularSubtotalFila(basePrice, qty);
-        total += subtotal;
-        totalEntradas += qty;
-
-        if (qty === 1) {
-          // Sin descuento
-          resumen +=
-`[${zone.toUpperCase()}]
-Entradas: 1
-Asientos: ${seats}
-Precio: ${formatCRC(basePrice)}
-Subtotal: ${formatCRC(subtotal)}
-------------------------------
-`;
-        } else {
-          // Con descuento a partir de la 2.ª
-          const descCount = qty - 1;
-          resumen +=
-`[${zone.toUpperCase()}]
-Entradas: ${qty}
-Asientos: ${seats}
-1.ª entrada: ${formatCRC(basePrice)}
-${descCount} con 35% desc.: ${formatCRC(discountedUnit)} c/u
-Subtotal: ${formatCRC(subtotal)}
-------------------------------
-`;
-        }
-      }
-    });
-
-    if (totalEntradas === 0) {
-      alert("Seleccioná al menos una entrada.");
-      return;
-    }
-
-    if (filasSinAsientos.length > 0) {
-      alert("Por favor indicá los asientos para: " + filasSinAsientos.join(", "));
-      return;
-    }
-
-    const mensaje =
-`───────────
-    *PARIS DANCE STUDIO*
-    *UNA NOCHE EN PARÍS*
-    *DETALLE DE MI COMPRA*
-────────────
-
-*Nombre:* ${name}
-
-────────────────
-*DETALLE DE ENTRADAS (por zona):*
-${resumen}────────────────────────
-
-*Total de entradas:* ${totalEntradas}
-*TOTAL A PAGAR:* ${formatCRC(total)}
-
-*Pago por SINPE Móvil.*
-────────────────────────`;
-
-    const phone = "50672827346";
-    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(mensaje);
-    window.open(url, "_blank");
-  }
-
-  // Inicializar listeners al cargar la página
-  document.addEventListener("DOMContentLoaded", function () {
-    const qtyInputs = document.querySelectorAll(".ticket-row input[type='number']");
-    qtyInputs.forEach(input => {
-      input.addEventListener("input", actualizarTotal);
-    });
-
-    // Estado inicial
-    actualizarTotal();
-  });
-</script>
-
-
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
