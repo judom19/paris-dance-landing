@@ -140,6 +140,21 @@
     startAutoplay();
   });
   </script>
+  <!-- contenido de la página -->
+
+<script>
+  document.addEventListener("submit", (e) => {
+    const form = e.target;
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const fd = new FormData(form);
+    console.group("FORM SUBMIT");
+    for (const [k, v] of fd.entries()) console.log(k, "=>", v);
+    console.groupEnd();
+  }, true);
+</script>
+</body>
+
 </head>
 
 <body>
@@ -188,7 +203,7 @@
           <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
         </div>
 
-        <p class="hero-subtitle">A partir de 10 años · Sin edad máxima · Alajuela</p>
+        <p class="hero-subtitle">A partir de 7 años · Sin edad máxima · Alajuela</p>
 
         <div class="hero-cta-group">
           <a href="#clase-prueba" class="btn-primary">Reservar clase de prueba</a>
@@ -239,7 +254,7 @@
           Aquí no venís solo a “tomar una clase”: venís a construir base, ganar confianza y crecer como bailarina.
         </p>
         <p>
-          Trabajamos con alumnas desde los <strong>10 años</strong> en adelante (sin edad máxima). Nuestro objetivo es que cada alumna
+          Trabajamos con alumnas desde los <strong>7 años</strong> en adelante (sin edad máxima). Nuestro objetivo es que cada alumna
           se sienta segura, cuidada y motivada, en un ambiente donde el progreso se celebra.
         </p>
       </div>
@@ -324,7 +339,7 @@
         </ul>
 
         <h3 style="margin-top:1.2rem;">Niveles y edades</h3>
-        <p><strong>A partir de 10 años</strong> (sin edad máxima).</p>
+        <p><strong>A partir de 7 años</strong> (sin edad máxima).</p>
         <ul class="highlight-list">
           <li>Principiante</li>
           <li>Principiante–Intermedio</li>
@@ -485,11 +500,11 @@
           <p class="trial-pill">Clase de Prueba</p>
           <h2>Reservar clase de prueba</h2>
           <p class="section-intro">
-            Completá estos datos y te confirmaremos por WhatsApp. (A partir de 10 años)
+            Completá estos datos y te confirmaremos por WhatsApp. (A partir de 7 años)
           </p>
         </div>
 
-        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST" novalidate>
+        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST" >
           <!-- Formspree -->
           <input type="hidden" name="_subject" value="Nueva clase de prueba - Paris Dance Studio">
           <input type="hidden" name="_template" value="table">
@@ -505,28 +520,17 @@
           <div class="trial-grid">
             <div class="trial-field">
               <label for="cp_nombre">Nombre</label>
-              <input id="cp_nombre" name="Nombre" type="text" required minlength="2" maxlength="40" autocomplete="given-name">
+              <input id="cp_nombre" name="Nombre" type="text" required minlength="2" maxlength="40" autocomplete="given-name" required>
             </div>
 
             <div class="trial-field">
               <label for="cp_apellido">Apellido</label>
-              <input id="cp_apellido" name="Apellido" type="text" required minlength="2" maxlength="60" autocomplete="family-name">
+              <input id="cp_apellido" name="Apellido" type="text" required minlength="2" maxlength="60" autocomplete="family-name" required>
             </div>
 
             <div class="trial-field">
               <label for="cp_edad">Edad</label>
-              <input id="cp_edad" name="Edad" type="number" min="14" max="80" required inputmode="numeric" placeholder="10+">
-            </div>
-
-            <div class="trial-field">
-              <label for="cp_nivel">Nivel</label>
-              <select id="cp_nivel" name="Nivel" required>
-                <option value="" disabled selected>Seleccioná tu nivel</option>
-                <option value="Sin experiencia previa">Sin experiencia previa</option>
-                <option value="Principiante">Principiante</option>
-                <option value="Principiante–Intermedio">Principiante–Intermedio</option>
-                <option value="Intermedio–Avanzado">Intermedio–Avanzado</option>
-              </select>
+              <input id="cp_edad" name="Edad" type="number" min="14" max="80" required inputmode="numeric" placeholder="10+" required>
             </div>
 
             <div class="trial-field">
@@ -542,18 +546,30 @@
               <label for="cp_horario">Horario preferido</label>
               <select id="cp_horario" name="Horario preferido" required>
                 <option value="" disabled selected>Seleccioná</option>
-                <option value="Lunes 6:30 p.m. – 7:30 p.m. (Ballet Principiante)">
-                  Lunes 6:30 p.m. – 7:30 p.m. (Ballet Principiante)
+                <option value="Lunes 6:30 p.m. – 7:30 p.m. (Ballet Adulto)">
+                  Lunes 6:30 p.m. – 7:30 p.m. (Ballet Adulto)
                 </option>
-                <option value="Martes 6:30 p.m. – 7:30 p.m. (Jazz Principiante)">
-                  Martes 6:30 p.m. – 7:30 p.m. (Jazz Principiante)
+                <option value="Miércoles 6:30 p.m. – 7:30 p.m. (Ballet Adulto)">
+                  Miércoles 6:30 p.m. – 7:30 p.m. (Ballet Adulto)
+                </option>
+                <option value="Martes 6:30 p.m. – 7:30 p.m. (Jazz Adulto)">
+                  Martes 6:30 p.m. – 7:30 p.m. (Jazz Adulto)
+                </option>
+                <option value="Jueves 6:30 p.m. – 7:30 p.m. (Jazz Adulto)">
+                  Jueves 6:30 p.m. – 7:30 p.m. (Jazz Adulto)
+                </option>
+                <option value="Martes 4:00 p.m. – 5:00 p.m. (Ballet Niña)">
+                  Martes 4:00 p.m. – 5:00 p.m. (Ballet Niña)
+                </option>
+                <option value="Jueves 4:00 p.m. – 5:00 p.m. (Ballet Niña)">
+                  Jueves 4:00 p.m. – 5:00 p.m. (Ballet Niña)
                 </option>
               </select>
             </div>
 
             <div class="trial-field">
               <label for="cp_contacto">Nombre del contacto</label>
-              <input id="cp_contacto" name="Nombre del contacto" type="text" required minlength="2" maxlength="80" autocomplete="name">
+              <input id="cp_contacto" name="Nombre del contacto" type="text" required minlength="2" maxlength="80" autocomplete="name" required>
             </div>
 
             <div class="trial-field">
@@ -568,7 +584,7 @@
             <a class="btn-secondary" href="https://wa.me/50672827346" target="_blank" rel="noopener">WhatsApp</a>
           </div>
 
-          <p class="trial-note">Clase de prueba: ₡5.000 · Matrícula gratis · Desde 10 años.</p>
+          <p class="trial-note">Clase de prueba: ₡5.000 · Matrícula gratis · Desde 7 años.</p>
         </form>
       </div>
     </div>
@@ -587,7 +603,7 @@
         </div>
 
         <!-- Cambiá TU_ENDPOINT_MATRICULA por el endpoint nuevo de Formspree (recomendado) -->
-        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST" novalidate>
+        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST" >
           <!-- Formspree -->
           <input type="hidden" name="_subject" value="Nueva matrícula - Paris Dance Studio">
           <input type="hidden" name="_template" value="table">
@@ -606,12 +622,12 @@
             <div class="trial-grid">
               <div class="trial-field">
                 <label for="m_nombre">Nombre completo</label>
-                <input id="m_nombre" name="Nombre completo" type="text" required minlength="4" maxlength="80" autocomplete="name" placeholder="Ej: Aisha Castaneda">
+                <input id="m_nombre" name="Nombre completo" type="text" required minlength="4" maxlength="80" autocomplete="name" placeholder="Ej: Aisha Castaneda" required>
               </div>
 
               <div class="trial-field">
                 <label for="m_edad">Edad</label>
-                <input id="m_edad" name="Edad" type="number" min="14" max="80" required inputmode="numeric" placeholder="14+">
+                <input id="m_edad" name="Edad" type="number" min="14" max="80" required inputmode="numeric" placeholder="7+" required>
               </div>
 
               <div class="trial-field">
@@ -621,7 +637,7 @@
 
               <div class="trial-field">
                 <label for="m_whatsapp">WhatsApp</label>
-                <input id="m_whatsapp" name="WhatsApp" type="tel" inputmode="numeric" required pattern="^[0-9]{8}$" maxlength="8" placeholder="Ej: 72827346">
+                <input id="m_whatsapp" name="WhatsApp" type="tel" inputmode="numeric" required pattern="^[0-9]{8}$" maxlength="8" placeholder="Ej: 72827346" required>
                 <small class="help">8 dígitos, sin espacios.</small>
               </div>
             </div>
@@ -655,7 +671,7 @@
 
               <!-- Horarios (NO dentro de trial-grid como items sueltos; van dentro de un solo field) -->
               <div class="trial-field" style="grid-column:1/-1;">
-                <label>Horarios (marcá los que podés)</label>
+                <label>Selecciona según tu plan</label>
 
                 <div class="checks">
                   <label class="check">
@@ -674,13 +690,8 @@
                     <input type="checkbox" name="Horarios[]" value="Jueves 6:30pm">
                     <span>Jueves 6:30pm</span>
                   </label>
-                  <label class="check">
-                    <input type="checkbox" name="Horarios[]" value="Sábado (taller técnico)">
-                    <span>Sábado (taller técnico)</span>
-                  </label>
                 </div>
-
-                <small class="help">Marca según el plan elegido.</small>
+                <br>
               </div>
 
               <div class="trial-field" style="grid-column:1/-1;">
@@ -722,17 +733,27 @@
           <hr class="divider">
 
           <fieldset class="trial-fieldset">
-            <legend class="trial-legend">Confirmación</legend>
+  <legend class="trial-legend">Confirmación</legend>
 
-            <div class="trial-grid">
-              <div class="trial-field" style="grid-column:1/-1;">
-                <label class="check">
-                  <input type="checkbox" name="Acepta" required>
-                  <span>Acepto el reglamento del studio y autorizo el uso de mis datos para gestión interna (matrícula y comunicación).</span>
-                </label>
-              </div>
-            </div>
-          </fieldset>
+  <div class="trial-grid">
+    <div class="trial-field" style="grid-column:1/-1;">
+      <label class="check">
+        <input
+          type="checkbox"
+          name="Acepta términos y políticas"
+          required
+        >
+        <span>
+          He leído y acepto el
+          <a href="/terminos.html" target="_blank" rel="noopener">
+            reglamento del studio
+          </a>
+        </span>
+      </label>
+    </div>
+  </div>
+</fieldset>
+
 
           <div class="trial-actions">
             <button class="btn-primary" type="submit">Enviar</button>
@@ -802,7 +823,7 @@
 
         <div class="info-item">
           <h3>¿Qué edades aceptan?</h3>
-          <p>Desde los 10 años en adelante (sin edad máxima).</p>
+          <p>Desde los 7 años en adelante (sin edad máxima).</p>
         </div>
 
         <div class="info-item">
@@ -856,8 +877,7 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+
 </body>
 </html>
