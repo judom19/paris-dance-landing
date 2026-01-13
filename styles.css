@@ -593,3 +593,157 @@ img,iframe{max-width:100%;display:block}
   .trial-actions .btn-primary,
   .trial-actions .btn-secondary{ width:100%; }
 }
+/* ===== Planes con posters (tus imágenes verticales) ===== */
+.plans-grid{ align-items:stretch; }
+
+.plan-card{
+  padding:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.plan-image{
+  width:100%;
+  aspect-ratio: 4 / 3; /* default */
+  overflow:hidden;
+}
+
+.plan-image--poster{
+  aspect-ratio: 3 / 4; /* poster vertical como tus imágenes */
+  background: rgba(8,4,18,.55);
+}
+
+.plan-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition: transform .45s ease;
+}
+
+.plan-card:hover .plan-image img{
+  transform: scale(1.03);
+}
+
+.plan-body{
+  padding:1.25rem 1.2rem 1.35rem;
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+}
+
+/* Responsive: que el poster no se haga gigante en móvil */
+@media (max-width: 680px){
+  .plan-image--poster{
+    aspect-ratio: 16 / 12; /* recorte más horizontal en celular para no ocupar tanta altura */
+  }
+  .plan-image--poster img{
+    object-position: center top; /* mantiene el título visible arriba */
+  }
+}
+
+/* ===== FIX definitivo cards de planes ===== */
+.plan-card{
+  padding:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+/* Contenedor de imagen ocupa todo */
+.plan-image{
+  flex: 1;
+  width:100%;
+  overflow:hidden;
+  border-radius: inherit;
+}
+
+/* Posters verticales */
+.plan-image--poster{
+  aspect-ratio: auto; /* 🔑 elimina el espacio fantasma */
+}
+
+/* Imagen siempre llena el card */
+.plan-image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transition: transform .45s ease;
+}
+
+/* Hover intacto */
+.plan-card:hover .plan-image img{
+  transform: scale(1.04);
+}
+
+/* Body solo cuando existe (clase de prueba) */
+.plan-body{
+  padding:1rem;
+  background: linear-gradient(
+    to top,
+    rgba(5,3,10,.92),
+    rgba(5,3,10,.55),
+    transparent
+  );
+}
+
+/* CTA centrado y elegante */
+.plan-body--center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.horarios-grid{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 980px){
+  .horarios-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px){
+  .horarios-grid{ grid-template-columns: 1fr; }
+}
+
+/* Títulos de sub-bloque */
+.horarios-title{
+  margin: 2.6rem 0 1.4rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(245,193,216,.95);
+}
+
+/* Separador elegante */
+.horarios-divider{
+  margin: 3rem 0 2.6rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245,193,216,.45),
+    transparent
+  );
+}
+
+/* Grid específico horarios */
+.horarios-grid{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .horarios-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px){
+  .horarios-grid{
+    grid-template-columns: 1fr;
+  }
+}
