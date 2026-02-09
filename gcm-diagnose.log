@@ -1,0 +1,177 @@
+﻿Diagnose log at 2026-02-09T17:06:36Z
+
+AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Program Files\Git\mingw64\bin\
+Version: 2.6.1+786ab03440ddc82e807a97c0e540f5247e44cec6
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 26200)
+Reading environment variables... OK
+ Variables:
+HOMEPATH=\Users\judom
+DriverData=C:\Windows\System32\Drivers\DriverData
+COMPUTERNAME=DESKTOP-IKBK02J
+GIT_TRACE2_PARENT_SID=43645230-58ef-4445-94e2-5bfe90be28d0
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+OneDrive=C:\Users\judom\OneDrive
+VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+HOME=C:\Users\judom
+PROCESSOR_REVISION=1801
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+GIT_ASKPASS=c:\Users\judom\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\askpass.sh
+TMP=C:\Users\judom\AppData\Local\Temp
+TEMP=C:\Users\judom\AppData\Local\Temp
+LOCALAPPDATA=C:\Users\judom\AppData\Local
+MSYSTEM=MINGW64
+TERM=xterm-256color
+VBOX_HWVIRTEX_IGNORE_SVM_IN_USE=1
+USERDOMAIN=DESKTOP-IKBK02J
+ProgramFiles(x86)=C:\Program Files (x86)
+EFC_5992_1592913036=1
+Path=C:/Program Files/Git/mingw64/libexec/git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\judom\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\judom\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\judom\AppData\Local\Programs\Python\Python312\;C:\Users\judom\AppData\Local\Microsoft\WindowsApps;C:\Users\judom\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\cmd;
+TERM_PROGRAM=vscode
+PROCESSOR_LEVEL=23
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+TMPDIR=C:\Users\judom\AppData\Local\Temp
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+TERM_PROGRAM_VERSION=1.109.0
+VSCODE_GIT_ASKPASS_MAIN=c:\Users\judom\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\askpass-main.js
+PSModulePath=C:\Users\judom\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+PUBLIC=C:\Users\Public
+NUMBER_OF_PROCESSORS=4
+CommonProgramFiles=C:\Program Files (x86)\Common Files
+VSCODE_INJECTION=1
+VSCODE_GIT_IPC_HANDLE=\\.\pipe\vscode-git-2a915e50ff-sock
+CHROME_CRASHPAD_PIPE_NAME=\\.\pipe\crashpad_17788_DDSVPIPWUXAASUPR
+PLINK_PROTOCOL=ssh
+ProgramData=C:\ProgramData
+ProgramW6432=C:\Program Files
+ProgramFiles=C:\Program Files (x86)
+VSCODE_GIT_ASKPASS_NODE=C:\Users\judom\AppData\Local\Programs\Microsoft VS Code\Code.exe
+SystemRoot=C:\Windows
+SESSIONNAME=Console
+CommonProgramW6432=C:\Program Files\Common Files
+LOGONSERVER=\\DESKTOP-IKBK02J
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+COLORTERM=truecolor
+USERDOMAIN_ROAMINGPROFILE=DESKTOP-IKBK02J
+APPDATA=C:\Users\judom\AppData\Roaming
+HOMEDRIVE=C:
+USERNAME=judom
+PROCESSOR_ARCHITEW6432=AMD64
+PROCESSOR_ARCHITECTURE=x86
+USERPROFILE=C:\Users\judom
+OS=Windows_NT
+ComSpec=C:\Windows\system32\cmd.exe
+SystemDrive=C:
+windir=C:\Windows
+LANG=en_US.UTF-8
+ALLUSERSPROFILE=C:\ProgramData
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\judom\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\judom\AppData\Local\Temp\b1ec49188c8c3980a3ca3b07'... OK
+Reading from temporary file 'C:\Users\judom\AppData\Local\Temp\b1ec49188c8c3980a3ca3b07'... OK
+Deleting temporary file 'C:\Users\judom\AppData\Local\Temp\b1ec49188c8c3980a3ca3b07'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\judom
+UserDataDirectoryPath: C:\Users\judom\.gcm
+GetCurrentDirectory(): C:\Users\judom\Desktop\landing_show\paris-dance-landing
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:51380/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.52.0.windows.1'
+Locating current repository...Git repository at 'C:/Users/judom/Desktop/landing_show/paris-dance-landing/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Program Files/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Program Files/Git/etc/gitconfig	http.sslbackend=schannel
+file:C:/Program Files/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Program Files/Git/etc/gitconfig	core.fscache=true
+file:C:/Program Files/Git/etc/gitconfig	core.symlinks=false
+file:C:/Program Files/Git/etc/gitconfig	pull.rebase=false
+file:C:/Program Files/Git/etc/gitconfig	credential.helper=manager
+file:C:/Program Files/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Program Files/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/judom/.gitconfig	user.name=judom19
+file:C:/Users/judom/.gitconfig	user.email=judom19@gmail.com
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/judom19/paris-dance-landing.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+file:.git/config	branch.main.vscode-merge-base=origin/main
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\judom\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\judom\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
