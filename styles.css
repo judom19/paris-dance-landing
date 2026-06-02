@@ -157,12 +157,12 @@ img,iframe{max-width:100%;display:block}
   width:100%;
   max-width:300px;
   aspect-ratio:3/4;
-  background-image:url("img/paris01.jpg");
+  background-image:url("img/paris02.jpg");
 }
 .secondary-photo{
   width:190px;
   aspect-ratio:3/4;
-  background-image:url("img/paris05.jpg");
+  background-image:url("img/paris06.jpg");
   position:absolute;
   right:-.6rem;
   bottom:-1.4rem;
