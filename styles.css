@@ -241,84 +241,97 @@ img,iframe{max-width:100%;display:block}
   font-weight:700;
 }
 
-/* ===== Carrusel elegante (HERO) ===== */
-.carousel{ margin-top: 1.1rem; max-width: 760px; }
+/* Carousel */
+.carousel{ margin-top:1.1rem; max-width:760px; }
 .carousel-viewport{
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--r-lg);
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(8,4,18,.55);
-  box-shadow: 0 18px 45px rgba(0,0,0,.45);
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--r-lg);
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(8,4,18,.55);
+  box-shadow:0 18px 45px rgba(0,0,0,.45);
 }
 .carousel-viewport::before{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-  background: radial-gradient(circle at 20% 10%, rgba(241,148,196,.18), transparent 55%);
+  background:radial-gradient(circle at 20% 10%, rgba(241,148,196,.18), transparent 55%);
   z-index:2;
 }
-.carousel-track{ display:flex; transition: transform .55s ease; will-change: transform; }
-.carousel-slide{ min-width:100%; aspect-ratio: 16 / 10; position:relative; }
+.carousel-track{
+  display:flex;
+  transition:transform .55s ease;
+  will-change:transform;
+}
+.carousel-slide{
+  min-width:100%;
+  aspect-ratio:16/10;
+  position:relative;
+}
 .carousel-slide img{
   width:100%;
   height:100%;
-  object-fit: cover;
+  object-fit:cover;
   display:block;
-  filter: saturate(1.05) contrast(1.02);
+  filter:saturate(1.05) contrast(1.02);
 }
 .carousel-btn{
   position:absolute;
   top:50%;
-  transform: translateY(-50%);
+  transform:translateY(-50%);
   z-index:3;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(12,7,20,.55);
-  backdrop-filter: blur(10px);
-  color: rgba(245,193,216,.95);
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(12,7,20,.55);
+  backdrop-filter:blur(10px);
+  color:rgba(245,193,216,.95);
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
-  font-size: 28px;
-  line-height: 1;
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  font-size:28px;
+  line-height:1;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
 }
 .carousel-btn:hover{
-  background: rgba(245,193,216,.10);
-  border-color: rgba(245,193,216,.30);
-  transform: translateY(-50%) scale(1.02);
+  background:rgba(245,193,216,.10);
+  border-color:rgba(245,193,216,.30);
+  transform:translateY(-50%) scale(1.02);
 }
-.carousel-btn.prev{ left: 10px; }
-.carousel-btn.next{ right: 10px; }
+.carousel-btn.prev{ left:10px; }
+.carousel-btn.next{ right:10px; }
+
 .carousel-dots{
   display:flex;
-  gap: 8px;
-  margin-top: 12px;
-  padding-left: 6px;
+  gap:8px;
+  margin-top:12px;
+  padding-left:6px;
 }
 .carousel-dot{
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(245,193,216,.35);
-  background: rgba(245,193,216,.10);
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  border:1px solid rgba(245,193,216,.35);
+  background:rgba(245,193,216,.10);
   cursor:pointer;
-  transition: transform .18s ease, background .18s ease, width .18s ease;
+  transition:transform .18s ease, background .18s ease, width .18s ease;
 }
 .carousel-dot.active{
-  width: 22px;
-  background: rgba(241,148,196,.55);
-  transform: translateY(-1px);
+  width:22px;
+  background:rgba(241,148,196,.55);
+  transform:translateY(-1px);
 }
 
-/* ===== Forms (diseño igual para ambos) ===== */
-.trial-card{ padding:1.8rem; overflow:hidden; } /* overflow hidden evita que algo se salga */
+/* Forms */
+.trial-card{
+  padding:1.8rem;
+  overflow:hidden;
+}
 .trial-head{ margin-bottom:1.2rem; }
+
 .trial-pill{
   display:inline-flex;
   align-items:center;
@@ -326,8 +339,8 @@ img,iframe{max-width:100%;display:block}
   padding:.35rem .9rem;
   border-radius:999px;
   border:1px solid rgba(245,193,216,.35);
-  background: rgba(245,193,216,.08);
-  color: rgba(245,193,216,.95);
+  background:rgba(245,193,216,.08);
+  color:rgba(245,193,216,.95);
   text-transform:uppercase;
   letter-spacing:.16em;
   font-size:.72rem;
@@ -340,33 +353,29 @@ img,iframe{max-width:100%;display:block}
   gap:1rem;
   min-width:0;
 }
-
 .trial-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0,1fr));
   gap:1rem;
   min-width:0;
 }
-
 .trial-field{
   display:flex;
   flex-direction:column;
   gap:.4rem;
   min-width:0;
 }
-
 .trial-field label{
   font-size:.88rem;
   color:var(--muted);
 }
 
-/* Inputs */
 .trial-field input,
 .trial-field select,
 .trial-field textarea{
   width:100%;
   border:1px solid rgba(255,255,255,.08);
-  background: rgba(8,4,18,.88);
+  background:rgba(8,4,18,.88);
   color:var(--text);
   font-size:.95rem;
   font-family:inherit;
@@ -382,8 +391,8 @@ img,iframe{max-width:100%;display:block}
 .trial-field textarea{
   border-radius:var(--r-md);
   padding:.85rem .95rem;
-  resize: vertical;
-  min-height: 110px;
+  resize:vertical;
+  min-height:110px;
   line-height:1.35;
 }
 
@@ -404,9 +413,9 @@ img,iframe{max-width:100%;display:block}
 .trial-field select:focus,
 .trial-field textarea:focus{
   outline:none;
-  border-color: rgba(241,148,196,.85);
-  box-shadow: 0 0 0 2px rgba(241,148,196,.22);
-  background: rgba(10,6,22,.94);
+  border-color:rgba(241,148,196,.85);
+  box-shadow:0 0 0 2px rgba(241,148,196,.22);
+  background:rgba(10,6,22,.94);
 }
 
 /* Helpers */
@@ -415,16 +424,25 @@ img,iframe{max-width:100%;display:block}
   font-size:.85rem;
   display:block;
   margin-top:.35rem;
-  color: rgba(249,245,255,.82);
+  color:rgba(249,245,255,.82);
 }
 .divider{
   opacity:.2;
-  margin: 1.2rem 0;
+  margin:1.2rem 0;
   border:0;
   border-top:1px solid rgba(255,255,255,.12);
 }
-.trial-fieldset{ border:0; padding:0; margin:0; min-width:0; }
-.trial-legend{ font-weight:600; margin-bottom:.8rem; display:block; }
+.trial-fieldset{
+  border:0;
+  padding:0;
+  margin:0;
+  min-width:0;
+}
+.trial-legend{
+  font-weight:600;
+  margin-bottom:.8rem;
+  display:block;
+}
 
 /* Actions */
 .trial-actions{
@@ -440,19 +458,16 @@ img,iframe{max-width:100%;display:block}
   font-size:.85rem;
 }
 
-/* ===== CHECKBOXES (NO se salen del contenedor) ===== */
-/* Contenedor */
+/* Checkboxes */
 .checks{
   width:100%;
   max-width:100%;
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
   gap:.6rem 1.2rem;
   margin-top:.35rem;
   min-width:0;
 }
-
-/* Item */
 .check{
   display:flex;
   align-items:center;
@@ -461,26 +476,97 @@ img,iframe{max-width:100%;display:block}
   max-width:100%;
   line-height:1.25;
 }
-
-/* Checkbox */
 .check input{
-  flex: 0 0 18px;
+  flex:0 0 18px;
   width:18px;
   height:18px;
   margin:0;
+  accent-color:var(--accent);
 }
-
-/* Texto */
 .check span{
   display:block;
   min-width:0;
   white-space:normal;
-  overflow-wrap:anywhere; /* rompe por palabra si hace falta, nunca por letra vertical */
+  overflow-wrap:anywhere;
 }
 
-/* Checkbox “bonito” sin salirse */
-.check input{
-  accent-color: var(--accent);
+/* Posters / Planes / Horarios */
+.plans-grid,
+.horarios-grid{
+  align-items:stretch;
+}
+
+.plan-card{
+  padding:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.plan-image{
+  flex:1;
+  width:100%;
+  overflow:hidden;
+  border-radius:inherit;
+  background:rgba(8,4,18,.55);
+}
+
+.plan-image--poster{
+  aspect-ratio:auto;
+}
+
+.plan-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease;
+}
+
+.plan-card:hover .plan-image img{
+  transform:scale(1.04);
+}
+
+.plan-body{
+  padding:1rem;
+  background:linear-gradient(
+    to top,
+    rgba(5,3,10,.92),
+    rgba(5,3,10,.55),
+    transparent
+  );
+}
+
+.plan-body--center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Horarios */
+.horarios-grid{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+.horarios-title{
+  margin:2.6rem 0 1.4rem;
+  font-family:"Playfair Display", serif;
+  font-size:1.35rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(245,193,216,.95);
+}
+
+.horarios-divider{
+  margin:3rem 0 2.6rem;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(245,193,216,.45),
+    transparent
+  );
 }
 
 /* Map */
@@ -492,7 +578,7 @@ img,iframe{max-width:100%;display:block}
   border-radius:var(--r-lg);
   border:1px solid var(--border);
   box-shadow:var(--shadow);
-  background: rgba(8,4,18,.65);
+  background:rgba(8,4,18,.65);
 }
 .map-container iframe{
   position:absolute;
@@ -517,7 +603,7 @@ img,iframe{max-width:100%;display:block}
   border:1px solid var(--border);
   text-decoration:none;
   color:var(--text);
-  background: rgba(12,8,22,.85);
+  background:rgba(12,8,22,.85);
   transition:transform .18s ease, background .18s ease, border-color .18s ease;
 }
 .social-link i{
@@ -526,8 +612,8 @@ img,iframe{max-width:100%;display:block}
 }
 .social-link:hover{
   transform:translateY(-1px);
-  background: rgba(245,193,216,.09);
-  border-color: rgba(245,193,216,.28);
+  background:rgba(245,193,216,.09);
+  border-color:rgba(245,193,216,.28);
 }
 
 /* Footer */
@@ -545,205 +631,63 @@ img,iframe{max-width:100%;display:block}
   font-size:.9rem;
 }
 .back-to-top{
-  color: rgba(245,193,216,.92);
+  color:rgba(245,193,216,.92);
   text-decoration:none;
 }
 .back-to-top:hover{ text-decoration:underline; }
 
-/* ===== Responsive ===== */
-@media (max-width: 980px){
+/* Responsive */
+@media (max-width:980px){
   .hero{min-height:auto}
   .hero-content{grid-template-columns:1fr}
-  .hero-image{order:-1;margin-bottom:1.2rem}
+
+  /* FIX: en móvil/tablet las imágenes del hero quedan debajo del texto */
+  .hero-image{
+    order:0;
+    margin-top:1.4rem;
+    margin-bottom:0;
+  }
+
   .two-columns{grid-template-columns:1fr}
   .info-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
-  .carousel{ max-width: 100%; }
+  .horarios-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .carousel{max-width:100%}
 }
 
-@media (max-width: 680px){
+@media (max-width:680px){
   .section{padding:3.1rem 0}
   .hero-title{letter-spacing:.03em}
   .hero-cta-group{align-items:stretch}
+
+  .hero-image{
+    margin-top:1.6rem;
+  }
 
   .secondary-photo{
     position:static;
     width:220px;
     max-width:78%;
-    margin-top:.8rem
+    margin-top:.8rem;
   }
 
   .trial-grid{grid-template-columns:1fr}
   .info-grid{grid-template-columns:1fr}
+  .horarios-grid{grid-template-columns:1fr}
   .footer-content{flex-direction:column;text-align:center}
 
-  .carousel-slide{ aspect-ratio: 16/11; }
+  .carousel-slide{aspect-ratio:16/11}
   .carousel-btn{
-    width: 38px;
-    height: 38px;
-    font-size: 26px;
+    width:38px;
+    height:38px;
+    font-size:26px;
   }
 
-  /* En mobile: checks 1 columna, nunca se salen */
-  .checks{ grid-template-columns: 1fr; }
+  .checks{grid-template-columns:1fr}
 }
 
-@media (max-width: 420px){
-  .btn-primary,.btn-secondary{ width:100%; }
-  .trial-actions{ justify-content:stretch; }
+@media (max-width:420px){
+  .btn-primary,.btn-secondary{width:100%}
+  .trial-actions{justify-content:stretch}
   .trial-actions .btn-primary,
-  .trial-actions .btn-secondary{ width:100%; }
-}
-/* ===== Planes con posters (tus imágenes verticales) ===== */
-.plans-grid{ align-items:stretch; }
-
-.plan-card{
-  padding:0;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-}
-
-.plan-image{
-  width:100%;
-  aspect-ratio: 4 / 3; /* default */
-  overflow:hidden;
-}
-
-.plan-image--poster{
-  aspect-ratio: 3 / 4; /* poster vertical como tus imágenes */
-  background: rgba(8,4,18,.55);
-}
-
-.plan-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition: transform .45s ease;
-}
-
-.plan-card:hover .plan-image img{
-  transform: scale(1.03);
-}
-
-.plan-body{
-  padding:1.25rem 1.2rem 1.35rem;
-  display:flex;
-  flex-direction:column;
-  gap:.35rem;
-}
-
-/* Responsive: que el poster no se haga gigante en móvil */
-@media (max-width: 680px){
-  .plan-image--poster{
-    aspect-ratio: 16 / 12; /* recorte más horizontal en celular para no ocupar tanta altura */
-  }
-  .plan-image--poster img{
-    object-position: center top; /* mantiene el título visible arriba */
-  }
-}
-
-/* ===== FIX definitivo cards de planes ===== */
-.plan-card{
-  padding:0;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  height:100%;
-}
-
-/* Contenedor de imagen ocupa todo */
-.plan-image{
-  flex: 1;
-  width:100%;
-  overflow:hidden;
-  border-radius: inherit;
-}
-
-/* Posters verticales */
-.plan-image--poster{
-  aspect-ratio: auto; /* 🔑 elimina el espacio fantasma */
-}
-
-/* Imagen siempre llena el card */
-.plan-image img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-  transition: transform .45s ease;
-}
-
-/* Hover intacto */
-.plan-card:hover .plan-image img{
-  transform: scale(1.04);
-}
-
-/* Body solo cuando existe (clase de prueba) */
-.plan-body{
-  padding:1rem;
-  background: linear-gradient(
-    to top,
-    rgba(5,3,10,.92),
-    rgba(5,3,10,.55),
-    transparent
-  );
-}
-
-/* CTA centrado y elegante */
-.plan-body--center{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.horarios-grid{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-@media (max-width: 980px){
-  .horarios-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-@media (max-width: 680px){
-  .horarios-grid{ grid-template-columns: 1fr; }
-}
-
-/* Títulos de sub-bloque */
-.horarios-title{
-  margin: 2.6rem 0 1.4rem;
-  font-family: "Playfair Display", serif;
-  font-size: 1.35rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(245,193,216,.95);
-}
-
-/* Separador elegante */
-.horarios-divider{
-  margin: 3rem 0 2.6rem;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(245,193,216,.45),
-    transparent
-  );
-}
-
-/* Grid específico horarios */
-.horarios-grid{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-/* Responsive */
-@media (max-width: 980px){
-  .horarios-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 680px){
-  .horarios-grid{
-    grid-template-columns: 1fr;
-  }
+  .trial-actions .btn-secondary{width:100%}
 }
