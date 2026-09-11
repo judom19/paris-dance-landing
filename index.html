@@ -2,275 +2,334 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Paris Dance Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google verification -->
+  <title>Paris Dance Studio | Ballet & Jazz en Alajuela</title>
+
   <meta name="google-site-verification" content="B4M53bYzUXm_xEOFJ_UR6UYtM497lSXTAYTok0jpEME" />
 
-  <!-- SEO -->
-  <meta name="description" content="Paris Dance Studio: Ballet & Jazz con técnica 100% francesa. Matrícula abierta 2026. Reservá tu clase de prueba y consultá planes y horarios." />
-  <meta name="keywords" content="ballet, jazz, Paris Dance Studio, clases de ballet, clases de jazz, técnica francesa, Alajuela, Costa Rica, academia de danza">
-
+  <meta
+    name="description"
+    content="Paris Dance Studio: Ballet y Jazz con técnica 100% francesa en Alajuela. Grupos principiantes para niñas y adultas, clase de prueba e inscripción."
+  />
+  <meta
+    name="keywords"
+    content="ballet, jazz, Paris Dance Studio, ballet principiantes, jazz principiantes, clases de ballet, clases de jazz, técnica francesa, Alajuela, Costa Rica"
+  />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://parisdancestudio.com/" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Paris Dance Studio – Ballet & Jazz · Técnica Francesa">
-<meta property="og:description" content="Academia de Ballet y Jazz con técnica 100% francesa en Alajuela. Matrícula abierta 2026. Reservá tu clase de prueba.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://parisdancestudio.com/">
-<meta property="og:image" content="https://parisdancestudio.com/img/og-paris-dance-studio.jpg">
-<meta property="og:locale" content="es_CR">
-
+  <!-- Open Graph -->
+  <meta property="og:title" content="Paris Dance Studio – Ballet & Jazz · Técnica Francesa" />
+  <meta
+    property="og:description"
+    content="Ballet y Jazz con técnica 100% francesa en Alajuela. Grupos principiantes para niñas y adultas."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://parisdancestudio.com/" />
+  <meta property="og:image" content="https://parisdancestudio.com/img/og-paris-dance-studio.jpg" />
   <meta property="og:locale" content="es_CR" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Paris Dance Studio – Ballet & Jazz | Matrícula Abierta 2026" />
-  <meta name="twitter:description" content="Ballet & Jazz con técnica 100% francesa. Reservá tu clase de prueba y consultá planes y horarios." />
+  <meta name="twitter:title" content="Paris Dance Studio – Ballet & Jazz" />
+  <meta
+    name="twitter:description"
+    content="Técnica 100% francesa. Grupos principiantes para niñas y adultas en Alajuela."
+  />
+  <meta name="twitter:image" content="https://parisdancestudio.com/img/og-paris-dance-studio.jpg" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"DanceGroup",
-    "name":"Paris Dance Studio",
-    "url":"https://parisdancestudio.com/",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Alajuela",
-      "addressCountry":"CR"
+    "@context": "https://schema.org",
+    "@type": "DanceGroup",
+    "name": "Paris Dance Studio",
+    "url": "https://parisdancestudio.com/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Alajuela",
+      "addressCountry": "CR"
     },
-    "image":["https://parisdancestudio.com/img/paris02.jpg"]
+    "image": [
+      "https://parisdancestudio.com/img/paris_nueva05.PNG"
+    ]
   }
   </script>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+  />
 
-  <!-- CSS -->
-  <link rel="preload" href="styles.css?v=3" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=3"></noscript>
+  <link rel="stylesheet" href="styles.css?v=8" />
 
-  <!-- Carrusel (defer) -->
   <script defer>
-  document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("pdsCarousel");
-    if (!root) return;
+    document.addEventListener("DOMContentLoaded", () => {
+      const root = document.getElementById("pdsCarousel");
+      if (!root) return;
 
-    const track = root.querySelector(".carousel-track");
-    const slides = Array.from(root.querySelectorAll(".carousel-slide"));
-    const prevBtn = root.querySelector(".carousel-btn.prev");
-    const nextBtn = root.querySelector(".carousel-btn.next");
-    const dotsWrap = root.querySelector(".carousel-dots");
+      const track = root.querySelector(".carousel-track");
+      const slides = Array.from(root.querySelectorAll(".carousel-slide"));
+      const prevBtn = root.querySelector(".carousel-btn.prev");
+      const nextBtn = root.querySelector(".carousel-btn.next");
+      const dotsWrap = root.querySelector(".carousel-dots");
 
-    if (!track || slides.length === 0 || !prevBtn || !nextBtn) return;
+      if (!track || !slides.length || !prevBtn || !nextBtn) return;
 
-    let index = 0;
-    let timer = null;
-    const AUTOPLAY_MS = 4200;
+      let index = 0;
+      let timer = null;
+      const AUTOPLAY_MS = 4200;
 
-    // Dots
-    let dots = [];
-    if (dotsWrap) {
-      dotsWrap.innerHTML = "";
-      dots = slides.map((_, i) => {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "carousel-dot" + (i === 0 ? " active" : "");
-        b.setAttribute("aria-label", "Ir a la imagen " + (i + 1));
-        b.addEventListener("click", () => goTo(i, true));
-        dotsWrap.appendChild(b);
-        return b;
-      });
-    }
+      let dots = [];
 
-    function update() {
-      track.style.transform = `translateX(${-index * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle("active", i === index));
-    }
+      if (dotsWrap) {
+        dotsWrap.innerHTML = "";
 
-    function goTo(i, userAction = false) {
-      index = (i + slides.length) % slides.length;
+        dots = slides.map((_, i) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "carousel-dot" + (i === 0 ? " active" : "");
+          button.setAttribute("aria-label", `Ir a la imagen ${i + 1}`);
+          button.addEventListener("click", () => goTo(i, true));
+          dotsWrap.appendChild(button);
+          return button;
+        });
+      }
+
+      function update() {
+        track.style.transform = `translateX(${-index * 100}%)`;
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+      }
+
+      function goTo(nextIndex, userAction = false) {
+        index = (nextIndex + slides.length) % slides.length;
+        update();
+
+        if (userAction) restartAutoplay();
+      }
+
+      function next(userAction = false) {
+        goTo(index + 1, userAction);
+      }
+
+      function prev(userAction = false) {
+        goTo(index - 1, userAction);
+      }
+
+      prevBtn.addEventListener("click", () => prev(true));
+      nextBtn.addEventListener("click", () => next(true));
+
+      let startX = 0;
+      let dragging = false;
+
+      root.addEventListener(
+        "touchstart",
+        (event) => {
+          dragging = true;
+          startX = event.touches[0].clientX;
+        },
+        { passive: true }
+      );
+
+      root.addEventListener(
+        "touchend",
+        (event) => {
+          if (!dragging) return;
+
+          dragging = false;
+          const dx = event.changedTouches[0].clientX - startX;
+
+          if (Math.abs(dx) > 40) {
+            dx < 0 ? next(true) : prev(true);
+          }
+        },
+        { passive: true }
+      );
+
+      function stopAutoplay() {
+        if (!timer) return;
+        clearInterval(timer);
+        timer = null;
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(() => next(false), AUTOPLAY_MS);
+      }
+
+      function restartAutoplay() {
+        startAutoplay();
+      }
+
+      root.addEventListener("mouseenter", stopAutoplay);
+      root.addEventListener("mouseleave", startAutoplay);
+
       update();
-      if (userAction) restartAutoplay();
-    }
+      startAutoplay();
 
-    function next(userAction = false) { goTo(index + 1, userAction); }
-    function prev(userAction = false) { goTo(index - 1, userAction); }
-
-    prevBtn.addEventListener("click", (e) => { e.preventDefault(); prev(true); });
-    nextBtn.addEventListener("click", (e) => { e.preventDefault(); next(true); });
-
-    // Swipe
-    let startX = 0;
-    let dragging = false;
-
-    root.addEventListener("touchstart", (e) => {
-      dragging = true;
-      startX = e.touches[0].clientX;
-    }, { passive: true });
-
-    root.addEventListener("touchend", (e) => {
-      if (!dragging) return;
-      dragging = false;
-      const endX = e.changedTouches[0].clientX;
-      const dx = endX - startX;
-      if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
-    }, { passive: true });
-
-    // Autoplay
-    function startAutoplay() {
-      stopAutoplay();
-      timer = setInterval(() => next(false), AUTOPLAY_MS);
-    }
-    function stopAutoplay() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-    function restartAutoplay() { startAutoplay(); }
-
-    root.addEventListener("mouseenter", stopAutoplay);
-    root.addEventListener("mouseleave", startAutoplay);
-
-    update();
-    startAutoplay();
-  });
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
   </script>
-  <!-- contenido de la página -->
-
-<script>
-  document.addEventListener("submit", (e) => {
-    const form = e.target;
-    if (!(form instanceof HTMLFormElement)) return;
-
-    const fd = new FormData(form);
-    console.group("FORM SUBMIT");
-    for (const [k, v] of fd.entries()) console.log(k, "=>", v);
-    console.groupEnd();
-  }, true);
-</script>
-</body>
-
 </head>
 
 <body>
+  <!-- NAV -->
+  <nav class="site-nav" aria-label="Navegación principal">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="#inicio">PARIS <span>Dance Studio</span></a>
+
+      <div class="nav-links">
+        <a href="#grupos">Grupos</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#planes">Planes</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+
+      <a class="nav-cta" href="#clase-prueba">Clase de muestra</a>
+    </div>
+  </nav>
+
   <!-- HERO -->
   <header class="hero" id="inicio">
-    <div class="hero-overlay"></div>
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
 
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h3 class="hero-label">Ballet & Jazz · Técnica 100% francesa</h3>
+    <div class="container hero-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Ballet & Jazz · Técnica 100% francesa</p>
 
-        <h1 class="hero-brand">Paris Dance Studio</h1>
-        <h1 class="hero-title"><strong>Próxima Gala 2026</strong></h1>
+        <h1>
+          El sueño pendiente no se abandona
+          <span>se entrena.</span>
+        </h1>
 
-        <!-- Carrusel -->
-        <div class="carousel" id="pdsCarousel" aria-label="Carrusel Paris Dance Studio">
+        <p class="hero-description">
+          Formación técnica, acompañamiento cercano y grupos diseñados para comenzar desde cero.
+          Ballet y Jazz para niñas y adultas en Alajuela.
+        </p>
+
+        <div class="hero-badges">
+          <span>Grupos principiantes</span>
+          <span>Desde 7 años</span>
+          <span>Sin edad máxima en adultos</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#clase-prueba" class="btn-primary">Reservar clase de prueba</a>
+          <a href="#horarios" class="btn-secondary">Ver horarios</a>
+        </div>
+
+        <p class="hero-microcopy">
+          Mall Internacional · Local #67 · Alajuela
+        </p>
+      </div>
+
+      <div class="hero-media">
+        <div class="carousel" id="pdsCarousel" aria-label="Galería Paris Dance Studio">
           <div class="carousel-viewport">
             <div class="carousel-track">
-              
-              <div class="carousel-slide"><img src="img/paris_nueva05.PNG" alt="Paris Dance Studio 24" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris24.jpg" alt="Paris Dance Studio 24" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris10.JPEG" alt="Paris Dance Studio 10" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris11.JPEG" alt="Paris Dance Studio 11" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris16.JPEG" alt="Paris Dance Studio 16" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris17.JPEG" alt="Paris Dance Studio 17" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris18.JPEG" alt="Paris Dance Studio 18" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris20.JPEG" alt="Paris Dance Studio 20" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris21.JPEG" alt="Paris Dance Studio 21" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris22.JPEG" alt="Paris Dance Studio 22" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris23.JPEG" alt="Paris Dance Studio 23" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris_nueva02.PNG" alt="Paris Dance Studio 24" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris_nueva04.PNG" alt="Paris Dance Studio 24" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris_nueva05.PNG" alt="Clase en Paris Dance Studio" loading="eager"></div>
+              <div class="carousel-slide"><img src="img/paris24.jpg" alt="Alumnas de Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris10.JPEG" alt="Entrenamiento de danza en Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris11.JPEG" alt="Bailarina de Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris16.JPEG" alt="Clase de ballet en Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris17.JPEG" alt="Formación en Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris18.JPEG" alt="Danza en Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris20.JPEG" alt="Ballet en Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris21.JPEG" alt="Alumnas de Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris22.JPEG" alt="Jazz en Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris23.JPEG" alt="Paris Dance Studio Alajuela" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris_nueva02.PNG" alt="Bailarinas de Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide"><img src="img/paris_nueva04.PNG" alt="Comunidad Paris Dance Studio" loading="lazy"></div>
             </div>
 
-            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
-            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-btn prev" type="button" aria-label="Imagen anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Imagen siguiente">›</button>
           </div>
 
           <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
         </div>
-
-        <p class="hero-subtitle">A partir de 3 años · Sin limite de edad · Alajuela</p>
-
-        <div class="hero-cta-group">
-          <a href="#clase-prueba" class="btn-primary">Reservar clase de prueba</a>
-          <a href="#matricula" class="btn-secondary">Matrícula / inscripción</a>
-          <a href="#planes" class="btn-secondary">Ver planes y horarios</a>
-          <p class="hero-note">“El sueño pendiente no se abandona: se entrena.”</p>
-        </div>
-
-        <ul class="highlight-list" style="margin-top:1rem;">
-          <li>Formamos bailarinas con técnica 100% francesa.</li>
-          <li>Es tu momento. Técnica 100% francesa, desde cero y con guía.</li>
-          <li>Técnica 100% francesa. Es tu momento de cumplir ese sueño pendiente.</li>
-          <li>El sueño pendiente no se abandona: se entrena...</li>
-        </ul>
-      </div>
-
-      <div class="hero-image" aria-label="Imágenes de la academia">
-        <div class="hero-photo main-photo"></div>
-        <div class="hero-photo secondary-photo"></div>
       </div>
     </div>
   </header>
 
-  <!-- QUIÉNES SOMOS -->
-  <section class="section" id="quienes-somos">
-    <div class="container two-columns">
+  <!-- INTRO -->
+  <section class="section intro-section" id="quienes-somos">
+    <div class="container intro-layout">
       <div>
-        <h2>¿Quiénes somos?</h2>
-        <p>
-          Somos <strong>Paris Dance Studio</strong>, una academia de Ballet y Jazz con técnica <strong>100% francesa</strong>.
-          Nuestro enfoque es que cada alumna se sienta <strong>segura</strong>, <strong>acompañada</strong> y <strong>guiada</strong>
-          en su proceso de formación como bailarina, sin importar su nivel.
-        </p>
-        <p>
-          Creemos que para formar grandes bailarinas se necesita técnica real, pero también un espacio cálido, respetuoso y motivador,
-          donde el progreso se construye paso a paso.
-        </p>
-
-        <ul class="highlight-list">
-          <li><strong>Directora General:</strong> Aisha Viguier</li>
-        </ul>
+        <p class="section-kicker">Paris Dance Studio</p>
+        <h2>Un espacio para aprender danza con técnica, claridad y acompañamiento.</h2>
       </div>
 
-      <div class="info-card">
-        <h3>¿Qué es Paris Dance Studio?</h3>
-        <p style="margin-bottom:.8rem;">
-          Un espacio de formación en Ballet y Jazz donde combinamos técnica, arte y acompañamiento real.
-          Aquí no venís solo a “tomar una clase”: venís a construir base, ganar confianza y crecer como bailarina.
+      <div class="intro-copy">
+        <p>
+          Somos una academia de Ballet y Jazz con técnica <strong>100% francesa</strong>.
+          Nuestro enfoque combina formación técnica real, en un ambiente seguro,
+          profesional y motivador.
         </p>
         <p>
-          Trabajamos con alumnas desde los <strong>7 años</strong> en adelante (sin edad máxima). Nuestro objetivo es que cada alumna
-          se sienta segura, cuidada y motivada, en un ambiente donde el progreso se celebra.
+          Los grupos actuales están enfocados en <strong>nivel principiante</strong>:
+          personas que empiezan desde cero, regresan después de una pausa o desean
+          construir una base técnica sólida.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- MISIÓN / VISIÓN -->
-  <section class="section section-alt" id="mision-vision">
-    <div class="container two-columns">
-      <div class="info-card">
-        <h3>Misión</h3>
+  <!-- GRUPOS -->
+  <section class="section section-alt" id="grupos">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Grupos actuales</p>
+          <h2>Elegí el espacio que mejor se adapte a tu etapa.</h2>
+        </div>
         <p>
-          Formar bailarinas con técnica 100% francesa, acompañándolas con respeto, disciplina y motivación,
-          para que construyan una base sólida y desarrollen confianza, presencia y amor por el proceso.
+          Todos nuestros grupos publicados actualmente corresponden a nivel principiante.
+          No necesitás experiencia previa para iniciar.
         </p>
       </div>
 
-      <div class="info-card">
-        <h3>Visión</h3>
-        <p>
-          Ser una academia referente en Costa Rica por la calidad técnica, el ambiente seguro y el crecimiento real
-          de nuestras alumnas, impulsando su desarrollo artístico con estándares profesionales y calidez humana.
-        </p>
+      <div class="group-grid">
+        <article class="group-card">
+          <span class="group-icon"><i class="fa-solid fa-person-dress"></i></span>
+          <p class="group-tag">Adultas · Principiante</p>
+          <h3>Ballet</h3>
+          <p>
+            Base técnica francesa, colocación, coordinación, musicalidad y progresión
+            desde cero con acompañamiento durante todo el proceso.
+          </p>
+          <a href="#horarios">Ver horario <span>→</span></a>
+        </article>
+
+        <article class="group-card">
+          <span class="group-icon"><i class="fa-solid fa-music"></i></span>
+          <p class="group-tag">Adultas · Principiante</p>
+          <h3>Jazz</h3>
+          <p>
+            Técnica, movilidad, coordinación y expresión. Un grupo pensado para aprender
+            de manera progresiva sin requerir experiencia previa.
+          </p>
+          <a href="#horarios">Ver horario <span>→</span></a>
+        </article>
+
+        <article class="group-card">
+          <span class="group-icon"><i class="fa-solid fa-star"></i></span>
+          <p class="group-tag">Niñas · Principiante</p>
+          <h3>Ballet niñas</h3>
+          <p>
+            Introducción progresiva a la danza y a sus bases técnicas, con un enfoque
+            acorde a la edad y al proceso de cada alumna.
+          </p>
+          <a href="#horarios">Ver horario <span>→</span></a>
+        </article>
       </div>
     </div>
   </section>
@@ -278,506 +337,947 @@
   <!-- DIFERENCIADORES -->
   <section class="section" id="diferenciales">
     <div class="container">
-      <h2>¿Qué nos hace diferentes?</h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <h3>Técnica 100% francesa real</h3>
-          <p>Precisión, colocación, musicalidad y elegancia.</p>
-        </div>
-        <div class="info-item">
-          <h3>Metodología progresiva</h3>
-          <p>Niveles, objetivos claros y avance paso a paso.</p>
-        </div>
-        <div class="info-item">
-          <h3>Acompañamiento + espacio seguro</h3>
-          <p>Guía cercana, respeto y confianza en cada clase.</p>
-        </div>
-        <div class="info-item">
-          <h3>Disciplina con motivación</h3>
-          <p>Exigencia técnica sin presión negativa; formamos carácter y autoestima.</p>
+      <div class="section-heading compact">
+        <div>
+          <p class="section-kicker">Nuestra forma de enseñar</p>
+          <h2>Técnica exigente. Proceso humano.</h2>
         </div>
       </div>
 
-      <div class="info-card" style="margin-top:1.5rem;">
-        <h3>Comunidad Paris</h3>
-        <p>Pertenencia, apoyo y crecimiento en un ambiente cálido y profesional.</p>
-      </div>
-    </div>
-  </section>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span>01</span>
+          <h3>Técnica francesa</h3>
+          <p>Precisión, colocación, musicalidad y elegancia como base del entrenamiento.</p>
+        </article>
 
-  <!-- TÉCNICA -->
-  <section class="section section-alt" id="tecnica">
-    <div class="container two-columns">
-      <div>
-        <h2>¿Qué técnica usamos?</h2>
-        <p>
-          Trabajamos con técnica <strong>100% francesa</strong>, reconocida por su elegancia, precisión y musicalidad.
-          Esto significa que no buscamos solo “hacer pasos”, sino construir una base sólida y limpia para que cada alumna
-          progrese con seguridad y sienta su danza.
-        </p>
+        <article class="feature-card">
+          <span>02</span>
+          <h3>Progresión real</h3>
+          <p>El aprendizaje se construye paso a paso para que la técnica sea comprensible y sostenible.</p>
+        </article>
 
-        <h3 style="margin-top:1.2rem;">¿Cómo se ve en una clase?</h3>
-        <p>
-          Corregimos con cuidado y claridad para que cada alumna sepa cómo mejorar sin frustrarse.
-          Trabajamos progresiones, repetición inteligente y ejercicios que construyen técnica real,
-          mientras se desarrolla disciplina, estilo y amor por el proceso.
-        </p>
-      </div>
+        <article class="feature-card">
+          <span>03</span>
+          <h3>Corrección cercana</h3>
+          <p>La docente guía, corrige y acompaña para que cada alumna entienda cómo mejorar.</p>
+        </article>
 
-      <div class="info-card">
-        <h3>Estilos</h3>
-        <ul class="highlight-list">
-          <li><strong>Ballet:</strong> clásico con enfoque técnico francés, con matices lírico y contemporáneo según el trabajo artístico.</li>
-          <li><strong>Jazz:</strong> clásico, lírico, contemporáneo, moderno/funk.</li>
-        </ul>
-
-        <h3 style="margin-top:1.2rem;">Niveles y edades</h3>
-        <p><strong>A partir de 7 años</strong> (sin edad máxima).</p>
-        <ul class="highlight-list">
-          <li>Principiante</li>
-          <li>Principiante–Intermedio</li>
-          <li>Intermedio–Avanzado</li>
-        </ul>
-        <p style="margin-top:.6rem;">
-          En Principiante no se necesita experiencia previa: solo constancia y ganas de crecer.
-        </p>
+        <article class="feature-card">
+          <span>04</span>
+          <h3>Espacio seguro</h3>
+          <p>Disciplina y compromiso dentro de una comunidad respetuosa, cálida y profesional.</p>
+        </article>
       </div>
     </div>
   </section>
 
-<!-- HORARIOS -->
-<section class="section" id="horarios">
-  <div class="container">
-    <h2>Horarios</h2>
-    <p class="section-intro">
-      Horarios organizados por estilo y nivel. Los sábados son talleres técnicos complementarios incluidos según el plan.
-    </p>
-
-    <!-- ================= BALLET ================= -->
-    <h3 class="horarios-title">Ballet</h3>
-
-    <div class="info-grid horarios-grid">
-
-      <!-- Ballet Principiante -->
-      <div class="info-item plan-card">
-        <div class="plan-image plan-image--poster">
-          <img src="img/horario_ballet_principiante.png" alt="Horario Ballet Principiante" loading="lazy">
+  <!-- HORARIOS -->
+  <section class="section section-alt" id="horarios">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Horarios vigentes</p>
+          <h2>Grupos principiantes</h2>
         </div>
+        <p>
+          Elegí tu disciplina y revisá el horario disponible. Los cupos están sujetos
+          a disponibilidad.
+        </p>
       </div>
 
+      <div class="schedule-grid">
+        <article class="schedule-card">
+          <div class="schedule-image">
+            <img src="img/horario_ballet_principiante.png" alt="Horario Ballet Adulto Principiante" loading="lazy">
+          </div>
+          <div class="schedule-caption">
+            <div>
+              <span>Ballet</span>
+              <h3>Adulto Principiante</h3>
+            </div>
+            <a href="#clase-prueba">Probar clase</a>
+          </div>
+        </article>
 
-      <!-- Ballet Niña -->
-      <div class="info-item plan-card">
-        <div class="plan-image plan-image--poster">
-    
-          <img src="img/horario_niñas.png" alt="Horario Ballet Principiante" loading="lazy">
+        <article class="schedule-card">
+          <div class="schedule-image">
+            <img src="img/horario_jazz_principiante.png" alt="Horario Jazz Adulto Principiante" loading="lazy">
+          </div>
+          <div class="schedule-caption">
+            <div>
+              <span>Jazz</span>
+              <h3>Adulto Principiante</h3>
+            </div>
+            <a href="#clase-prueba">Probar clase</a>
+          </div>
+        </article>
+
+        <article class="schedule-card">
+          <div class="schedule-image">
+            <img src="img/horario_niñas.png" alt="Horario Ballet Niñas Principiante" loading="lazy">
+          </div>
+          <div class="schedule-caption">
+            <div>
+              <span>Ballet</span>
+              <h3>Niñas Principiante</h3>
+            </div>
+            <a href="#clase-prueba">Probar clase</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section class="section" id="planes">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Planes</p>
+          <h2>Empezá con el plan que se adapte a tu rutina.</h2>
+        </div>
+        <p>
+          Mostramos únicamente la información correspondiente a los grupos principiantes
+          actualmente disponibles.
+        </p>
+      </div>
+
+      <div class="plans-layout">
+        <article class="poster-card">
+          <img
+            src="img/planes_principiante.png"
+            alt="Planes de nivel principiante Paris Dance Studio"
+            loading="lazy"
+          >
+        </article>
+
+        <article class="trial-promo-card">
+          <img
+            src="img/clase_prueba.png"
+            alt="Clase de prueba Paris Dance Studio"
+            loading="lazy"
+          >
+          <div class="trial-promo-action">
+            <a href="#clase-prueba" class="btn-primary">Reservar ahora</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<!-- CLASE DE PRUEBA -->
+<section class="section section-alt" id="clase-prueba">
+  <div class="container form-layout">
+
+    <div class="form-intro">
+      <p class="section-kicker">Primer paso</p>
+
+      <h2>Reservá tu clase de prueba</h2>
+
+      <p>
+        Completá tus datos y seleccioná el grupo que querés probar.
+        Te confirmaremos disponibilidad por WhatsApp.
+      </p>
+
+      <div class="form-summary">
+        <div>
+          <strong>Grupos</strong>
+          <span>Ballet Adulto · Jazz Adulto</span>
+        </div>
+
+        <div>
+          <strong>Nivel</strong>
+          <span>Principiante</span>
+        </div>
+
+        <div>
+          <strong>Ubicación</strong>
+          <span>Mall Internacional · Alajuela</span>
         </div>
       </div>
     </div>
 
-    <!-- Separador elegante -->
-    <div class="horarios-divider"></div>
+    <div class="trial-card">
 
-    <!-- ================= JAZZ ================= -->
-    <h3 class="horarios-title">Jazz</h3>
+      <form
+        class="trial-form"
+        action="https://formspree.io/f/mregenny"
+        method="POST"
+      >
 
-    <div class="info-grid horarios-grid">
+        <!-- Formspree -->
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nueva clase de prueba - Paris Dance Studio"
+        >
 
-      <!-- Jazz Principiante -->
-      <div class="info-item plan-card">
-        <div class="plan-image plan-image--poster">
-          <img src="img/horario_jazz_principiante.png" alt="Horario Jazz Principiante" loading="lazy">
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        >
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="false"
+        >
+
+        <input
+          type="hidden"
+          name="_redirect"
+          value="https://parisdancestudio.com/gracias.html"
+        >
+
+        <input
+          type="hidden"
+          name="Tipo de formulario"
+          value="Clase de prueba"
+        >
+
+        <!-- Honeypot -->
+        <div class="honeypot" aria-hidden="true">
+          <label for="cp_gotcha">Dejá esto vacío</label>
+
+          <input
+            id="cp_gotcha"
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+          >
         </div>
-      </div>
 
-      <!-- Jazz Principiante Intermedio -->
-      <div class="info-item plan-card">
-        <div class="plan-image plan-image--poster">
-          <img src="img/horario_jazz_principiante_intermedio.png" alt="Horario Jazz Principiante Intermedio" loading="lazy">
-        </div>
-      </div>
+        <div class="trial-grid">
 
-      <!-- Jazz Avanzado -->
-      <div class="info-item plan-card">
-        <div class="plan-image plan-image--poster">
-          <img src="img/horario_jazz_avanzado.png" alt="Horario Jazz Avanzado" loading="lazy">
+          <!-- Nombre -->
+          <div class="trial-field full-field">
+            <label for="cp_nombre">
+              Nombre completo
+            </label>
+
+            <input
+              id="cp_nombre"
+              name="Nombre completo"
+              type="text"
+              required
+              minlength="4"
+              maxlength="80"
+              autocomplete="name"
+              placeholder="Tu nombre completo"
+            >
+          </div>
+
+          <!-- Edad -->
+          <div class="trial-field">
+            <label for="cp_edad">
+              Edad
+            </label>
+
+            <input
+              id="cp_edad"
+              name="Edad"
+              type="number"
+              min="14"
+              max="90"
+              required
+              inputmode="numeric"
+              placeholder="14+"
+            >
+          </div>
+
+          <!-- Grupo -->
+          <div class="trial-field">
+            <label for="cp_grupo">
+              Grupo que querés probar
+            </label>
+
+            <select
+              id="cp_grupo"
+              name="Grupo"
+              required
+            >
+              <option value="" disabled selected>
+                Seleccioná
+              </option>
+
+              <option value="Ballet Adulto Principiante">
+                Ballet Adulto Principiante
+              </option>
+
+              <option value="Jazz Adulto Principiante">
+                Jazz Adulto Principiante
+              </option>
+            </select>
+          </div>
+
+          <!-- Horario -->
+          <div class="trial-field full-field">
+            <label for="cp_horario">
+              Horario que querés probar
+            </label>
+
+            <select
+              id="cp_horario"
+              name="Horario preferido"
+              required
+            >
+              <option value="" disabled selected>
+                Seleccioná un horario
+              </option>
+
+              <optgroup label="Ballet Adulto Principiante">
+
+                <option value="Ballet - Lunes 5:00pm a 6:00pm">
+                  Lunes · 5:00 p.m. – 6:00 p.m.
+                </option>
+
+                <option value="Ballet - Lunes 6:00pm a 7:15pm">
+                  Lunes · 6:00 p.m. – 7:15 p.m.
+                </option>
+
+                <option value="Ballet - Miércoles 5:00pm a 6:00pm">
+                  Miércoles · 5:00 p.m. – 6:00 p.m.
+                </option>
+
+                <option value="Ballet - Miércoles 6:00pm a 7:15pm">
+                  Miércoles · 6:00 p.m. – 7:15 p.m.
+                </option>
+
+                <option value="Ballet - Martes 8:30pm a 9:30pm">
+                  Martes · 8:30 p.m. – 9:30 p.m.
+                </option>
+
+                <option value="Ballet - Jueves 8:30pm a 9:30pm">
+                  Jueves · 8:30 p.m. – 9:30 p.m.
+                </option>
+
+                <option value="Ballet - Sábado 9:00am a 10:15am">
+                  Sábado · 9:00 a.m. – 10:15 a.m.
+                </option>
+
+              </optgroup>
+
+              <optgroup label="Jazz Adulto Principiante">
+
+                <option value="Jazz - Martes 7:15pm a 8:30pm">
+                  Martes · 7:15 p.m. – 8:30 p.m.
+                </option>
+
+                <option value="Jazz - Jueves 7:15pm a 8:30pm">
+                  Jueves · 7:15 p.m. – 8:30 p.m.
+                </option>
+
+                <option value="Jazz - Sábado 10:30am a 11:45am">
+                  Sábado · 10:30 a.m. – 11:45 a.m.
+                </option>
+
+              </optgroup>
+            </select>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="trial-field full-field">
+            <label for="cp_whatsapp">
+              WhatsApp
+            </label>
+
+            <input
+              id="cp_whatsapp"
+              name="WhatsApp"
+              type="tel"
+              inputmode="numeric"
+              required
+              pattern="[0-9]{8}"
+              maxlength="8"
+              autocomplete="tel"
+              placeholder="Ej: 72827346"
+            >
+
+            <small class="help">
+              8 dígitos, sin espacios.
+            </small>
+          </div>
+
         </div>
-      </div>
+
+        <div class="trial-actions">
+
+          <button
+            class="btn-primary"
+            type="submit"
+          >
+            Enviar solicitud
+          </button>
+
+          <a
+            class="btn-secondary"
+            href="https://wa.me/50672827346"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+        <p class="trial-note">
+          Te contactaremos por WhatsApp para confirmar el espacio disponible.
+        </p>
+
+      </form>
 
     </div>
   </div>
 </section>
+<!-- CLASE DE PRUEBA -->
+<section class="section section-alt" id="clase-prueba">
+  <div class="container form-layout">
 
+    <div class="form-intro">
+      <p class="section-kicker">Primer paso</p>
 
+      <h2>Reservá tu clase de prueba</h2>
 
-  <!-- PLANES -->
-  <section class="section section-alt" id="planes">
-    <div class="container">
-      <h2>Planes mensuales</h2>
-      <p class="section-intro">
-        Matrícula <strong>gratis durante Septiembre</strong>. Clase de muestra: <strong>₡3.000</strong>.
+      <p>
+        Completá tus datos y seleccioná el grupo que querés probar.
+        Te confirmaremos disponibilidad por WhatsApp.
       </p>
-<div class="info-grid plans-grid">
 
-  <!-- PRINCIPIANTE -->
-  <div class="info-item plan-card">
-    <div class="plan-image plan-image--poster">
-      <img
-        src="img/planes_principiante.png"
-        alt="Precios Principiante Paris Dance Studio"
-        loading="lazy"
-      >
-    </div>
-  </div>
-
-  <!-- PRINCIPIANTE – INTERMEDIO -->
-  <div class="info-item plan-card">
-    <div class="plan-image plan-image--poster">
-      <img
-        src="img/planes_intermedio.jpeg"
-        alt="Precios Intermedio Paris Dance Studio"
-        loading="lazy"
-      >
-    </div>
-  </div>
-
-  <!-- INTERMEDIO – AVANZADO -->
-  <div class="info-item plan-card">
-    <div class="plan-image plan-image--poster">
-      <img
-        src="img/planes_avanzado.jpeg"
-        alt="Precios Avanzado Paris Dance Studio"
-        loading="lazy"
-      >
-    </div>
-  </div>
-
-  <!-- CLASE DE PRUEBA -->
-  <div class="info-item plan-card">
-    <div class="plan-image plan-image--poster">
-      <img
-        src="img/clase_prueba.png"
-        alt="Clase de prueba Paris Dance Studio"
-        loading="lazy"
-      >
-    </div>
-
-    <div class="plan-body plan-body--center">
-      <a
-        href="#clase-prueba"
-        class="btn-secondary"
-        style="margin-top:.6rem; display:inline-flex;"
-      >
-        Reservar ahora
-      </a>
-    </div>
-  </div>
-
-</div>
-
-
-    </div>
-  </section>
-
-  <!-- FORM: CLASE DE PRUEBA (MANTIENE EL DISEÑO) -->
-  <section class="section" id="clase-prueba">
-    <div class="container">
-      <div class="trial-card">
-        <div class="trial-head">
-          <p class="trial-pill">Clase de Prueba</p>
-          <h2>Reservar clase de prueba</h2>
-          <p class="section-intro">
-            Completá estos datos y te confirmaremos por WhatsApp. (A partir de 7 años)
-          </p>
+      <div class="form-summary">
+        <div>
+          <strong>Grupos</strong>
+          <span>Ballet Adulto · Jazz Adulto</span>
         </div>
 
-        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST" >
-          <!-- Formspree -->
-          <input type="hidden" name="_subject" value="Nueva clase de prueba - Paris Dance Studio">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_redirect" value="https://parisdancestudio.com/gracias.html">
+        <div>
+          <strong>Nivel</strong>
+          <span>Principiante</span>
+        </div>
 
-          <!-- Honeypot -->
-          <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
-            <label>Dejá esto vacío</label>
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="trial-grid">
-            <div class="trial-field">
-              <label for="cp_nombre">Nombre</label>
-              <input id="cp_nombre" name="Nombre" type="text" required minlength="2" maxlength="40" autocomplete="given-name" required>
-            </div>
-
-            <div class="trial-field">
-              <label for="cp_apellido">Apellido</label>
-              <input id="cp_apellido" name="Apellido" type="text" required minlength="2" maxlength="60" autocomplete="family-name" required>
-            </div>
-
-            <div class="trial-field">
-              <label for="cp_edad">Edad</label>
-              <input id="cp_edad" name="Edad" type="number" min="14" max="80" required inputmode="numeric" placeholder="10+" required>
-            </div>
-
-            <div class="trial-field">
-              <label for="cp_estilo">Estilo</label>
-              <select id="cp_estilo" name="Estilo" required>
-                <option value="" disabled selected>Seleccioná</option>
-                <option value="Ballet">Ballet</option>
-                <option value="Jazz">Jazz</option>
-              </select>
-            </div>
-
-            <div class="trial-field">
-              <label for="cp_horario">Horario preferido</label>
-              <select id="cp_horario" name="Horario preferido" required>
-                <option value="" disabled selected>Seleccioná</option>
-                <option value="Lunes 6:30 p.m. – 7:30 p.m. (Ballet Adulto)">
-                  Lunes 6:30 p.m. – 7:30 p.m. (Ballet Adulto)
-                </option>
-                <option value="Miércoles 6:30 p.m. – 7:30 p.m. (Ballet Adulto)">
-                  Miércoles 6:30 p.m. – 7:30 p.m. (Ballet Adulto)
-                </option>
-                <option value="Martes 6:30 p.m. – 7:30 p.m. (Jazz Adulto)">
-                  Martes 6:30 p.m. – 7:30 p.m. (Jazz Adulto)
-                </option>
-                <option value="Jueves 6:30 p.m. – 7:30 p.m. (Jazz Adulto)">
-                  Jueves 6:30 p.m. – 7:30 p.m. (Jazz Adulto)
-                </option>
-                <option value="Martes 4:00 p.m. – 5:00 p.m. (Ballet Niña)">
-                  Martes 4:00 p.m. – 5:00 p.m. (Ballet Niña)
-                </option>
-                <option value="Jueves 4:00 p.m. – 5:00 p.m. (Ballet Niña)">
-                  Jueves 4:00 p.m. – 5:00 p.m. (Ballet Niña)
-                </option>
-              </select>
-            </div>
-
-            <div class="trial-field">
-              <label for="cp_contacto">Nombre del contacto</label>
-              <input id="cp_contacto" name="Nombre del contacto" type="text" required minlength="2" maxlength="80" autocomplete="name" required>
-            </div>
-
-            <div class="trial-field">
-              <label for="cp_whatsapp">WhatsApp</label>
-              <input id="cp_whatsapp" name="WhatsApp" type="tel" inputmode="numeric" required pattern="^[0-9]{8}$" maxlength="8" placeholder="Ej: 72827346">
-              <small class="help">8 dígitos, sin espacios.</small>
-            </div>
-          </div>
-
-          <div class="trial-actions">
-            <button class="btn-primary" type="submit">Enviar</button>
-            <a class="btn-secondary" href="https://wa.me/50672827346" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-
-          <p class="trial-note">Clase de prueba: ₡5.000 · Matrícula gratis · Desde 7 años.</p>
-        </form>
+        <div>
+          <strong>Ubicación</strong>
+          <span>Mall Internacional · Alajuela</span>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- FORM: MATRÍCULA / INSCRIPCIÓN (MISMO DISEÑO) -->
-  <section class="section section-alt" id="matricula">
-    <div class="container">
-      <div class="trial-card">
-        <div class="trial-head">
-          <p class="trial-pill">Inscripción</p>
-          <h2>Matrícula / Inscripción</h2>
-          <p class="section-intro">
-            Completá estos datos y te confirmamos cupo y coordinación por WhatsApp.
-          </p>
+    <div class="trial-card">
+
+      <form
+        class="trial-form"
+        action="https://formspree.io/f/mregenny"
+        method="POST"
+      >
+
+        <!-- Formspree -->
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nueva clase de prueba - Paris Dance Studio"
+        >
+
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        >
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="false"
+        >
+
+        <input
+          type="hidden"
+          name="_redirect"
+          value="https://parisdancestudio.com/gracias.html"
+        >
+
+        <input
+          type="hidden"
+          name="Tipo de formulario"
+          value="Clase de prueba"
+        >
+
+        <!-- Honeypot -->
+        <div class="honeypot" aria-hidden="true">
+          <label for="cp_gotcha">Dejá esto vacío</label>
+
+          <input
+            id="cp_gotcha"
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+          >
         </div>
 
-        <!-- Cambiá TU_ENDPOINT_MATRICULA por el endpoint nuevo de Formspree (recomendado) -->
-        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST" >
-          <!-- Formspree -->
-          <input type="hidden" name="_subject" value="Nueva matrícula - Paris Dance Studio">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_redirect" value="https://parisdancestudio.com/gracias-matricula.html">
+        <div class="trial-grid">
 
-          <!-- Honeypot -->
-          <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
-            <label>Dejá esto vacío</label>
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          <!-- Nombre -->
+          <div class="trial-field full-field">
+            <label for="cp_nombre">
+              Nombre completo
+            </label>
+
+            <input
+              id="cp_nombre"
+              name="Nombre completo"
+              type="text"
+              required
+              minlength="4"
+              maxlength="80"
+              autocomplete="name"
+              placeholder="Tu nombre completo"
+            >
           </div>
 
-          <fieldset class="trial-fieldset">
-            <legend class="trial-legend">Datos del alumno(a)</legend>
+          <!-- Edad -->
+          <div class="trial-field">
+            <label for="cp_edad">
+              Edad
+            </label>
 
-            <div class="trial-grid">
-              <div class="trial-field">
-                <label for="m_nombre">Nombre completo</label>
-                <input id="m_nombre" name="Nombre completo" type="text" required minlength="4" maxlength="80" autocomplete="name" placeholder="Ej: Aisha Castaneda" required>
-              </div>
+            <input
+              id="cp_edad"
+              name="Edad"
+              type="number"
+              min="14"
+              max="90"
+              required
+              inputmode="numeric"
+              placeholder="14+"
+            >
+          </div>
 
-              <div class="trial-field">
-                <label for="m_edad">Edad</label>
-                <input id="m_edad" name="Edad" type="number" min="14" max="80" required inputmode="numeric" placeholder="7+" required>
-              </div>
+          <!-- Grupo -->
+          <div class="trial-field">
+            <label for="cp_grupo">
+              Grupo que querés probar
+            </label>
 
-              <div class="trial-field">
-                <label for="m_domicilio">Domicilio (opcional)</label>
-                <input id="m_domicilio" name="Domicilio" type="text" maxlength="120" placeholder="Ej: Alajuela, Barrio...">
-              </div>
+            <select
+              id="cp_grupo"
+              name="Grupo"
+              required
+            >
+              <option value="" disabled selected>
+                Seleccioná
+              </option>
 
-              <div class="trial-field">
-                <label for="m_whatsapp">WhatsApp</label>
-                <input id="m_whatsapp" name="WhatsApp" type="tel" inputmode="numeric" required pattern="^[0-9]{8}$" maxlength="8" placeholder="Ej: 72827346" required>
-                <small class="help">8 dígitos, sin espacios.</small>
-              </div>
-            </div>
-          </fieldset>
+              <option value="Ballet Adulto Principiante">
+                Ballet Adulto Principiante
+              </option>
 
-          <hr class="divider">
+              <option value="Jazz Adulto Principiante">
+                Jazz Adulto Principiante
+              </option>
+            </select>
+          </div>
 
-          <fieldset class="trial-fieldset">
-            <legend class="trial-legend">Actividad</legend>
+          <!-- Horario -->
+          <div class="trial-field full-field">
+            <label for="cp_horario">
+              Horario que querés probar
+            </label>
 
-            <div class="trial-grid">
-              <div class="trial-field">
-                <label for="m_grupo">Grupo</label>
-                <select id="m_grupo" name="Grupo" required>
-                  <option value="" disabled selected>Seleccioná</option>
-                  <option value="Ballet">Ballet</option>
-                  <option value="Jazz">Jazz</option>
-                  <option value="Ambos">Ambos</option>
-                </select>
-              </div>
+            <select
+              id="cp_horario"
+              name="Horario preferido"
+              required
+            >
+              <option value="" disabled selected>
+                Seleccioná un horario
+              </option>
 
-              <div class="trial-field">
-                <label for="m_veces">Veces por semana</label>
-                <select id="m_veces" name="Veces por semana" required>
-                  <option value="" disabled selected>Seleccioná</option>
-                  <option value="1">1 vez</option>
-                  <option value="2">2 veces</option>
-                  <option value="4">4 veces</option>
-                </select>
-              </div>
+              <optgroup label="Ballet Adulto Principiante">
 
-              <!-- Horarios (NO dentro de trial-grid como items sueltos; van dentro de un solo field) -->
-              <div class="trial-field" style="grid-column:1/-1;">
-                <label>Selecciona según tu plan</label>
+                <option value="Ballet - Lunes 5:00pm a 6:00pm">
+                  Lunes · 5:00 p.m. – 6:00 p.m.
+                </option>
 
-                <div class="checks">
-                  <label class="check">
-                    <input type="checkbox" name="Horarios[]" value="Lunes 6:30pm">
-                    <span>Lunes 6:30pm</span>
-                  </label>
-                  <label class="check">
-                    <input type="checkbox" name="Horarios[]" value="Miércoles 6:30pm">
-                    <span>Miércoles 6:30pm</span>
-                  </label>
-                  <label class="check">
-                    <input type="checkbox" name="Horarios[]" value="Martes 6:30pm">
-                    <span>Martes 6:30pm</span>
-                  </label>
-                  <label class="check">
-                    <input type="checkbox" name="Horarios[]" value="Jueves 6:30pm">
-                    <span>Jueves 6:30pm</span>
-                  </label>
-                </div>
-                <br>
-              </div>
+                <option value="Ballet - Lunes 6:00pm a 7:15pm">
+                  Lunes · 6:00 p.m. – 7:15 p.m.
+                </option>
 
-              <div class="trial-field" style="grid-column:1/-1;">
-                <label for="m_comentarios">Comentarios adicionales (opcional)</label>
-                <textarea id="m_comentarios" name="Comentarios adicionales" rows="4" maxlength="600"
-                  placeholder="Ej: objetivo, experiencia previa, disponibilidad, dudas, preferencia de grupo..."></textarea>
-              </div>
-            </div>
-          </fieldset>
+                <option value="Ballet - Miércoles 5:00pm a 6:00pm">
+                  Miércoles · 5:00 p.m. – 6:00 p.m.
+                </option>
 
-          <hr class="divider">
+                <option value="Ballet - Miércoles 6:00pm a 7:15pm">
+                  Miércoles · 6:00 p.m. – 7:15 p.m.
+                </option>
 
-          <fieldset class="trial-fieldset">
-            <legend class="trial-legend">Contacto de emergencia</legend>
+                <option value="Ballet - Martes 8:30pm a 9:30pm">
+                  Martes · 8:30 p.m. – 9:30 p.m.
+                </option>
 
-            <div class="trial-grid">
-              <div class="trial-field">
-                <label for="e_nombre">Nombre</label>
-                <input id="e_nombre" name="Emergencia - Nombre" type="text" required maxlength="80" placeholder="Ej: Yhoilen González Ruiz">
-              </div>
+                <option value="Ballet - Jueves 8:30pm a 9:30pm">
+                  Jueves · 8:30 p.m. – 9:30 p.m.
+                </option>
 
-              <div class="trial-field">
-                <label for="e_tel">Teléfono</label>
-                <input id="e_tel" name="Emergencia - Teléfono" type="tel" required inputmode="numeric" pattern="^[0-9]{8}$" maxlength="8" placeholder="Ej: 71463487">
-              </div>
+                <option value="Ballet - Sábado 9:00am a 10:15am">
+                  Sábado · 9:00 a.m. – 10:15 a.m.
+                </option>
 
-              <div class="trial-field">
-                <label for="e_tel2">Teléfono alterno (opcional)</label>
-                <input id="e_tel2" name="Emergencia - Teléfono alterno" type="tel" inputmode="numeric" pattern="^[0-9]{8}$" maxlength="8">
-              </div>
+              </optgroup>
 
-              <div class="trial-field">
-                <label for="e_email">Correo (opcional)</label>
-                <input id="e_email" name="Correo" type="email" autocomplete="email" placeholder="Ej: correo@gmail.com" maxlength="120">
-              </div>
-            </div>
-          </fieldset>
+              <optgroup label="Jazz Adulto Principiante">
 
-          <hr class="divider">
+                <option value="Jazz - Martes 7:15pm a 8:30pm">
+                  Martes · 7:15 p.m. – 8:30 p.m.
+                </option>
 
-          <fieldset class="trial-fieldset">
-  <legend class="trial-legend">Confirmación</legend>
+                <option value="Jazz - Jueves 7:15pm a 8:30pm">
+                  Jueves · 7:15 p.m. – 8:30 p.m.
+                </option>
+
+                <option value="Jazz - Sábado 10:30am a 11:45am">
+                  Sábado · 10:30 a.m. – 11:45 a.m.
+                </option>
+
+              </optgroup>
+            </select>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="trial-field full-field">
+            <label for="cp_whatsapp">
+              WhatsApp
+            </label>
+
+            <input
+              id="cp_whatsapp"
+              name="WhatsApp"
+              type="tel"
+              inputmode="numeric"
+              required
+              pattern="[0-9]{8}"
+              maxlength="8"
+              autocomplete="tel"
+              placeholder="Ej: 72827346"
+            >
+
+            <small class="help">
+              8 dígitos, sin espacios.
+            </small>
+          </div>
+
+        </div>
+
+        <div class="trial-actions">
+
+          <button
+            class="btn-primary"
+            type="submit"
+          >
+            Enviar solicitud
+          </button>
+
+          <a
+            class="btn-secondary"
+            href="https://wa.me/50672827346"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+        <p class="trial-note">
+          Te contactaremos por WhatsApp para confirmar el espacio disponible.
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+<fieldset class="trial-fieldset">
+
+  <legend class="trial-legend">
+    Grupo y plan
+  </legend>
 
   <div class="trial-grid">
-    <div class="trial-field" style="grid-column:1/-1;">
-      <label class="check">
-        <input
-          type="checkbox"
-          name="Acepta términos y políticas"
-          required
-        >
-        <span>
-          He leído y acepto las
-          <a href="/terminos.html" target="_blank" rel="noopener">
-            politicas de PARIS DANCE STUDIO
-          </a>
-        </span>
+
+    <!-- Grupo -->
+    <div class="trial-field">
+
+      <label for="m_grupo">
+        Grupo
       </label>
+
+      <select
+        id="m_grupo"
+        name="Grupo"
+        required
+      >
+
+        <option value="" disabled selected>
+          Seleccioná
+        </option>
+
+        <option value="Ballet Adulto Principiante">
+          Ballet Adulto Principiante
+        </option>
+
+        <option value="Jazz Adulto Principiante">
+          Jazz Adulto Principiante
+        </option>
+
+        <option value="Ballet + Jazz Adulto Principiante">
+          Ballet + Jazz Adulto Principiante
+        </option>
+
+      </select>
+
     </div>
-  </div>
-</fieldset>
 
+    <!-- Frecuencia -->
+    <div class="trial-field">
 
-          <div class="trial-actions">
-            <button class="btn-primary" type="submit">Enviar</button>
-            <a class="btn-secondary" href="https://wa.me/50672827346" target="_blank" rel="noopener">WhatsApp</a>
+      <label for="m_veces">
+        Frecuencia semanal
+      </label>
+
+      <select
+        id="m_veces"
+        name="Veces por semana"
+        required
+      >
+
+        <option value="" disabled selected>
+          Seleccioná
+        </option>
+
+        <option value="1">
+          1 vez por semana
+        </option>
+
+        <option value="2">
+          2 veces por semana
+        </option>
+
+        <option value="4">
+          4 veces por semana
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- Horarios -->
+    <div class="trial-field full-field">
+
+      <label>
+        Horarios a los que podés asistir
+      </label>
+
+      <small class="help">
+        Podés marcar más de una opción.
+      </small>
+
+      <div class="schedule-form-group">
+
+        <!-- BALLET -->
+        <div class="schedule-form-block">
+
+          <h4>
+            Ballet Adulto Principiante
+          </h4>
+
+          <div class="checks">
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Ballet - Lunes 5:00pm a 6:00pm"
+              >
+              <span>
+                Lunes · 5:00 p.m. – 6:00 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Ballet - Lunes 6:00pm a 7:15pm"
+              >
+              <span>
+                Lunes · 6:00 p.m. – 7:15 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Ballet - Miércoles 5:00pm a 6:00pm"
+              >
+              <span>
+                Miércoles · 5:00 p.m. – 6:00 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Ballet - Miércoles 6:00pm a 7:15pm"
+              >
+              <span>
+                Miércoles · 6:00 p.m. – 7:15 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Ballet - Martes 8:30pm a 9:30pm"
+              >
+              <span>
+                Martes · 8:30 p.m. – 9:30 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Ballet - Jueves 8:30pm a 9:30pm"
+              >
+              <span>
+                Jueves · 8:30 p.m. – 9:30 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Ballet - Sábado 9:00am a 10:15am"
+              >
+              <span>
+                Sábado · 9:00 a.m. – 10:15 a.m.
+              </span>
+            </label>
+
           </div>
+        </div>
 
-          <p class="trial-note">Te confirmamos por WhatsApp con cupos, detalles y coordinación.</p>
-        </form>
+        <!-- JAZZ -->
+        <div class="schedule-form-block">
+
+          <h4>
+            Jazz Adulto Principiante
+          </h4>
+
+          <div class="checks">
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Jazz - Martes 7:15pm a 8:30pm"
+              >
+              <span>
+                Martes · 7:15 p.m. – 8:30 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Jazz - Jueves 7:15pm a 8:30pm"
+              >
+              <span>
+                Jueves · 7:15 p.m. – 8:30 p.m.
+              </span>
+            </label>
+
+            <label class="check">
+              <input
+                type="checkbox"
+                name="Horarios[]"
+                value="Jazz - Sábado 10:30am a 11:45am"
+              >
+              <span>
+                Sábado · 10:30 a.m. – 11:45 a.m.
+              </span>
+            </label>
+
+          </div>
+        </div>
+
       </div>
+
     </div>
-  </section>
+
+    <!-- Comentarios -->
+    <div class="trial-field full-field">
+
+      <label for="m_comentarios">
+        Comentarios adicionales (opcional)
+      </label>
+
+      <textarea
+        id="m_comentarios"
+        name="Comentarios adicionales"
+        rows="4"
+        maxlength="600"
+        placeholder="Disponibilidad, objetivos, experiencia previa o cualquier información que debamos conocer."
+      ></textarea>
+
+    </div>
+
+  </div>
+
+</fieldset>
 
   <!-- UBICACIÓN -->
   <section class="section section-alt" id="ubicacion">
-    <div class="container two-columns">
+    <div class="container location-layout">
       <div>
-        <h2>Ubicación</h2>
-        <p class="section-intro">
-          Mall Internacional local #67, Alajuela (contiguo a City Mall).
+        <p class="section-kicker">Alajuela</p>
+        <h2>Estamos en Mall Internacional</h2>
+        <p class="location-copy">
+          Local #67, contiguo a City Mall. Un espacio accesible para entrenar
+          Ballet y Jazz durante la semana.
         </p>
 
-        <div class="info-card">
-          <h3>Contacto (WhatsApp)</h3>
-          <ul class="highlight-list">
-            <li><strong>7282-7346</strong></li>
-            <li><strong>8731-7951</strong></li>
-          </ul>
-          <a href="https://wa.me/50672827346" target="_blank" class="btn-primary" style="margin-top:.8rem; display:inline-flex;">
-            Escribir por WhatsApp
+        <div class="contact-list">
+          <a href="https://wa.me/50672827346" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>7282-7346</span>
+          </a>
+
+          <a href="https://wa.me/50687317951" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>8731-7951</span>
           </a>
         </div>
       </div>
 
       <div class="map-container" aria-label="Mapa de ubicación">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d694.5769262053801!2d-84.21297908744789!3d10.00690947016592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f9b8b9d975bb%3A0x3cf1be981362bd98!2sMall%20Internacional%2C%20Provincia%20de%20Alajuela%2C%20Alajuela%2C%20Monserrat!5e0!3m2!1ses!2scr!4v1766815288330!5m2!1ses!2scr"
-          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d694.5769262053801!2d-84.21297908744789!3d10.00690947016592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f9b8b9d975bb%3A0x3cf1be981362bd98!2sMall%20Internacional%2C%20Provincia%20de%20Alajuela%2C%20Alajuela%2C%20Monserrat!5e0!3m2!1ses!2scr!4v1766815288330!5m2!1ses!2scr"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
   </section>
@@ -785,86 +1285,75 @@
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container">
-      <h2>Preguntas frecuentes</h2>
-
-      <div class="info-grid">
-        <div class="info-item">
-          <h3>¿Cómo me inscribo?</h3>
-          <p>Desde el sitio web, WhatsApp o directamente en el studio.</p>
+      <div class="section-heading compact">
+        <div>
+          <p class="section-kicker">Preguntas frecuentes</p>
+          <h2>Antes de tu primera clase</h2>
         </div>
+      </div>
 
-        <div class="info-item">
-          <h3>¿Hay clase de prueba?</h3>
-          <p>Sí, tiene un costo de <strong>₡5.000</strong>.</p>
-        </div>
-
-        <div class="info-item">
-          <h3>¿Qué llevo el primer día?</h3>
-          <p>Ropa cómoda (leggings/short + top/camiseta + medias) y botella de agua.</p>
-        </div>
-
-        <div class="info-item">
+      <div class="faq-grid">
+        <article class="faq-card">
           <h3>¿Puedo empezar sin experiencia?</h3>
-          <p>Sí. Principiante es para cero o poca experiencia.</p>
-        </div>
+          <p>Sí. Los grupos publicados actualmente son principiantes y están diseñados para empezar desde cero.</p>
+        </article>
 
-        <div class="info-item">
-          <h3>¿Qué edades aceptan?</h3>
-          <p>Desde los 7 años en adelante (sin edad máxima).</p>
-        </div>
+        <article class="faq-card">
+          <h3>¿Hay clase de prueba?</h3>
+          <p>Sí. Podés reservarla desde esta misma página y te confirmaremos disponibilidad por WhatsApp.</p>
+        </article>
 
-        <div class="info-item">
-          <h3>¿Qué uniforme necesito y cuándo se compra?</h3>
-          <p>Se adquiere en el studio al momento de la inscripción.</p>
-        </div>
+        <article class="faq-card">
+          <h3>¿Qué llevo el primer día?</h3>
+          <p>Ropa cómoda, medias, botella de agua y disposición para aprender.</p>
+        </article>
 
-        <div class="info-item">
-          <h3>¿Puedo ir solo sábados?</h3>
-          <p>No. Los sábados son talleres técnicos incluidos según el plan mensual.</p>
-        </div>
+        <article class="faq-card">
+          <h3>¿Cómo sé cuál grupo elegir?</h3>
+          <p>Elegí Ballet, Jazz o Ballet niñas según tu edad e interés. Todos los grupos actuales son de nivel principiante.</p>
+        </article>
 
-        <div class="info-item">
-          <h3>¿Cómo sé mi nivel?</h3>
-          <p>Hacemos una evaluación rápida en clase. Si ya entrenaste técnica francesa de forma constante, podrías entrar en intermedio; si no, iniciás en principiante.</p>
-        </div>
+        <article class="faq-card">
+          <h3>¿Dónde están ubicados?</h3>
+          <p>Mall Internacional, local #67, Alajuela, contiguo a City Mall.</p>
+        </article>
+
+        <article class="faq-card">
+          <h3>¿Dónde puedo leer las políticas?</h3>
+          <p><a href="/terminos.html" target="_blank" rel="noopener">Consultá aquí las políticas de Paris Dance Studio.</a></p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <section class="section section-alt" id="contacto">
-    <div class="container">
-      <h2>Contacto</h2>
-      <p class="section-intro">Escribinos para cupos, horarios y matrícula.</p>
-
-      <div class="socials">
-        <a href="https://www.instagram.com/paris_dance_studio/" target="_blank" class="social-link" rel="noopener">
-          <i class="fab fa-instagram"></i>
-          <span>@paris_dance_studio</span>
-        </a>
-
-        <a href="https://wa.me/50672827346" target="_blank" class="social-link" rel="noopener">
-          <i class="fab fa-whatsapp"></i>
-          <span>WhatsApp 7282-7346</span>
-        </a>
-
-        <a href="https://wa.me/50687317951" target="_blank" class="social-link" rel="noopener">
-          <i class="fab fa-whatsapp"></i>
-          <span>WhatsApp 8731-7951</span>
-        </a>
+  <!-- CTA FINAL -->
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <div>
+        <p class="section-kicker">Tu primer paso puede ser hoy</p>
+        <h2>Probá una clase antes de decidir.</h2>
       </div>
+
+      <a href="#clase-prueba" class="btn-primary">Reservar clase de prueba</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-content">
+      <div>
+        <strong>Paris Dance Studio</strong>
+        <span>Ballet · Jazz · Alajuela</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://www.instagram.com/paris_dance_studio/" target="_blank" rel="noopener">Instagram</a>
+        <a href="/terminos.html" target="_blank" rel="noopener">Políticas</a>
+        <a href="#inicio">Volver arriba ↑</a>
+      </div>
+
       <p>© <span id="year"></span> Paris Dance Studio</p>
-      <a href="#inicio" class="back-to-top">Volver arriba ↑</a>
     </div>
   </footer>
-
-
-
 </body>
 </html>

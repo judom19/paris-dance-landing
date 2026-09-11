@@ -1264,3 +1264,38 @@ textarea{
     flex-direction:column;
   }
 }
+/* Horarios dentro del formulario de matrícula */
+
+.schedule-form-group{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:.7rem;
+}
+
+.schedule-form-block{
+  min-width:0;
+  padding:1rem;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:rgba(255,255,255,.018);
+}
+
+.schedule-form-block h4{
+  margin-bottom:.8rem;
+  color:var(--lilac);
+  font-size:.88rem;
+  font-weight:600;
+}
+
+.schedule-form-block .checks{
+  grid-template-columns:1fr;
+}
+
+@media (max-width:780px){
+
+  .schedule-form-group{
+    grid-template-columns:1fr;
+  }
+
+}
