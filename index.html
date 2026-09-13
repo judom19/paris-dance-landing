@@ -192,7 +192,7 @@
         <a href="#ubicacion">Ubicación</a>
       </div>
 
-      <a class="nav-cta" href="#clase-prueba">Clase de muestra</a>
+      <a class="nav-cta" href="#clase-prueba">Clase de prueba</a>
     </div>
   </nav>
 
@@ -206,7 +206,7 @@
         <p class="eyebrow">Ballet & Jazz · Técnica 100% francesa</p>
 
         <h1>
-          El sueño pendiente no se abandona
+          El sueño pendiente
           <span>se entrena.</span>
         </h1>
 
@@ -271,7 +271,7 @@
       <div class="intro-copy">
         <p>
           Somos una academia de Ballet y Jazz con técnica <strong>100% francesa</strong>.
-          Nuestro enfoque combina formación técnica real, en un ambiente seguro,
+          Nuestro enfoque combina formación técnica real con un ambiente respetuoso,
           profesional y motivador.
         </p>
         <p>
@@ -466,783 +466,417 @@
     </div>
   </section>
 
-<!-- CLASE DE PRUEBA -->
-<section class="section section-alt" id="clase-prueba">
-  <div class="container form-layout">
 
-    <div class="form-intro">
-      <p class="section-kicker">Primer paso</p>
-
-      <h2>Reservá tu clase de prueba</h2>
-
-      <p>
-        Completá tus datos y seleccioná el grupo que querés probar.
-        Te confirmaremos disponibilidad por WhatsApp.
-      </p>
-
-      <div class="form-summary">
-        <div>
-          <strong>Grupos</strong>
-          <span>Ballet Adulto · Jazz Adulto</span>
-        </div>
-
-        <div>
-          <strong>Nivel</strong>
-          <span>Principiante</span>
-        </div>
-
-        <div>
-          <strong>Ubicación</strong>
-          <span>Mall Internacional · Alajuela</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="trial-card">
-
-      <form
-        class="trial-form"
-        action="https://formspree.io/f/mregenny"
-        method="POST"
-      >
-
-        <!-- Formspree -->
-        <input
-          type="hidden"
-          name="_subject"
-          value="Nueva clase de prueba - Paris Dance Studio"
-        >
-
-        <input
-          type="hidden"
-          name="_template"
-          value="table"
-        >
-
-        <input
-          type="hidden"
-          name="_captcha"
-          value="false"
-        >
-
-        <input
-          type="hidden"
-          name="_redirect"
-          value="https://parisdancestudio.com/gracias.html"
-        >
-
-        <input
-          type="hidden"
-          name="Tipo de formulario"
-          value="Clase de prueba"
-        >
-
-        <!-- Honeypot -->
-        <div class="honeypot" aria-hidden="true">
-          <label for="cp_gotcha">Dejá esto vacío</label>
-
-          <input
-            id="cp_gotcha"
-            type="text"
-            name="_gotcha"
-            tabindex="-1"
-            autocomplete="off"
-          >
-        </div>
-
-        <div class="trial-grid">
-
-          <!-- Nombre -->
-          <div class="trial-field full-field">
-            <label for="cp_nombre">
-              Nombre completo
-            </label>
-
-            <input
-              id="cp_nombre"
-              name="Nombre completo"
-              type="text"
-              required
-              minlength="4"
-              maxlength="80"
-              autocomplete="name"
-              placeholder="Tu nombre completo"
-            >
-          </div>
-
-          <!-- Edad -->
-          <div class="trial-field">
-            <label for="cp_edad">
-              Edad
-            </label>
-
-            <input
-              id="cp_edad"
-              name="Edad"
-              type="number"
-              min="14"
-              max="90"
-              required
-              inputmode="numeric"
-              placeholder="14+"
-            >
-          </div>
-
-          <!-- Grupo -->
-          <div class="trial-field">
-            <label for="cp_grupo">
-              Grupo que querés probar
-            </label>
-
-            <select
-              id="cp_grupo"
-              name="Grupo"
-              required
-            >
-              <option value="" disabled selected>
-                Seleccioná
-              </option>
-
-              <option value="Ballet Adulto Principiante">
-                Ballet Adulto Principiante
-              </option>
-
-              <option value="Jazz Adulto Principiante">
-                Jazz Adulto Principiante
-              </option>
-            </select>
-          </div>
-
-          <!-- Horario -->
-          <div class="trial-field full-field">
-            <label for="cp_horario">
-              Horario que querés probar
-            </label>
-
-            <select
-              id="cp_horario"
-              name="Horario preferido"
-              required
-            >
-              <option value="" disabled selected>
-                Seleccioná un horario
-              </option>
-
-              <optgroup label="Ballet Adulto Principiante">
-
-                <option value="Ballet - Lunes 5:00pm a 6:00pm">
-                  Lunes · 5:00 p.m. – 6:00 p.m.
-                </option>
-
-                <option value="Ballet - Lunes 6:00pm a 7:15pm">
-                  Lunes · 6:00 p.m. – 7:15 p.m.
-                </option>
-
-                <option value="Ballet - Miércoles 5:00pm a 6:00pm">
-                  Miércoles · 5:00 p.m. – 6:00 p.m.
-                </option>
-
-                <option value="Ballet - Miércoles 6:00pm a 7:15pm">
-                  Miércoles · 6:00 p.m. – 7:15 p.m.
-                </option>
-
-                <option value="Ballet - Martes 8:30pm a 9:30pm">
-                  Martes · 8:30 p.m. – 9:30 p.m.
-                </option>
-
-                <option value="Ballet - Jueves 8:30pm a 9:30pm">
-                  Jueves · 8:30 p.m. – 9:30 p.m.
-                </option>
-
-                <option value="Ballet - Sábado 9:00am a 10:15am">
-                  Sábado · 9:00 a.m. – 10:15 a.m.
-                </option>
-
-              </optgroup>
-
-              <optgroup label="Jazz Adulto Principiante">
-
-                <option value="Jazz - Martes 7:15pm a 8:30pm">
-                  Martes · 7:15 p.m. – 8:30 p.m.
-                </option>
-
-                <option value="Jazz - Jueves 7:15pm a 8:30pm">
-                  Jueves · 7:15 p.m. – 8:30 p.m.
-                </option>
-
-                <option value="Jazz - Sábado 10:30am a 11:45am">
-                  Sábado · 10:30 a.m. – 11:45 a.m.
-                </option>
-
-              </optgroup>
-            </select>
-          </div>
-
-          <!-- WhatsApp -->
-          <div class="trial-field full-field">
-            <label for="cp_whatsapp">
-              WhatsApp
-            </label>
-
-            <input
-              id="cp_whatsapp"
-              name="WhatsApp"
-              type="tel"
-              inputmode="numeric"
-              required
-              pattern="[0-9]{8}"
-              maxlength="8"
-              autocomplete="tel"
-              placeholder="Ej: 72827346"
-            >
-
-            <small class="help">
-              8 dígitos, sin espacios.
-            </small>
-          </div>
-
-        </div>
-
-        <div class="trial-actions">
-
-          <button
-            class="btn-primary"
-            type="submit"
-          >
-            Enviar solicitud
-          </button>
-
-          <a
-            class="btn-secondary"
-            href="https://wa.me/50672827346"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp
-          </a>
-
-        </div>
-
-        <p class="trial-note">
-          Te contactaremos por WhatsApp para confirmar el espacio disponible.
+  <!-- CLASE DE PRUEBA -->
+  <section class="section section-alt" id="clase-prueba">
+    <div class="container form-layout">
+      <div class="form-intro">
+        <p class="section-kicker">Primer paso</p>
+        <h2>Reservá tu clase de prueba</h2>
+        <p>
+          Completá tus datos y seleccioná el grupo que querés probar.
+          Te confirmaremos disponibilidad por WhatsApp.
         </p>
 
-      </form>
-
-    </div>
-  </div>
-</section>
-<!-- CLASE DE PRUEBA -->
-<section class="section section-alt" id="clase-prueba">
-  <div class="container form-layout">
-
-    <div class="form-intro">
-      <p class="section-kicker">Primer paso</p>
-
-      <h2>Reservá tu clase de prueba</h2>
-
-      <p>
-        Completá tus datos y seleccioná el grupo que querés probar.
-        Te confirmaremos disponibilidad por WhatsApp.
-      </p>
-
-      <div class="form-summary">
-        <div>
-          <strong>Grupos</strong>
-          <span>Ballet Adulto · Jazz Adulto</span>
-        </div>
-
-        <div>
-          <strong>Nivel</strong>
-          <span>Principiante</span>
-        </div>
-
-        <div>
-          <strong>Ubicación</strong>
-          <span>Mall Internacional · Alajuela</span>
+        <div class="form-summary">
+          <div>
+            <strong>Grupos</strong>
+            <span>Ballet Adulto · Jazz Adulto</span>
+          </div>
+          <div>
+            <strong>Nivel</strong>
+            <span>Principiante</span>
+          </div>
+          <div>
+            <strong>Ubicación</strong>
+            <span>Mall Internacional · Alajuela</span>
+          </div>
         </div>
       </div>
+
+      <div class="trial-card">
+        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST">
+          <input type="hidden" name="_subject" value="Nueva clase de prueba - Paris Dance Studio">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_redirect" value="https://parisdancestudio.com/gracias.html">
+          <input type="hidden" name="Tipo de formulario" value="Clase de prueba">
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="cp_gotcha">Dejá esto vacío</label>
+            <input id="cp_gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="trial-grid">
+            <div class="trial-field full-field">
+              <label for="cp_nombre">Nombre completo</label>
+              <input
+                id="cp_nombre"
+                name="Nombre completo"
+                type="text"
+                required
+                minlength="4"
+                maxlength="80"
+                autocomplete="name"
+                placeholder="Tu nombre completo"
+              >
+            </div>
+
+            <div class="trial-field">
+              <label for="cp_edad">Edad</label>
+              <input
+                id="cp_edad"
+                name="Edad"
+                type="number"
+                min="14"
+                max="90"
+                required
+                inputmode="numeric"
+                placeholder="14+"
+              >
+            </div>
+
+            <div class="trial-field">
+              <label for="cp_grupo">Grupo que querés probar</label>
+              <select id="cp_grupo" name="Grupo" required>
+                <option value="" disabled selected>Seleccioná</option>
+                <option value="Ballet Adulto Principiante">Ballet Adulto Principiante</option>
+                <option value="Jazz Adulto Principiante">Jazz Adulto Principiante</option>
+              </select>
+            </div>
+
+            <div class="trial-field full-field">
+              <label for="cp_horario">Horario que querés probar</label>
+              <select id="cp_horario" name="Horario preferido" required>
+                <option value="" disabled selected>Seleccioná un horario</option>
+
+                <optgroup label="Ballet Adulto Principiante">
+                  <option value="Ballet - Lunes 5:00pm a 6:00pm">Lunes · 5:00 p.m. – 6:00 p.m.</option>
+                  <option value="Ballet - Lunes 6:00pm a 7:15pm">Lunes · 6:00 p.m. – 7:15 p.m.</option>
+                  <option value="Ballet - Miércoles 5:00pm a 6:00pm">Miércoles · 5:00 p.m. – 6:00 p.m.</option>
+                  <option value="Ballet - Miércoles 6:00pm a 7:15pm">Miércoles · 6:00 p.m. – 7:15 p.m.</option>
+                  <option value="Ballet - Martes 8:30pm a 9:30pm">Martes · 8:30 p.m. – 9:30 p.m.</option>
+                  <option value="Ballet - Jueves 8:30pm a 9:30pm">Jueves · 8:30 p.m. – 9:30 p.m.</option>
+                  <option value="Ballet - Sábado 9:00am a 10:15am">Sábado · 9:00 a.m. – 10:15 a.m.</option>
+                </optgroup>
+
+                <optgroup label="Jazz Adulto Principiante">
+                  <option value="Jazz - Martes 7:15pm a 8:30pm">Martes · 7:15 p.m. – 8:30 p.m.</option>
+                  <option value="Jazz - Jueves 7:15pm a 8:30pm">Jueves · 7:15 p.m. – 8:30 p.m.</option>
+                  <option value="Jazz - Sábado 10:30am a 11:45am">Sábado · 10:30 a.m. – 11:45 a.m.</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="trial-field full-field">
+              <label for="cp_whatsapp">WhatsApp</label>
+              <input
+                id="cp_whatsapp"
+                name="WhatsApp"
+                type="tel"
+                inputmode="numeric"
+                required
+                pattern="[0-9]{8}"
+                maxlength="8"
+                autocomplete="tel"
+                placeholder="Ej: 72827346"
+              >
+              <small class="help">8 dígitos, sin espacios.</small>
+            </div>
+          </div>
+
+          <div class="trial-actions">
+            <button class="btn-primary" type="submit">Enviar solicitud</button>
+            <a
+              class="btn-secondary"
+              href="https://wa.me/50672827346"
+              target="_blank"
+              rel="noopener"
+            >WhatsApp</a>
+          </div>
+
+          <p class="trial-note">
+            Te contactaremos por WhatsApp para confirmar el espacio disponible.
+          </p>
+        </form>
+      </div>
     </div>
+  </section>
 
-    <div class="trial-card">
-
-      <form
-        class="trial-form"
-        action="https://formspree.io/f/mregenny"
-        method="POST"
-      >
-
-        <!-- Formspree -->
-        <input
-          type="hidden"
-          name="_subject"
-          value="Nueva clase de prueba - Paris Dance Studio"
-        >
-
-        <input
-          type="hidden"
-          name="_template"
-          value="table"
-        >
-
-        <input
-          type="hidden"
-          name="_captcha"
-          value="false"
-        >
-
-        <input
-          type="hidden"
-          name="_redirect"
-          value="https://parisdancestudio.com/gracias.html"
-        >
-
-        <input
-          type="hidden"
-          name="Tipo de formulario"
-          value="Clase de prueba"
-        >
-
-        <!-- Honeypot -->
-        <div class="honeypot" aria-hidden="true">
-          <label for="cp_gotcha">Dejá esto vacío</label>
-
-          <input
-            id="cp_gotcha"
-            type="text"
-            name="_gotcha"
-            tabindex="-1"
-            autocomplete="off"
-          >
+  <!-- MATRÍCULA -->
+  <section class="section" id="matricula">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Inscripción</p>
+          <h2>Formalizá tu matrícula</h2>
         </div>
-
-        <div class="trial-grid">
-
-          <!-- Nombre -->
-          <div class="trial-field full-field">
-            <label for="cp_nombre">
-              Nombre completo
-            </label>
-
-            <input
-              id="cp_nombre"
-              name="Nombre completo"
-              type="text"
-              required
-              minlength="4"
-              maxlength="80"
-              autocomplete="name"
-              placeholder="Tu nombre completo"
-            >
-          </div>
-
-          <!-- Edad -->
-          <div class="trial-field">
-            <label for="cp_edad">
-              Edad
-            </label>
-
-            <input
-              id="cp_edad"
-              name="Edad"
-              type="number"
-              min="14"
-              max="90"
-              required
-              inputmode="numeric"
-              placeholder="14+"
-            >
-          </div>
-
-          <!-- Grupo -->
-          <div class="trial-field">
-            <label for="cp_grupo">
-              Grupo que querés probar
-            </label>
-
-            <select
-              id="cp_grupo"
-              name="Grupo"
-              required
-            >
-              <option value="" disabled selected>
-                Seleccioná
-              </option>
-
-              <option value="Ballet Adulto Principiante">
-                Ballet Adulto Principiante
-              </option>
-
-              <option value="Jazz Adulto Principiante">
-                Jazz Adulto Principiante
-              </option>
-            </select>
-          </div>
-
-          <!-- Horario -->
-          <div class="trial-field full-field">
-            <label for="cp_horario">
-              Horario que querés probar
-            </label>
-
-            <select
-              id="cp_horario"
-              name="Horario preferido"
-              required
-            >
-              <option value="" disabled selected>
-                Seleccioná un horario
-              </option>
-
-              <optgroup label="Ballet Adulto Principiante">
-
-                <option value="Ballet - Lunes 5:00pm a 6:00pm">
-                  Lunes · 5:00 p.m. – 6:00 p.m.
-                </option>
-
-                <option value="Ballet - Lunes 6:00pm a 7:15pm">
-                  Lunes · 6:00 p.m. – 7:15 p.m.
-                </option>
-
-                <option value="Ballet - Miércoles 5:00pm a 6:00pm">
-                  Miércoles · 5:00 p.m. – 6:00 p.m.
-                </option>
-
-                <option value="Ballet - Miércoles 6:00pm a 7:15pm">
-                  Miércoles · 6:00 p.m. – 7:15 p.m.
-                </option>
-
-                <option value="Ballet - Martes 8:30pm a 9:30pm">
-                  Martes · 8:30 p.m. – 9:30 p.m.
-                </option>
-
-                <option value="Ballet - Jueves 8:30pm a 9:30pm">
-                  Jueves · 8:30 p.m. – 9:30 p.m.
-                </option>
-
-                <option value="Ballet - Sábado 9:00am a 10:15am">
-                  Sábado · 9:00 a.m. – 10:15 a.m.
-                </option>
-
-              </optgroup>
-
-              <optgroup label="Jazz Adulto Principiante">
-
-                <option value="Jazz - Martes 7:15pm a 8:30pm">
-                  Martes · 7:15 p.m. – 8:30 p.m.
-                </option>
-
-                <option value="Jazz - Jueves 7:15pm a 8:30pm">
-                  Jueves · 7:15 p.m. – 8:30 p.m.
-                </option>
-
-                <option value="Jazz - Sábado 10:30am a 11:45am">
-                  Sábado · 10:30 a.m. – 11:45 a.m.
-                </option>
-
-              </optgroup>
-            </select>
-          </div>
-
-          <!-- WhatsApp -->
-          <div class="trial-field full-field">
-            <label for="cp_whatsapp">
-              WhatsApp
-            </label>
-
-            <input
-              id="cp_whatsapp"
-              name="WhatsApp"
-              type="tel"
-              inputmode="numeric"
-              required
-              pattern="[0-9]{8}"
-              maxlength="8"
-              autocomplete="tel"
-              placeholder="Ej: 72827346"
-            >
-
-            <small class="help">
-              8 dígitos, sin espacios.
-            </small>
-          </div>
-
-        </div>
-
-        <div class="trial-actions">
-
-          <button
-            class="btn-primary"
-            type="submit"
-          >
-            Enviar solicitud
-          </button>
-
-          <a
-            class="btn-secondary"
-            href="https://wa.me/50672827346"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp
-          </a>
-
-        </div>
-
-        <p class="trial-note">
-          Te contactaremos por WhatsApp para confirmar el espacio disponible.
+        <p>
+          Este formulario se utiliza para registrar los datos administrativos de la alumna.
         </p>
-
-      </form>
-
-    </div>
-  </div>
-</section>
-<fieldset class="trial-fieldset">
-
-  <legend class="trial-legend">
-    Grupo y plan
-  </legend>
-
-  <div class="trial-grid">
-
-    <!-- Grupo -->
-    <div class="trial-field">
-
-      <label for="m_grupo">
-        Grupo
-      </label>
-
-      <select
-        id="m_grupo"
-        name="Grupo"
-        required
-      >
-
-        <option value="" disabled selected>
-          Seleccioná
-        </option>
-
-        <option value="Ballet Adulto Principiante">
-          Ballet Adulto Principiante
-        </option>
-
-        <option value="Jazz Adulto Principiante">
-          Jazz Adulto Principiante
-        </option>
-
-        <option value="Ballet + Jazz Adulto Principiante">
-          Ballet + Jazz Adulto Principiante
-        </option>
-
-      </select>
-
-    </div>
-
-    <!-- Frecuencia -->
-    <div class="trial-field">
-
-      <label for="m_veces">
-        Frecuencia semanal
-      </label>
-
-      <select
-        id="m_veces"
-        name="Veces por semana"
-        required
-      >
-
-        <option value="" disabled selected>
-          Seleccioná
-        </option>
-
-        <option value="1">
-          1 vez por semana
-        </option>
-
-        <option value="2">
-          2 veces por semana
-        </option>
-
-        <option value="4">
-          4 veces por semana
-        </option>
-
-      </select>
-
-    </div>
-
-    <!-- Horarios -->
-    <div class="trial-field full-field">
-
-      <label>
-        Horarios a los que podés asistir
-      </label>
-
-      <small class="help">
-        Podés marcar más de una opción.
-      </small>
-
-      <div class="schedule-form-group">
-
-        <!-- BALLET -->
-        <div class="schedule-form-block">
-
-          <h4>
-            Ballet Adulto Principiante
-          </h4>
-
-          <div class="checks">
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Ballet - Lunes 5:00pm a 6:00pm"
-              >
-              <span>
-                Lunes · 5:00 p.m. – 6:00 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Ballet - Lunes 6:00pm a 7:15pm"
-              >
-              <span>
-                Lunes · 6:00 p.m. – 7:15 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Ballet - Miércoles 5:00pm a 6:00pm"
-              >
-              <span>
-                Miércoles · 5:00 p.m. – 6:00 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Ballet - Miércoles 6:00pm a 7:15pm"
-              >
-              <span>
-                Miércoles · 6:00 p.m. – 7:15 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Ballet - Martes 8:30pm a 9:30pm"
-              >
-              <span>
-                Martes · 8:30 p.m. – 9:30 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Ballet - Jueves 8:30pm a 9:30pm"
-              >
-              <span>
-                Jueves · 8:30 p.m. – 9:30 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Ballet - Sábado 9:00am a 10:15am"
-              >
-              <span>
-                Sábado · 9:00 a.m. – 10:15 a.m.
-              </span>
-            </label>
-
-          </div>
-        </div>
-
-        <!-- JAZZ -->
-        <div class="schedule-form-block">
-
-          <h4>
-            Jazz Adulto Principiante
-          </h4>
-
-          <div class="checks">
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Jazz - Martes 7:15pm a 8:30pm"
-              >
-              <span>
-                Martes · 7:15 p.m. – 8:30 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Jazz - Jueves 7:15pm a 8:30pm"
-              >
-              <span>
-                Jueves · 7:15 p.m. – 8:30 p.m.
-              </span>
-            </label>
-
-            <label class="check">
-              <input
-                type="checkbox"
-                name="Horarios[]"
-                value="Jazz - Sábado 10:30am a 11:45am"
-              >
-              <span>
-                Sábado · 10:30 a.m. – 11:45 a.m.
-              </span>
-            </label>
-
-          </div>
-        </div>
-
       </div>
 
+      <div class="trial-card registration-card">
+        <form class="trial-form" action="https://formspree.io/f/mregenny" method="POST">
+          <input type="hidden" name="_subject" value="Nueva matrícula - Paris Dance Studio">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_redirect" value="https://parisdancestudio.com/gracias-matricula.html">
+          <input type="hidden" name="Tipo de formulario" value="Matrícula">
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="m_gotcha">Dejá esto vacío</label>
+            <input id="m_gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <fieldset class="trial-fieldset">
+            <legend class="trial-legend">Datos de la alumna</legend>
+
+            <div class="trial-grid">
+              <div class="trial-field">
+                <label for="m_nombre">Nombre completo</label>
+                <input
+                  id="m_nombre"
+                  name="Nombre completo"
+                  type="text"
+                  required
+                  minlength="4"
+                  maxlength="80"
+                  autocomplete="name"
+                >
+              </div>
+
+              <div class="trial-field">
+                <label for="m_edad">Edad</label>
+                <input
+                  id="m_edad"
+                  name="Edad"
+                  type="number"
+                  min="14"
+                  max="90"
+                  required
+                  inputmode="numeric"
+                >
+              </div>
+
+              <div class="trial-field">
+                <label for="m_domicilio">Domicilio (opcional)</label>
+                <input
+                  id="m_domicilio"
+                  name="Domicilio"
+                  type="text"
+                  maxlength="120"
+                  placeholder="Ej: Alajuela"
+                >
+              </div>
+
+              <div class="trial-field">
+                <label for="m_whatsapp">WhatsApp</label>
+                <input
+                  id="m_whatsapp"
+                  name="WhatsApp"
+                  type="tel"
+                  required
+                  inputmode="numeric"
+                  pattern="[0-9]{8}"
+                  maxlength="8"
+                  placeholder="Ej: 72827346"
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <hr class="divider">
+
+          <fieldset class="trial-fieldset">
+            <legend class="trial-legend">Grupo y plan</legend>
+
+            <div class="trial-grid">
+              <div class="trial-field">
+                <label for="m_grupo">Grupo</label>
+                <select id="m_grupo" name="Grupo" required>
+                  <option value="" disabled selected>Seleccioná</option>
+                  <option value="Ballet Adulto Principiante">Ballet Adulto Principiante</option>
+                  <option value="Jazz Adulto Principiante">Jazz Adulto Principiante</option>
+                  <option value="Ballet + Jazz Adulto Principiante">Ballet + Jazz Adulto Principiante</option>
+                </select>
+              </div>
+
+              <div class="trial-field">
+                <label for="m_veces">Frecuencia semanal</label>
+                <select id="m_veces" name="Veces por semana" required>
+                  <option value="" disabled selected>Seleccioná</option>
+                  <option value="1">1 vez por semana</option>
+                  <option value="2">2 veces por semana</option>
+                  <option value="4">4 veces por semana</option>
+                </select>
+              </div>
+
+              <div class="trial-field full-field">
+                <label>Horarios a los que podés asistir</label>
+                <small class="help">Podés marcar más de una opción.</small>
+
+                <div class="schedule-form-group">
+                  <div class="schedule-form-block">
+                    <h4>Ballet Adulto Principiante</h4>
+
+                    <div class="checks">
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Lunes 5:00pm a 6:00pm">
+                        <span>Lunes · 5:00 p.m. – 6:00 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Lunes 6:00pm a 7:15pm">
+                        <span>Lunes · 6:00 p.m. – 7:15 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Miércoles 5:00pm a 6:00pm">
+                        <span>Miércoles · 5:00 p.m. – 6:00 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Miércoles 6:00pm a 7:15pm">
+                        <span>Miércoles · 6:00 p.m. – 7:15 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Martes 8:30pm a 9:30pm">
+                        <span>Martes · 8:30 p.m. – 9:30 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Jueves 8:30pm a 9:30pm">
+                        <span>Jueves · 8:30 p.m. – 9:30 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Sábado 9:00am a 10:15am">
+                        <span>Sábado · 9:00 a.m. – 10:15 a.m.</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="schedule-form-block">
+                    <h4>Jazz Adulto Principiante</h4>
+
+                    <div class="checks">
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Jazz - Martes 7:15pm a 8:30pm">
+                        <span>Martes · 7:15 p.m. – 8:30 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Jazz - Jueves 7:15pm a 8:30pm">
+                        <span>Jueves · 7:15 p.m. – 8:30 p.m.</span>
+                      </label>
+
+                      <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Jazz - Sábado 10:30am a 11:45am">
+                        <span>Sábado · 10:30 a.m. – 11:45 a.m.</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="trial-field full-field">
+                <label for="m_comentarios">Comentarios adicionales (opcional)</label>
+                <textarea
+                  id="m_comentarios"
+                  name="Comentarios adicionales"
+                  rows="4"
+                  maxlength="600"
+                  placeholder="Disponibilidad, objetivos, experiencia previa o cualquier información que debamos conocer."
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <hr class="divider">
+
+          <fieldset class="trial-fieldset">
+            <legend class="trial-legend">Contacto de emergencia</legend>
+
+            <div class="trial-grid">
+              <div class="trial-field">
+                <label for="e_nombre">Nombre completo</label>
+                <input id="e_nombre" name="Emergencia - Nombre" type="text" required maxlength="80">
+              </div>
+
+              <div class="trial-field">
+                <label for="e_tel">Teléfono</label>
+                <input
+                  id="e_tel"
+                  name="Emergencia - Teléfono"
+                  type="tel"
+                  required
+                  inputmode="numeric"
+                  pattern="[0-9]{8}"
+                  maxlength="8"
+                >
+              </div>
+
+              <div class="trial-field">
+                <label for="e_tel2">Teléfono alterno (opcional)</label>
+                <input
+                  id="e_tel2"
+                  name="Emergencia - Teléfono alterno"
+                  type="tel"
+                  inputmode="numeric"
+                  pattern="[0-9]{8}"
+                  maxlength="8"
+                >
+              </div>
+
+              <div class="trial-field">
+                <label for="e_email">Correo (opcional)</label>
+                <input
+                  id="e_email"
+                  name="Correo"
+                  type="email"
+                  autocomplete="email"
+                  maxlength="120"
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <hr class="divider">
+
+          <fieldset class="trial-fieldset">
+            <legend class="trial-legend">Confirmación</legend>
+
+            <label class="check legal-check">
+              <input type="checkbox" name="Acepta términos y políticas" required>
+              <span>
+                He leído y acepto las
+                <a href="/terminos.html" target="_blank" rel="noopener">
+                  políticas de Paris Dance Studio
+                </a>.
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="trial-actions">
+            <button class="btn-primary" type="submit">Enviar matrícula</button>
+
+            <a
+              class="btn-secondary"
+              href="https://wa.me/50672827346"
+              target="_blank"
+              rel="noopener"
+            >WhatsApp</a>
+          </div>
+
+          <p class="trial-note">
+            Te confirmaremos por WhatsApp los siguientes pasos de inscripción.
+          </p>
+        </form>
+      </div>
     </div>
-
-    <!-- Comentarios -->
-    <div class="trial-field full-field">
-
-      <label for="m_comentarios">
-        Comentarios adicionales (opcional)
-      </label>
-
-      <textarea
-        id="m_comentarios"
-        name="Comentarios adicionales"
-        rows="4"
-        maxlength="600"
-        placeholder="Disponibilidad, objetivos, experiencia previa o cualquier información que debamos conocer."
-      ></textarea>
-
-    </div>
-
-  </div>
-
-</fieldset>
+  </section>
 
   <!-- UBICACIÓN -->
   <section class="section section-alt" id="ubicacion">
