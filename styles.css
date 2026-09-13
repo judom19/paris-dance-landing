@@ -661,28 +661,35 @@ textarea{
 }
 
 /* =========================
-   PLANS
+   PLANS - versión más compacta
 ========================= */
+
 .plans-layout{
   display:grid;
-  grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);
-  gap:1.25rem;
-  align-items:stretch;
+  grid-template-columns:repeat(2, minmax(260px, 360px));
+  justify-content:center;
+  gap:1.5rem;
+  align-items:start;
 }
 
 .poster-card,
 .trial-promo-card{
+  width:100%;
+  max-width:360px;
   overflow:hidden;
   border:1px solid var(--border);
-  border-radius:var(--radius-lg);
+  border-radius:22px;
   background:var(--surface-soft);
   box-shadow:var(--shadow-soft);
+  margin-inline:auto;
 }
 
 .poster-card img,
 .trial-promo-card img{
   width:100%;
   height:auto;
+  display:block;
+  object-fit:contain;
 }
 
 .trial-promo-card{
@@ -691,13 +698,14 @@ textarea{
 }
 
 .trial-promo-action{
-  margin-top:auto;
-  padding:1rem;
+  padding:.85rem;
   border-top:1px solid var(--border);
 }
 
 .trial-promo-action .btn-primary{
   width:100%;
+  min-height:44px;
+  font-size:.74rem;
 }
 
 /* =========================
@@ -1296,6 +1304,21 @@ textarea{
 
   .schedule-form-group{
     grid-template-columns:1fr;
+  }
+
+}
+
+@media (max-width:760px){
+
+  .plans-layout{
+    grid-template-columns:1fr;
+    max-width:380px;
+    margin-inline:auto;
+  }
+
+  .poster-card,
+  .trial-promo-card{
+    max-width:100%;
   }
 
 }
