@@ -20,7 +20,7 @@
   <link rel="canonical" href="https://parisdancestudio.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Paris Dance Studio – Ballet & Jazz · Técnica Francesa" />
+  <meta property="og:title" content="Paris Dance Studio | Metamorfosis 2026 y Matrícula 2027" />
   <meta
     property="og:description"
     content="Ballet y Jazz con técnica 100% francesa en Alajuela. Grupos principiantes para niñas y adultas."
@@ -32,7 +32,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Paris Dance Studio – Ballet & Jazz" />
+  <meta name="twitter:title" content="Paris Dance Studio | Ballet, Jazz y Metamorfosis 2026" />
   <meta
     name="twitter:description"
     content="Técnica 100% francesa. Grupos principiantes para niñas y adultas en Alajuela."
@@ -68,115 +68,9 @@
     crossorigin="anonymous"
   />
 
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=20261106" />
 
-  <script defer>
-    document.addEventListener("DOMContentLoaded", () => {
-      const root = document.getElementById("pdsCarousel");
-      if (!root) return;
-
-      const track = root.querySelector(".carousel-track");
-      const slides = Array.from(root.querySelectorAll(".carousel-slide"));
-      const prevBtn = root.querySelector(".carousel-btn.prev");
-      const nextBtn = root.querySelector(".carousel-btn.next");
-      const dotsWrap = root.querySelector(".carousel-dots");
-
-      if (!track || !slides.length || !prevBtn || !nextBtn) return;
-
-      let index = 0;
-      let timer = null;
-      const AUTOPLAY_MS = 4200;
-
-      let dots = [];
-
-      if (dotsWrap) {
-        dotsWrap.innerHTML = "";
-
-        dots = slides.map((_, i) => {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = "carousel-dot" + (i === 0 ? " active" : "");
-          button.setAttribute("aria-label", `Ir a la imagen ${i + 1}`);
-          button.addEventListener("click", () => goTo(i, true));
-          dotsWrap.appendChild(button);
-          return button;
-        });
-      }
-
-      function update() {
-        track.style.transform = `translateX(${-index * 100}%)`;
-        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
-      }
-
-      function goTo(nextIndex, userAction = false) {
-        index = (nextIndex + slides.length) % slides.length;
-        update();
-
-        if (userAction) restartAutoplay();
-      }
-
-      function next(userAction = false) {
-        goTo(index + 1, userAction);
-      }
-
-      function prev(userAction = false) {
-        goTo(index - 1, userAction);
-      }
-
-      prevBtn.addEventListener("click", () => prev(true));
-      nextBtn.addEventListener("click", () => next(true));
-
-      let startX = 0;
-      let dragging = false;
-
-      root.addEventListener(
-        "touchstart",
-        (event) => {
-          dragging = true;
-          startX = event.touches[0].clientX;
-        },
-        { passive: true }
-      );
-
-      root.addEventListener(
-        "touchend",
-        (event) => {
-          if (!dragging) return;
-
-          dragging = false;
-          const dx = event.changedTouches[0].clientX - startX;
-
-          if (Math.abs(dx) > 40) {
-            dx < 0 ? next(true) : prev(true);
-          }
-        },
-        { passive: true }
-      );
-
-      function stopAutoplay() {
-        if (!timer) return;
-        clearInterval(timer);
-        timer = null;
-      }
-
-      function startAutoplay() {
-        stopAutoplay();
-        timer = setInterval(() => next(false), AUTOPLAY_MS);
-      }
-
-      function restartAutoplay() {
-        startAutoplay();
-      }
-
-      root.addEventListener("mouseenter", stopAutoplay);
-      root.addEventListener("mouseleave", startAutoplay);
-
-      update();
-      startAutoplay();
-
-      document.getElementById("year").textContent = new Date().getFullYear();
-    });
-  </script>
+  <script src="js/site.js?v=20261106" defer></script>
 </head>
 
 <body>
@@ -186,79 +80,129 @@
       <a class="nav-brand" href="#inicio">PARIS <span>Dance Studio</span></a>
 
       <div class="nav-links">
+        <a href="#metamorfosis">Metamorfosis 2026</a>
+        <a href="#matricula-2027">Matrícula 2027</a>
         <a href="#grupos">Grupos</a>
         <a href="#horarios">Horarios</a>
         <a href="#planes">Planes</a>
         <a href="#ubicacion">Ubicación</a>
       </div>
 
-      <a class="nav-cta" href="#clase-prueba">Clase de prueba</a>
+      <a class="nav-cta" href="metamorfosis.html">Comprar entradas</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero" id="inicio">
-    <div class="hero-glow hero-glow-one"></div>
-    <div class="hero-glow hero-glow-two"></div>
+  <!-- HERO: campaña Metamorfosis 2026 -->
+  <header class="hero hero-show" id="inicio">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
 
     <div class="container hero-shell">
       <div class="hero-copy">
-        <p class="eyebrow">Ballet & Jazz · Técnica 100% francesa</p>
-
-        <h1>
-          El sueño pendiente
-          <span>se entrena.</span>
-        </h1>
-
+        <p class="eyebrow">Paris Dance Studio presenta · Gala 2026</p>
+        <h1>Metamorfosis <span>2026</span></h1>
         <p class="hero-description">
-          Formación técnica, acompañamiento cercano y grupos diseñados para comenzar desde cero.
-          Ballet y Jazz para niñas y adultas en Alajuela.
+          Una noche en la que la técnica, el movimiento y las emociones se transforman en escena.
+          Viví nuestra presentación de fin de año.
         </p>
 
-        <div class="hero-badges">
-          <span>Grupos principiantes</span>
-          <span>Desde 3 añitos</span>
-          <span>Sin edad máxima en adultos</span>
+        <div class="hero-badges hero-show-details">
+          <span><i class="fa-regular fa-calendar"></i> 30 de noviembre</span>
+          <span><i class="fa-regular fa-clock"></i> 7:00 p.m.</span>
+          <span><i class="fa-solid fa-location-dot"></i> Auditorio Humboldt</span>
         </div>
 
         <div class="hero-actions">
-          <a href="#clase-prueba" class="btn-primary">Reservar clase de prueba</a>
-          <a href="#horarios" class="btn-secondary">Ver horarios</a>
+          <a href="metamorfosis.html" class="btn-primary btn-show">Comprar entradas</a>
+          <a href="#metamorfosis" class="btn-secondary">Ver espectáculo y reel</a>
         </div>
-
-        <p class="hero-microcopy">
-          Mall Internacional · Local #67 · Alajuela
-        </p>
+        <p class="hero-microcopy">Entradas por WhatsApp · Confirmación de butacas con el equipo de Paris</p>
+        <a class="hero-campaign-link" href="#matricula-2027">¿Buscás clases de Ballet o Jazz? Matrícula 2027 abierta ↓</a>
       </div>
 
       <div class="hero-media">
-        <div class="carousel" id="pdsCarousel" aria-label="Galería Paris Dance Studio">
+        <div class="carousel carousel-metamorfosis" id="pdsCarousel" aria-label="Galería de Metamorfosis y Paris Dance Studio">
           <div class="carousel-viewport">
             <div class="carousel-track">
-              <div class="carousel-slide"><img src="img/paris_nueva05.PNG" alt="Clase en Paris Dance Studio" loading="eager"></div>
-              <div class="carousel-slide"><img src="img/paris24.jpg" alt="Alumnas de Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris10.JPEG" alt="Entrenamiento de danza en Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris11.JPEG" alt="Bailarina de Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris16.JPEG" alt="Clase de ballet en Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris17.JPEG" alt="Formación en Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris18.JPEG" alt="Danza en Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris20.JPEG" alt="Ballet en Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris21.JPEG" alt="Alumnas de Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris22.JPEG" alt="Jazz en Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris23.JPEG" alt="Paris Dance Studio Alajuela" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris_nueva02.PNG" alt="Bailarinas de Paris Dance Studio" loading="lazy"></div>
-              <div class="carousel-slide"><img src="img/paris_nueva04.PNG" alt="Comunidad Paris Dance Studio" loading="lazy"></div>
+              <div class="carousel-slide carousel-slide--poster">
+                <img src="img/metamorfosis-2026-flyer.png" alt="Flyer oficial Metamorfosis 2026, 30 de noviembre a las 7 p.m. en el Auditorio Humboldt" loading="eager" fetchpriority="high">
+              </div>
+              <div class="carousel-slide carousel-slide--poster">
+                <img src="img/metamorfosis-reel-portada.jpg" alt="Imagen del reel oficial Metamorfosis 2026" loading="lazy">
+                <a class="carousel-overlay-link" href="#metamorfosis">Ver reel oficial <i class="fa-solid fa-circle-play"></i></a>
+              </div>
+              <div class="carousel-slide carousel-slide--poster">
+                <img src="img/matricula-2027-adultas.png" alt="Matrícula 2027: clases de Ballet y Jazz para empezar desde cero" loading="lazy">
+                <a class="carousel-overlay-link carousel-overlay-link--purple" href="#matricula-2027">Matrícula 2027 abierta</a>
+              </div>
+              <div class="carousel-slide"><img src="img/paris_nueva05.PNG" alt="Alumnas de Paris Dance Studio" loading="lazy"></div>
             </div>
-
             <button class="carousel-btn prev" type="button" aria-label="Imagen anterior">‹</button>
             <button class="carousel-btn next" type="button" aria-label="Imagen siguiente">›</button>
           </div>
-
           <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
         </div>
       </div>
     </div>
   </header>
+
+    <!-- ESPECTÁCULO: información para anuncios y compra -->
+  <section class="section show-section" id="metamorfosis">
+    <div class="container">
+      <div class="section-heading show-section-heading">
+        <div>
+          <p class="section-kicker">La gala de Paris Dance Studio</p>
+          <h2>Metamorfosis 2026</h2>
+        </div>
+        <p>Un espectáculo de danza creado para vivir el arte en escena. Reservá tus entradas y elegí tus butacas con nuestro equipo por WhatsApp.</p>
+      </div>
+      <div class="show-layout">
+        <div class="show-reel-card">
+          <video controls playsinline preload="metadata" poster="img/metamorfosis-reel-portada.jpg" aria-label="Reel oficial de Metamorfosis 2026">
+            <source src="img/metamorfosis-2026-reel.mp4" type="video/mp4">
+            Tu navegador no admite la reproducción del video.
+          </video>
+          <p>Reel oficial · Metamorfosis 2026</p>
+        </div>
+        <div class="show-info">
+          <p class="section-kicker">Presentación de fin de año</p>
+          <h3>Una noche para presenciar la transformación.</h3>
+          <div class="show-facts">
+            <div><span>Fecha</span><strong>Lunes 30 de noviembre de 2026</strong></div>
+            <div><span>Hora</span><strong>7:00 p.m.</strong></div>
+            <div><span>Lugar</span><strong>Auditorio Humboldt</strong></div>
+          </div>
+          <p>La compra y la asignación de butacas se coordinan directamente por WhatsApp. Te ayudamos a consultar disponibilidad antes de confirmar tu compra.</p>
+          <a class="btn-primary btn-show" href="https://wa.me/50671190434?text=Bonjour%2C%20quiero%20comprar%20entradas%20para%20Metamorfosis%202026.%20%C2%BFMe%20ayudan%20con%20la%20disponibilidad%20de%20butacas%3F" target="_blank" rel="noopener">Comprar entradas por WhatsApp</a>
+          <a href="metamorfosis.html" class="show-details-link">Ver página oficial del espectáculo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATRÍCULA 2027 -->
+  <section class="section matricula-campaign" id="matricula-2027">
+    <div class="container campaign-layout">
+      <div class="campaign-art">
+        <img src="img/matricula-2027-adultas.png" alt="Clases de Ballet y Jazz para adultas: podés comenzar desde cero en Paris Dance Studio" loading="lazy">
+      </div>
+      <div class="campaign-copy">
+        <p class="section-kicker">Inscripciones abiertas · Temporada 2027</p>
+        <h2>¿Por qué esperar a enero? <em>Tu historia comienza en diciembre.</em></h2>
+        <p>Después de Metamorfosis, podés incorporarte a nuestros grupos principiantes de Ballet y Jazz desde diciembre de 2026, sin esperar al nuevo año.</p>
+        <div class="campaign-points">
+          <span><i class="fa-regular fa-circle-check"></i> Comenzá desde cero</span>
+          <span><i class="fa-regular fa-circle-check"></i> Técnica francesa</span>
+          <span><i class="fa-regular fa-circle-check"></i> Clases para adultas</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#clase-prueba">Reservar clase de prueba</a>
+          <a class="btn-secondary" href="#horarios">Ver nuevos horarios</a>
+        </div>
+        <p class="campaign-kids-note">¿Buscás Ballet para tu peque? <a href="https://wa.me/50672827346?text=Bonjour%2C%20quiero%20informaci%C3%B3n%20de%20Ballet%20Ni%C3%B1as%20y%20los%20horarios%20nuevos." target="_blank" rel="noopener">Consultanos por WhatsApp.</a></p>
+      </div>
+    </div>
+  </section>
 
   <!-- INTRO -->
   <section class="section intro-section" id="quienes-somos">
@@ -328,7 +272,7 @@
             Introducción progresiva a la danza y a sus bases técnicas, con un enfoque
             acorde a la edad y al proceso de cada alumna.
           </p>
-          <a href="#horarios">Ver horario <span>→</span></a>
+          <a href="https://wa.me/50672827346?text=Bonjour%2C%20quiero%20informaci%C3%B3n%20de%20Ballet%20para%20mi%20peque." target="_blank" rel="noopener">Consultar por WhatsApp <span>→</span></a>
         </article>
       </div>
     </div>
@@ -372,64 +316,34 @@
     </div>
   </section>
 
-  <!-- HORARIOS -->
+  <!-- HORARIOS: imágenes oficiales actualizadas -->
   <section class="section section-alt" id="horarios">
     <div class="container">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">Horarios vigentes</p>
+          <p class="section-kicker">Horarios actualizados</p>
           <h2>Grupos principiantes</h2>
         </div>
-        <p>
-          Elegí tu disciplina y revisá el horario disponible. Los cupos están sujetos
-          a disponibilidad.
-        </p>
+        <p>Elegí Ballet, Jazz o Ballet Niñas. Los nuevos horarios incluyen opciones entre semana, viernes y sábados; la reserva está sujeta a disponibilidad.</p>
       </div>
-
       <div class="schedule-grid">
         <article class="schedule-card">
-          <div class="schedule-image">
-            <img src="img/horario_ballet_principiante.png" alt="Horario Ballet Adulto Principiante" loading="lazy">
-          </div>
-          <div class="schedule-caption">
-            <div>
-              <span>Ballet</span>
-              <h3>Adulto Principiante</h3>
-            </div>
-            <a href="#clase-prueba">Probar clase</a>
-          </div>
+          <div class="schedule-image"><img src="img/horario_ballet_principiante.png" alt="Ballet adulto: lunes y miércoles 5:00 y 6:00 p.m., martes y jueves 8:30 p.m., viernes 12:00 p.m., sábados 9:00 a.m." loading="lazy"></div>
+          <div class="schedule-caption"><div><span>Ballet</span><h3>Adulto Principiante</h3></div><a href="#clase-prueba">Probar clase</a></div>
         </article>
-
         <article class="schedule-card">
-          <div class="schedule-image">
-            <img src="img/horario_jazz_principiante.png" alt="Horario Jazz Adulto Principiante" loading="lazy">
-          </div>
-          <div class="schedule-caption">
-            <div>
-              <span>Jazz</span>
-              <h3>Adulto Principiante</h3>
-            </div>
-            <a href="#clase-prueba">Probar clase</a>
-          </div>
+          <div class="schedule-image"><img src="img/horario_jazz_principiante.png" alt="Jazz adulto: martes y jueves 7:15 p.m., viernes 1:15 p.m., sábados 10:30 a.m." loading="lazy"></div>
+          <div class="schedule-caption"><div><span>Jazz</span><h3>Adulto Principiante</h3></div><a href="#clase-prueba">Probar clase</a></div>
         </article>
-
         <article class="schedule-card">
-          <div class="schedule-image">
-            <img src="img/horario_niñas.png" alt="Horario Ballet Niñas Principiante" loading="lazy">
-          </div>
-          <div class="schedule-caption">
-            <div>
-              <span>Ballet</span>
-              <h3>Niñas Principiante</h3>
-            </div>
-            <a href="#clase-prueba">Probar clase</a>
-          </div>
+          <div class="schedule-image"><img src="img/horario_niñas.png" alt="Ballet Niñas: martes y jueves 4:30 a 5:30 p.m., sábados 1:00 a 2:00 p.m." loading="lazy"></div>
+          <div class="schedule-caption"><div><span>Ballet</span><h3>Niñas Principiante</h3></div><a href="https://wa.me/50672827346?text=Bonjour%2C%20quiero%20reservar%20una%20clase%20para%20mi%20peque%20en%20Ballet%20Ni%C3%B1as." target="_blank" rel="noopener">Consultar cupos</a></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- PLANES -->
+    <!-- PLANES -->
   <section class="section" id="planes">
     <div class="container">
       <div class="section-heading">
@@ -453,18 +367,15 @@
       >
     </article>
 
-    <article class="trial-promo-card">
-      <img
-        src="img/clase_prueba.png"
-        alt="Clase de prueba Paris Dance Studio"
-        loading="lazy"
-      >
-
-      <div class="trial-promo-action">
-        <a href="#clase-prueba" class="btn-primary">
-          Reservar ahora
-        </a>
+    <article class="trial-promo-card trial-promo-current">
+      <div class="trial-promo-body">
+        <p class="section-kicker">Probá nuestra técnica</p>
+        <h3>Clase de prueba</h3>
+        <p class="trial-promo-price">₡5.000</p>
+        <p>Conocé la academia, viví una clase y descubrí nuestro acompañamiento desde el primer día.</p>
+        <p class="trial-promo-benefit">Matrícula gratis</p>
       </div>
+      <div class="trial-promo-action"><a href="#clase-prueba" class="btn-primary">Reservar ahora</a></div>
     </article>
 
 </div>
@@ -486,7 +397,7 @@
         <div class="form-summary">
           <div>
             <strong>Grupos</strong>
-            <span>Ballet Adulto · Jazz Adulto</span>
+            <span>Ballet Adulto · Jazz Adulto (11 años en adelante)</span>
           </div>
           <div>
             <strong>Nivel</strong>
@@ -562,12 +473,14 @@
                   <option value="Ballet - Miércoles 6:00pm a 7:15pm">Miércoles · 6:00 p.m. – 7:15 p.m.</option>
                   <option value="Ballet - Martes 8:30pm a 9:30pm">Martes · 8:30 p.m. – 9:30 p.m.</option>
                   <option value="Ballet - Jueves 8:30pm a 9:30pm">Jueves · 8:30 p.m. – 9:30 p.m.</option>
+                  <option value="Ballet - Viernes 12:00pm a 1:15pm">Viernes · 12:00 p.m. – 1:15 p.m.</option>
                   <option value="Ballet - Sábado 9:00am a 10:15am">Sábado · 9:00 a.m. – 10:15 a.m.</option>
                 </optgroup>
 
                 <optgroup label="Jazz Adulto Principiante">
                   <option value="Jazz - Martes 7:15pm a 8:30pm">Martes · 7:15 p.m. – 8:30 p.m.</option>
                   <option value="Jazz - Jueves 7:15pm a 8:30pm">Jueves · 7:15 p.m. – 8:30 p.m.</option>
+                  <option value="Jazz - Viernes 1:15pm a 2:30pm">Viernes · 1:15 p.m. – 2:30 p.m.</option>
                   <option value="Jazz - Sábado 10:30am a 11:45am">Sábado · 10:30 a.m. – 11:45 a.m.</option>
                 </optgroup>
               </select>
@@ -590,6 +503,11 @@
             </div>
           </div>
 
+          <aside class="kids-form-note">
+            <h3>¿La clase es para una niña menor de 11 años?</h3>
+            <p>Ballet Niñas: martes y jueves de 4:30 a 5:30 p.m., y sábados de 1:00 a 2:00 p.m. Para estas edades, la mamá o encargada coordina directamente por WhatsApp.</p>
+            <a href="https://wa.me/50672827346?text=Bonjour%2C%20quiero%20una%20clase%20de%20muestra%20para%20mi%20peque%20en%20Ballet%20Ni%C3%B1as." target="_blank" rel="noopener">Consultar horarios de Ballet Niñas →</a>
+          </aside>
           <div class="trial-actions">
             <button class="btn-primary" type="submit">Enviar solicitud</button>
             <a
@@ -657,7 +575,7 @@
                   id="m_edad"
                   name="Edad"
                   type="number"
-                  min="14"
+                  min="11"
                   max="90"
                   required
                   inputmode="numeric"
@@ -757,6 +675,11 @@
                       </label>
 
                       <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Ballet - Viernes 12:00pm a 1:15pm">
+                        <span>Viernes · 12:00 p.m. – 1:15 p.m.</span>
+                      </label>
+
+                      <label class="check">
                         <input type="checkbox" name="Horarios[]" value="Ballet - Sábado 9:00am a 10:15am">
                         <span>Sábado · 9:00 a.m. – 10:15 a.m.</span>
                       </label>
@@ -778,12 +701,23 @@
                       </label>
 
                       <label class="check">
+                        <input type="checkbox" name="Horarios[]" value="Jazz - Viernes 1:15pm a 2:30pm">
+                        <span>Viernes · 1:15 p.m. – 2:30 p.m.</span>
+                      </label>
+
+                      <label class="check">
                         <input type="checkbox" name="Horarios[]" value="Jazz - Sábado 10:30am a 11:45am">
                         <span>Sábado · 10:30 a.m. – 11:45 a.m.</span>
                       </label>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div class="trial-field full-field kids-form-note">
+                <h3>Ballet Niñas (3 a 10 años)</h3>
+                <p>Martes y jueves de 4:30 a 5:30 p.m. · Sábados de 1:00 a 2:00 p.m. Para formalizar la inscripción de una peque, escribinos desde el WhatsApp de la madre o encargada.</p>
+                <a href="https://wa.me/50672827346?text=Bonjour%2C%20quiero%20formalizar%20la%20matr%C3%ADcula%20de%20mi%20peque%20en%20Ballet%20Ni%C3%B1as." target="_blank" rel="noopener">Coordinar matrícula infantil →</a>
               </div>
 
               <div class="trial-field full-field">
@@ -949,7 +883,7 @@
 
         <article class="faq-card">
           <h3>¿Cómo sé cuál grupo elegir?</h3>
-          <p>Elegí Ballet, Jazz o Ballet niñas según tu edad e interés. Todos los grupos actuales son de nivel principiante.</p>
+          <p>Ballet y Jazz para adultas desde 11 años. Para Ballet Niñas, las mamás o encargadas coordinan por WhatsApp. Todos son grupos principiantes.</p>
         </article>
 
         <article class="faq-card">
@@ -970,7 +904,7 @@
     <div class="container final-cta-inner">
       <div>
         <p class="section-kicker">Tu primer paso puede ser hoy</p>
-        <h2>Probá una clase antes de decidir.</h2>
+        <h2>Matrícula 2027 abierta. Empezá en diciembre.</h2>
       </div>
 
       <a href="#clase-prueba" class="btn-primary">Reservar clase de prueba</a>
@@ -986,6 +920,7 @@
       </div>
 
       <div class="footer-links">
+        <a href="metamorfosis.html">Metamorfosis 2026</a>
         <a href="https://www.instagram.com/paris_dance_studio/" target="_blank" rel="noopener">Instagram</a>
         <a href="/terminos.html" target="_blank" rel="noopener">Políticas</a>
         <a href="#inicio">Volver arriba ↑</a>

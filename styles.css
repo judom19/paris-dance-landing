@@ -1331,3 +1331,239 @@ textarea{
 #clase-prueba{
   scroll-margin-top:100px;
 }
+
+/* =========================
+   CAMPAÑA METAMORFOSIS 2026 + MATRÍCULA 2027
+   Se suma al diseño anterior; sin modificar los estilos de los formularios.
+========================= */
+
+:root{
+  --show-red:#f05b6e;
+  --show-border:rgba(240,91,110,.35);
+}
+
+.nav-links{gap:1.05rem}
+.nav-links a{font-size:.79rem}
+.nav-links a[href="#metamorfosis"]{color:#ffb2bb}
+
+.hero-show{
+  background:
+    radial-gradient(circle at 78% 21%,rgba(154,13,36,.30),transparent 35rem),
+    linear-gradient(125deg,#14070c 0%,#09060d 59%,#170b20 100%);
+}
+.hero-show .hero-glow-one{background:rgba(239,47,70,.21)}
+.hero-show .hero-glow-two{background:rgba(172,43,54,.19)}
+.hero-show .eyebrow{color:#ffb8c1}
+.hero-show h1{
+  font-size:clamp(2.65rem,4.5vw,5.5rem);
+  line-height:.98;
+  letter-spacing:-.045em;
+  overflow-wrap:normal;
+}
+.hero-show h1 span{color:#ff919e}
+.hero-show .hero-badges span{
+  border-color:rgba(240,91,110,.27);
+  background:rgba(85,13,29,.24);
+}
+.hero-show-details i{margin-right:.35rem;color:#ff9eaa}
+.btn-show{
+  background:linear-gradient(135deg,#9f1c35,#e84b62);
+  box-shadow:0 12px 35px rgba(210,40,71,.24);
+}
+.btn-show:hover{box-shadow:0 18px 40px rgba(210,40,71,.38)}
+.hero-campaign-link{
+  display:inline-block;
+  margin-top:1.15rem;
+  color:#dbc2ff;
+  font-size:.84rem;
+  text-decoration:underline;
+  text-underline-offset:.25em;
+}
+.carousel-metamorfosis .carousel-viewport{
+  background:radial-gradient(ellipse at 25% 50%,#3b0b18,#070307 74%);
+  border-color:rgba(255,144,164,.24);
+}
+.carousel-slide--poster{
+  background:radial-gradient(circle at 50% 50%,rgba(90,10,35,.29),#090409 73%);
+}
+.carousel-slide--poster img{object-fit:contain}
+.carousel-overlay-link{
+  position:absolute;
+  bottom:1.3rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
+  width:max-content;
+  max-width:calc(100% - 2rem);
+  padding:.7rem 1.05rem;
+  border:1px solid rgba(255,255,255,.30);
+  border-radius:999px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  background:rgba(120,12,35,.82);
+  backdrop-filter:blur(12px);
+  font-size:.78rem;
+  font-weight:600;
+}
+.carousel-overlay-link--purple{background:rgba(86,25,152,.85)}
+.carousel-overlay-link i{margin-left:.35rem}
+
+/* La presentación y el reel tienen su propia sección de conversión. */
+.show-section{
+  background:
+    radial-gradient(circle at 7% 30%,rgba(149,16,42,.18),transparent 35rem),
+    #10080e;
+  border-top:1px solid rgba(240,91,110,.1);
+  border-bottom:1px solid rgba(240,91,110,.13);
+}
+.show-section-heading .section-kicker{color:#ffa9b4}
+.show-layout{
+  display:grid;
+  grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);
+  align-items:center;
+  gap:clamp(2rem,7vw,7rem);
+}
+.show-reel-card{
+  justify-self:center;
+  width:min(100%,350px);
+  padding:.7rem;
+  border:1px solid var(--show-border);
+  border-radius:28px;
+  background:linear-gradient(160deg,rgba(239,66,89,.13),rgba(15,8,14,.95));
+  box-shadow:0 18px 70px rgba(0,0,0,.38);
+}
+.show-reel-card video{
+  width:100%;
+  height:auto;
+  aspect-ratio:9/16;
+  border-radius:20px;
+  object-fit:contain;
+  background:#090409;
+}
+.show-reel-card p{padding:.5rem .3rem .1rem;color:#cbb5bb;font-size:.76rem;text-align:center}
+.show-info{max-width:570px}
+.show-info h3{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.6vw,3.4rem);line-height:1.13;margin-bottom:1.6rem}
+.show-info > p:not(.section-kicker){color:var(--muted);margin:1.4rem 0 1.7rem}
+.show-facts{display:grid;gap:.7rem}
+.show-facts div{display:flex;justify-content:space-between;gap:1.5rem;padding:.85rem 0;border-bottom:1px solid rgba(240,91,110,.17)}
+.show-facts span{color:#d1aeb5;font-size:.82rem}
+.show-facts strong{font-size:.87rem;font-weight:500;text-align:right}
+.show-details-link{display:block;color:#ffc5cb;margin-top:1.1rem;font-size:.85rem;text-underline-offset:.26rem}
+
+/* MATRÍCULA 2027 usa la identidad lila de la academia. */
+.matricula-campaign{
+  background:
+    radial-gradient(circle at 100% 0%,rgba(140,71,244,.16),transparent 35rem),
+    #100c18;
+}
+.campaign-layout{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);align-items:center;gap:clamp(2rem,6vw,5rem)}
+.campaign-art{justify-self:center;width:min(100%,450px);border-radius:26px;overflow:hidden;border:1px solid rgba(210,169,255,.18);box-shadow:var(--shadow)}
+.campaign-art img{width:100%;height:auto;display:block}
+.campaign-copy h2{font-family:"Playfair Display",serif;font-size:clamp(2rem,4.1vw,3.65rem);line-height:1.1}
+.campaign-copy h2 em{display:block;color:var(--lilac);font-weight:500}
+.campaign-copy > p:not(.section-kicker){color:var(--muted);margin-top:1.35rem;max-width:600px}
+.campaign-points{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.2rem}
+.campaign-points span{border-radius:999px;border:1px solid rgba(203,158,255,.22);padding:.4rem .65rem;color:var(--lilac);font-size:.74rem}
+.campaign-points i{margin-right:.32rem}
+.campaign-kids-note{font-size:.78rem !important;color:var(--muted-2)}
+.campaign-kids-note a{color:var(--lilac)}
+
+.trial-promo-current{min-height:100%;border-color:var(--border-accent)}
+.trial-promo-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.8rem;padding:1.65rem;text-align:center;background:radial-gradient(circle at 50% 20%,rgba(138,67,250,.23),transparent 80%),#130e20}
+.trial-promo-body h3{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3vw,2.5rem)}
+.trial-promo-body > p:not(.section-kicker){color:var(--muted);font-size:.87rem}
+.trial-promo-body .trial-promo-price{font-size:clamp(2rem,3vw,2.6rem)!important;color:#faf6ff!important;font-weight:600}
+.trial-promo-body .trial-promo-benefit{color:var(--lilac)!important;letter-spacing:.05em;font-weight:600}
+
+/* La información infantil se muestra sin permitir enviar el formulario de adultos para menores. */
+.kids-form-note{
+  display:block;
+  margin:.5rem 0 .3rem;
+  padding:1.1rem;
+  border-radius:16px;
+  border:1px solid rgba(220,164,255,.25);
+  background:rgba(123,65,196,.08);
+}
+.kids-form-note h3{font-size:.92rem;color:#f1e6ff;margin-bottom:.4rem}
+.kids-form-note p{color:var(--muted);font-size:.79rem;line-height:1.65}
+.kids-form-note a{display:inline-block;margin-top:.6rem;font-size:.79rem;color:#e2c0ff;text-underline-offset:.18rem}
+.schedule-form-block[hidden]{display:none!important}
+#metamorfosis,#matricula-2027,#clase-prueba,#matricula,#horarios{scroll-margin-top:95px}
+
+/* Página exclusiva para campañas de Meta */
+.show-page-body{background:#0a0508}
+.show-page-hero{padding:4.2rem 0 5rem;background:radial-gradient(circle at 20% 20%,rgba(157,21,42,.25),transparent 45rem)}
+.show-page-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:center;gap:clamp(2rem,6vw,6rem)}
+.show-page-poster{max-width:480px;justify-self:center;overflow:hidden;border-radius:26px;border:1px solid var(--show-border);box-shadow:var(--shadow)}
+.show-page-poster img{display:block;width:100%;height:auto}
+.show-page-copy .eyebrow{color:#ffb5c0}
+.show-page-copy h1{font-family:"Playfair Display",serif;font-size:clamp(3rem,5vw,5rem);line-height:1.05;overflow-wrap:break-word}
+.show-page-copy h1 span{display:block;color:#ff93a1}
+.show-page-copy > p:not(.eyebrow){color:var(--muted);margin:1.5rem 0}
+.show-page-nav{padding:1.2rem 0;background:#10080e;border-bottom:1px solid var(--show-border)}
+.show-page-nav .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.show-page-nav a{text-decoration:none;color:#e9d8ed;font-size:.88rem}
+.show-page-nav .nav-brand{font-size:1.2rem}
+.show-page-cta{max-width:430px;margin-top:1.5rem}
+.show-page-cta .btn-primary{width:100%}
+.show-page-secondary{color:#c8b3ff;display:block;margin-top:1rem;font-size:.86rem}
+
+@media(max-width:1100px){
+ .nav-links{gap:.65rem}
+ .nav-links a{font-size:.73rem}
+}
+@media(max-width:980px){
+ .show-layout,.campaign-layout,.show-page-layout{grid-template-columns:1fr}
+ .show-info{max-width:none}
+ .campaign-art{max-width:400px}
+ .show-reel-card{max-width:330px}
+ .show-page-poster{max-width:400px}
+}
+@media(max-width:680px){
+ .hero-show h1{font-size:clamp(2.8rem,12vw,4rem)}
+ .show-reel-card{width:min(100%,320px)}
+ .show-facts div{flex-direction:column;gap:.25rem}
+ .show-facts strong{text-align:left}
+ .campaign-art{width:min(100%,350px)}
+ .show-page-hero{padding:2.2rem 0 3rem}
+ .show-page-poster{width:min(100%,350px)}
+ .carousel-overlay-link{font-size:.7rem}
+}
+@media (prefers-reduced-motion:reduce){
+ .carousel-track{transition:none}
+ .schedule-card:hover,.group-card:hover{transform:none}
+}
+
+/* Checkbox fixes: previous generic input min-height/padding must not apply to checks. */
+.trial-field .check,
+.trial-fieldset .check{
+  min-width:0;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  gap:.68rem;
+  padding:.68rem .78rem;
+}
+.trial-field .check input[type="checkbox"],
+.trial-fieldset .check input[type="checkbox"]{
+  box-sizing:border-box;
+  flex:0 0 17px;
+  width:17px;
+  min-width:17px;
+  height:17px;
+  min-height:17px;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:3px;
+  appearance:auto;
+  accent-color:var(--purple-2);
+}
+.trial-field .check span,
+.trial-fieldset .check span{
+  flex:1 1 auto;
+  min-width:0;
+  line-height:1.5;
+  overflow-wrap:break-word;
+}
