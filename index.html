@@ -146,39 +146,92 @@
     </div>
   </header>
 
-    <!-- ESPECTÁCULO: información para anuncios y compra -->
-  <section class="section show-section" id="metamorfosis">
-    <div class="container">
-      <div class="section-heading show-section-heading">
-        <div>
-          <p class="section-kicker">La gala de Paris Dance Studio</p>
-          <h2>Metamorfosis 2026</h2>
-        </div>
-        <p>Un espectáculo de danza creado para vivir el arte en escena. Reservá tus entradas y elegí tus butacas con nuestro equipo por WhatsApp.</p>
+<!-- BLOQUE PROMOCIONAL ENTRADAS + CUENTA REGRESIVA -->
+<section class="tickets-promo" id="entradas">
+  <div class="container tickets-promo-wrap">
+
+    <div class="tickets-promo-copy">
+      <span class="promo-kicker">Metamorfosis 2026 · Entradas</span>
+
+      <h2>Reservá tus entradas antes de que se agoten</h2>
+
+      <p class="tickets-promo-text">
+        Viví una noche de Ballet y Jazz en el Auditorio Humboldt.
+        Quedan pocas butacas disponibles y el precio especial está vigente por tiempo limitado.
+      </p>
+
+      <div class="urgency-badge">
+        Quedan pocas butacas disponibles
       </div>
-      <div class="show-layout">
-        <div class="show-reel-card">
-          <video controls playsinline preload="metadata" poster="img/metamorfosis-reel-portada.jpg" aria-label="Reel oficial de Metamorfosis 2026">
-            <source src="img/metamorfosis-2026-reel.mp4" type="video/mp4">
-            Tu navegador no admite la reproducción del video.
-          </video>
-          <p>Reel oficial · Metamorfosis 2026</p>
-        </div>
-        <div class="show-info">
-          <p class="section-kicker">Presentación de fin de año</p>
-          <h3>Una noche para presenciar la transformación.</h3>
-          <div class="show-facts">
-            <div><span>Fecha</span><strong>Lunes 30 de noviembre de 2026</strong></div>
-            <div><span>Hora</span><strong>7:00 p.m.</strong></div>
-            <div><span>Lugar</span><strong>Auditorio Humboldt</strong></div>
+
+      <div class="countdown-box">
+        <p class="countdown-label">Cuenta regresiva para el espectáculo</p>
+
+        <div class="countdown" id="countdown">
+          <div class="countdown-item">
+            <span id="cd-days">00</span>
+            <small>Días</small>
           </div>
-          <p>La compra y la asignación de butacas se coordinan directamente por WhatsApp. Te ayudamos a consultar disponibilidad antes de confirmar tu compra.</p>
-          <a class="btn-primary btn-show" href="https://wa.me/50671190434?text=Bonjour%2C%20quiero%20comprar%20entradas%20para%20Metamorfosis%202026.%20%C2%BFMe%20ayudan%20con%20la%20disponibilidad%20de%20butacas%3F" target="_blank" rel="noopener">Comprar entradas por WhatsApp</a>
-          <a href="metamorfosis.html" class="show-details-link">Ver página oficial del espectáculo →</a>
+          <div class="countdown-item">
+            <span id="cd-hours">00</span>
+            <small>Horas</small>
+          </div>
+          <div class="countdown-item">
+            <span id="cd-minutes">00</span>
+            <small>Min</small>
+          </div>
+          <div class="countdown-item">
+            <span id="cd-seconds">00</span>
+            <small>Seg</small>
+          </div>
         </div>
+      </div>
+
+      <div class="tickets-promo-data">
+        <span>30 de noviembre</span>
+        <span>7:00 p. m.</span>
+        <span>Auditorio Humboldt</span>
+      </div>
+
+      <div class="tickets-promo-prices">
+        <div class="price-chip">
+          <strong>General</strong>
+          <span>₡6.500</span>
+        </div>
+        <div class="price-chip">
+          <strong>Preferencial</strong>
+          <span>₡7.000</span>
+        </div>
+      </div>
+
+      <div class="tickets-promo-actions">
+        <a
+          href="https://wa.me/50671190434?text=Hola,%20quiero%20comprar%20entradas%20para%20Metamorfosis%202026"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Comprar entradas
+        </a>
+
+        <a href="#mapa-butacas" class="btn-secondary">
+          Ver mapa de butacas
+        </a>
+      </div>
+
+      <p class="tickets-note">
+        Compra por WhatsApp · Confirmación de butacas y envío de entradas digitales con QR.
+      </p>
+    </div>
+
+    <div class="tickets-promo-flyer">
+      <div class="flyer-card">
+        <img src="img/flyer_entradas_metamorfosis.png" alt="Flyer oficial de precios de entradas Metamorfosis 2026">
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- MATRÍCULA 2027 -->
   <section class="section matricula-campaign" id="matricula-2027">
@@ -929,5 +982,43 @@
       <p>© <span id="year"></span> Paris Dance Studio</p>
     </div>
   </footer>
+  <script>
+  (function () {
+    const targetDate = new Date("2026-11-30T19:00:00-06:00").getTime();
+
+    const daysEl = document.getElementById("cd-days");
+    const hoursEl = document.getElementById("cd-hours");
+    const minutesEl = document.getElementById("cd-minutes");
+    const secondsEl = document.getElementById("cd-seconds");
+
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysEl.textContent = String(days).padStart(2, "0");
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minutesEl.textContent = String(minutes).padStart(2, "0");
+      secondsEl.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
 </body>
 </html>
